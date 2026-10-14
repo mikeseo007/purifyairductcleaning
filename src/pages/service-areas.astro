@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ServicesSection from '../components/ServicesSection.astro';
+import LocationsSection from '../components/LocationsSection.astro';
+import Reviews from '../components/Reviews.astro';
+import CtaBand from '../components/CtaBand.astro';
+import QuoteSection from '../components/QuoteSection.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Icon from '../components/Icon.astro';
+import { regions, locationsByRegion, mainLocation, milesFromOffice, site } from '../data/site';
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Service Areas', path: '/service-areas/' },
+];
+---
+
+<BaseLayout
+  title="Service Areas | Aventura, Miami-Dade & Broward"
+  description="Air duct, HVAC and dryer vent cleaning from our Aventura office across Miami-Dade, Broward and Boca Raton. Call (305) 330-1328."
+  breadcrumbs={breadcrumbs}
+>
+  <PageHeader
+    eyebrow="Service areas"
+    title="Air Duct & HVAC Cleaning Across South Florida"
+    subtitle="Based in Aventura, we clean air ducts, HVAC equipment and dryer vents across Miami-Dade, Broward and Boca Raton."
+    breadcrumbs={breadcrumbs}
+  />
+
+  <LocationsSection title="Find Your Service Area" />
+
+  <section class="section relative overflow-hidden bg-surface">
+    <div class="container-x relative">
+      <SectionHeading eyebrow="Neighborhoods" title="Neighborhoods and Communities We Serve" center />
+    </div>
+    <div class="container-x relative mt-14 space-y-16">
+      {
+        regions.map((r) => (
+          <div>
+            <h3 class="flex items-center gap-4 text-2xl sm:text-3xl" data-reveal>
+              {r.name}
+              <span class="h-px flex-1 bg-gradient-to-r from-sky-200 to-transparent" />
+            </h3>
+            <div class="mt-7 grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-stagger>
+              {locationsByRegion(r.id).map((loc) => {
+                const isMain = loc.slug === mainLocation.slug;
+                return (
+                  <article class:list={['card card-hover spotlight flex flex-col p-7', isMain && '!border-sky-300']}>
+                    <h4 class="text-xl">
+                      <a href={loc.path} class="hover:text-sky-500">
+                        {loc.city}, FL
+                      </a>
+                    </h4>
+                    <p class="mt-1 text-sm text-muted">
+                      {isMain ? 'Our home base' : r.id === 'beyond' ? loc.county : `About ${milesFromOffice(loc)} miles from our office`}
+                    </p>
+                    <p class="mt-5 text-xs font-bold tracking-wider text-sky-500 uppercase">Neighborhoods</p>
+                    <ul class="mt-2 flex flex-wrap gap-1.5">
+                      {loc.neighborhoods.map((n) => (
+                        <li class="rounded-full bg-sky-50 px-2.5 py-1 text-sm font-medium text-navy-800 ring-1 ring-sky-100">{n}</li>
+                      ))}
+                    </ul>
+                    {loc.nearby.length > 0 && (
+                      <>
+                        <p class="mt-5 text-xs font-bold tracking-wider text-sky-500 uppercase">Nearby communities</p>
+                        <p class="mt-1.5 text-sm text-muted">{loc.nearby.join(' · ')}</p>
+                      </>
+                    )}
+                    <div class="mt-auto flex flex-wrap items-center gap-3 pt-6">
+                      <a href={site.phoneHref} class="btn-navy !px-4 !py-2 text-sm">
+                        <Icon name="phone" class="size-4" />
+                        {site.phone}
+                      </a>
+                      <a href={loc.path} class="inline-flex items-center gap-1.5 px-1 text-sm font-bold text-navy-700 hover:text-sky-500">
+                        {loc.city} services <Icon name="arrowRight" class="size-4" />
+                      </a>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <ServicesSection title="Services Available in Every Area" />
+
+  <Reviews tint />
+
+  <QuoteSection
+    eyebrow="Not sure if we cover your area?"
+    title="Send us a request"
+    text="Enter your address and we’ll confirm service availability and get back to you to schedule."
+  />
+
+  <CtaBand />
+</BaseLayout>

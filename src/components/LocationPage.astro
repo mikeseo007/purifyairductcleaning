@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from './Hero.astro';
+import TrustBar from './TrustBar.astro';
+import SplitSection from './SplitSection.astro';
+import ServicesSection from './ServicesSection.astro';
+import HvacHighlight from './HvacHighlight.astro';
+import ProcessSteps from './ProcessSteps.astro';
+import Reviews from './Reviews.astro';
+import LocationDetails from './LocationDetails.astro';
+import LocationsSection from './LocationsSection.astro';
+import FAQ from './FAQ.astro';
+import CtaBand from './CtaBand.astro';
+import { getLocation, site } from '../data/site';
+import { locationContent } from '../data/location-content';
+import { serviceAreaSchema, faqSchema } from '../data/schema';
+import { photos } from '../data/photos';
+
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+const location = getLocation(slug);
+const c = locationContent[slug];
+const isHome = location.path === '/';
+const phone = { label: site.phone, href: site.phoneHref };
+const hero = { src: c.heroImage, alt: c.heroImageAlt };
+const local = c.localImage.src === hero.src.src ? { src: c.heroImage, alt: c.heroImageAlt } : { src: c.localImage, alt: c.localImageAlt };
+const pagePhotos = [hero.src, c.introImage, local.src, ...(isHome ? [photos.acOutdoor.src] : [])];
+
+const breadcrumbs = isHome
+  ? undefined
+  : [
+      { name: 'Home', path: '/' },
+      { name: 'Service Areas', path: '/service-areas/' },
+      { name: location.city, path: location.path },
+    ];
+---
+
+<BaseLayout
+  title={c.metaTitle}
+  description={c.metaDescription}
+  location={location}
+  breadcrumbs={breadcrumbs}
+  schema={[...(isHome ? [] : [serviceAreaSchema(location)]), faqSchema(c.faqs)]}
+>
+  <Hero
+    eyebrow={isHome ? site.name : `Serving ${location.city} & ${location.county}`}
+    title={c.h1}
+    subtitle={c.heroSubtitle}
+    image={hero.src}
+    imageAlt={hero.alt}
+    location={location}
+    breadcrumbs={breadcrumbs}
+  />
+  <TrustBar />
+
+  <SplitSection
+    eyebrow={`Air duct & dryer vent cleaning · ${location.city}`}
+    heading={c.introHeading}
+    paragraphs={c.intro}
+    image={c.introImage}
+    imageAlt={c.introImageAlt}
+    phone={phone}
+  />
+
+  <ServicesSection
+    title={isHome ? 'Air Duct, Dryer Vent & HVAC Cleaning Services' : `Our Services in ${location.city}`}
+    intro={isHome
+      ? undefined
+      : `Ductwork and AC system cleaning for homes and businesses in ${location.city}, FL, plus dryer vent cleaning.`}
+    city={isHome ? undefined : location.city}
+    bg="sky"
+    avoid={pagePhotos}
+  />
+
+  {isHome && <HvacHighlight />}
+
+  <SplitSection
+    eyebrow={`Serving ${location.city}, FL`}
+    heading={c.localHeading}
+    paragraphs={c.local}
+    image={local.src}
+    imageAlt={local.alt}
+    reverse
+    tint={!isHome}
+    phone={phone}
+  />
+
+  <ProcessSteps />
+  <Reviews />
+  <FAQ faqs={c.faqs} title={`Air Duct & Dryer Vent Cleaning FAQs: ${location.city}`} tint />
+  <LocationsSection title="Areas We Serve" current={location.slug} showMap={false} />
+  <LocationDetails location={location} />
+  <CtaBand title={`Need air duct or dryer vent cleaning in ${location.city}?`} />
+</BaseLayout>

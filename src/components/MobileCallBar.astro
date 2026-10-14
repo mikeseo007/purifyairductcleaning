@@ -1,0 +1,41 @@
+---
+import Icon from './Icon.astro';
+import { site } from '../data/site';
+---
+
+<div
+  class="fixed inset-x-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-50 grid grid-cols-2 gap-1.5 rounded-full bg-navy-950/90 p-1.5 shadow-[0_20px_40px_-12px_rgb(7_19_48/0.6)] ring-1 ring-white/10 backdrop-blur-xl lg:hidden"
+  data-call-bar
+>
+  <a href={site.phoneHref} class="flex items-center justify-center gap-2 rounded-full py-3 font-bold text-white">
+    <Icon name="phone" class="size-5 text-lime-500" />
+    Call Now
+  </a>
+  <a href="/contact-us/#quote" class="flex items-center justify-center gap-2 rounded-full bg-lime-500 py-3 font-bold text-navy-950" data-quote-link>
+    <Icon name="mail" class="size-5" />
+    Free Quote
+  </a>
+</div>
+
+<script>
+  if (document.getElementById('quote')) {
+    document.querySelector('[data-quote-link]')?.setAttribute('href', '#quote');
+  }
+
+  const bar = document.querySelector<HTMLElement>('[data-call-bar]');
+  const targets = document.querySelectorAll<HTMLElement>('[data-hero-cta], #quote');
+  if (bar && targets.length && 'IntersectionObserver' in window) {
+    const seen = new Set<Element>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) seen.add(entry.target);
+          else seen.delete(entry.target);
+        }
+        bar.classList.toggle('is-tucked', seen.size > 0);
+      },
+      { threshold: 0.45 },
+    );
+    targets.forEach((target) => observer.observe(target));
+  }
+</script>

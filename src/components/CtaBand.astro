@@ -1,0 +1,60 @@
+---
+import Icon from './Icon.astro';
+import { site } from '../data/site';
+
+interface Props {
+  title?: string;
+  text?: string;
+}
+
+const {
+  title = 'Ready to get your AC system cleaned?',
+  text = `Call to book an inspection or request a free quote. We’re open 24 hours, every day.`,
+} = Astro.props;
+
+const ribbon = ['Inspect', 'Protect', 'Clean', 'Walk through', 'Upfront quotes', 'Homes & businesses', 'Open 24 hours', 'Aventura & South Florida'];
+---
+
+<section class="overflow-hidden bg-white pb-16 sm:pb-20">
+  <div class="marquee border-y border-slate-100 py-6" aria-hidden="true">
+    <div class="marquee-track">
+      {
+        [0, 1].map(() => (
+          <ul class="flex shrink-0 items-center">
+            {ribbon.map((name) => (
+              <li class="flex items-center gap-8 pr-8 font-display text-2xl font-bold tracking-tight whitespace-nowrap text-navy-900/80 sm:text-3xl">
+                {name}
+                <Icon name="sparkle" class="size-5 text-lime-500" />
+              </li>
+            ))}
+          </ul>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="container-x mt-16 sm:mt-20">
+    <div class="scale-in relative isolate overflow-hidden rounded-[2.5rem] bg-navy-950 px-6 py-14 sm:px-12 lg:px-16 lg:py-20">
+      <div class="drift pointer-events-none absolute -top-32 -right-24 -z-10 size-[28rem] rounded-full bg-sky-500/35 blur-[100px]"></div>
+      <div class="drift pointer-events-none absolute -bottom-40 left-1/4 -z-10 size-[24rem] rounded-full bg-lime-500/25 blur-[100px] [animation-delay:-5s]"></div>
+
+      <div class="grid items-center gap-10 lg:grid-cols-[1fr_auto]" data-reveal>
+        <div>
+          <p class="eyebrow !text-lime-500">Get started</p>
+          <h2 class="max-w-2xl text-4xl leading-[1.05] !text-white sm:text-5xl lg:text-[3.5rem]">{title}</h2>
+          <p class="mt-5 max-w-2xl text-lg text-white/75">{text}</p>
+        </div>
+        <div class="flex flex-col gap-3 sm:flex-row lg:flex-col">
+          <a href={site.phoneHref} class="btn-primary !px-8 !py-4 text-lg">
+            <Icon name="phone" class="size-5" />
+            {site.phone}
+          </a>
+          <a href="/contact-us/#quote" class="btn-outline !px-8 !py-4 text-lg">
+            Get a Free Quote
+            <Icon name="arrowRight" class="size-5" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

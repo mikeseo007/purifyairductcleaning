@@ -1,0 +1,20 @@
+---
+import ServicePage from '../components/ServicePage.astro';
+import LocationPage from '../components/LocationPage.astro';
+import { services } from '../data/services';
+import { locations } from '../data/site';
+
+export function getStaticPaths() {
+  return [
+    ...services.map((s) => ({ params: { slug: s.slug }, props: { kind: 'service' as const } })),
+    ...locations
+      .filter((l) => l.path !== '/')
+      .map((l) => ({ params: { slug: l.slug }, props: { kind: 'location' as const } })),
+  ];
+}
+
+const { slug } = Astro.params;
+const { kind } = Astro.props;
+---
+
+{kind === 'service' ? <ServicePage slug={slug} /> : <LocationPage slug={slug} />}

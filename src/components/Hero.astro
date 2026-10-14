@@ -1,0 +1,112 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Icon from './Icon.astro';
+import QuoteForm from './QuoteForm.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import { site, type Location } from '../data/site';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle: string;
+  image: ImageMetadata;
+  imageAlt: string;
+  location?: Location;
+  service?: string;
+  breadcrumbs?: { name: string; path: string }[];
+  points?: string[];
+}
+
+const {
+  eyebrow,
+  title,
+  subtitle,
+  image,
+  imageAlt,
+  location,
+  service,
+  breadcrumbs,
+  points = ['Air duct & HVAC specialists', 'Residential & commercial', 'Upfront quotes'],
+} = Astro.props;
+const { rating, reviewCount, reviewsUrl } = site.google;
+---
+
+<section class="relative isolate z-0 overflow-hidden bg-navy-950 pb-32 lg:pb-40">
+  <div class="absolute inset-x-0 top-0 -z-10 h-[46rem] overflow-hidden [mask-image:linear-gradient(to_bottom,#000_55%,transparent)] lg:inset-0 lg:h-auto lg:[mask-image:none]">
+    <Image
+      src={image}
+      alt={imageAlt}
+      title={imageAlt}
+      format="webp"
+      widths={[640, 960, 1280, 1600, 1920]}
+      sizes="(min-width: 1024px) 100vw, 1104px"
+      loading="eager"
+      fetchpriority="high"
+      class="kenburns hero-parallax h-full w-full object-cover"
+    />
+  </div>
+  <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/85 to-navy-950/25"></div>
+  <div class="absolute inset-0 -z-10 bg-gradient-to-t from-navy-950 via-navy-950/10 to-navy-950/40"></div>
+  <div class="absolute inset-0 -z-10 bg-navy-950/30 lg:hidden"></div>
+
+  <div class="container-x grid items-center gap-10 pt-8 sm:gap-12 sm:pt-16 lg:grid-cols-12 lg:gap-14 lg:pt-20">
+    <div class="lg:col-span-7">
+      {breadcrumbs && <div class="rise" style="--d:0"><Breadcrumbs items={breadcrumbs} dark /></div>}
+      {
+        eyebrow && (
+          <p class="rise mb-4 inline-flex items-center gap-2.5 rounded-full bg-white/[0.07] py-1.5 pr-4 pl-2 text-sm font-semibold text-white/90 ring-1 ring-white/15 backdrop-blur sm:mb-6" style="--d:1">
+            <span class="pulse-dot size-2 rounded-full bg-lime-500" />
+            {eyebrow}
+          </p>
+        )
+      }
+      <h1 class="rise-text text-[2.35rem] leading-[1.05] !text-white sm:text-5xl lg:text-6xl xl:text-[4.25rem]">{title}</h1>
+      <p class="rise mt-4 max-w-2xl text-lg leading-relaxed text-white/75 sm:mt-6 sm:text-xl" style="--d:2">{subtitle}</p>
+
+      <ul class="rise mt-5 flex flex-wrap gap-2.5 sm:mt-7" style="--d:3">
+        {
+          points.map((p) => (
+            <li class="inline-flex items-center gap-2 rounded-full bg-white/[0.06] px-3.5 py-1.5 text-sm font-semibold text-white ring-1 ring-white/10">
+              <Icon name="check" class="size-4 text-lime-500" />
+              {p}
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="rise mt-6 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap" style="--d:4" data-hero-cta>
+        <a href={site.phoneHref} class="btn-primary w-full !px-7 !py-4 text-lg sm:w-auto">
+          <Icon name="phone" class="size-5" />
+          Call {site.phone}
+        </a>
+        <a href="#quote" class="btn-outline w-full !px-7 !py-4 text-lg sm:w-auto">
+          Book an Inspection
+          <Icon name="arrowRight" class="size-5" />
+        </a>
+      </div>
+
+      <a href={reviewsUrl} target="_blank" rel="noopener" class="rise group mt-9 inline-flex items-center gap-4" style="--d:5">
+        <span class="flex size-11 items-center justify-center rounded-full bg-white shadow-lg">
+          <Icon name="google" class="size-5 text-[#4285F4]" />
+        </span>
+        <span>
+          <span class="flex items-center gap-2">
+            <span class="font-display text-xl font-bold text-white">{rating.toFixed(1)}</span>
+            <span class="flex text-[#FBBC04]" aria-label={`${rating.toFixed(1)} out of 5 stars`}>
+              {Array.from({ length: 5 }).map(() => <Icon name="star" class="size-4" />)}
+            </span>
+          </span>
+          <span class="block text-sm text-white/60 group-hover:text-white">{reviewCount} reviews on Google · {site.hours.short}</span>
+        </span>
+      </a>
+    </div>
+
+    <div class="rise relative lg:col-span-5" style="--d:3">
+      <div class="absolute -inset-4 -z-10 rounded-[2.5rem] bg-gradient-to-br from-sky-400/40 via-transparent to-lime-500/30 blur-2xl"></div>
+      <div class="rounded-[2rem] bg-gradient-to-br from-white/40 via-white/10 to-white/30 p-px shadow-2xl shadow-black/40">
+        <QuoteForm location={location} service={service} />
+      </div>
+    </div>
+  </div>
+</section>

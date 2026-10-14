@@ -1,0 +1,55 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  signsHeading: string;
+  signs: string[];
+  benefitsHeading: string;
+  benefits: { title: string; text: string }[];
+}
+
+const { signsHeading, signs, benefitsHeading, benefits } = Astro.props;
+---
+
+<section class="section relative isolate overflow-hidden bg-navy-950 text-white">
+  <div class="drift pointer-events-none absolute top-1/3 -right-40 -z-10 size-[34rem] rounded-full bg-sky-500/20 blur-[120px]"></div>
+  <div class="container-x grid gap-16 lg:grid-cols-2 lg:gap-20">
+    <div>
+      <div data-reveal>
+        <p class="eyebrow !text-lime-500">Warning signs</p>
+        <h2 class="text-[2rem] leading-[1.1] !text-white sm:text-[2.6rem]">{signsHeading}</h2>
+      </div>
+      <ul class="mt-9 space-y-3" data-stagger>
+        {
+          signs.map((s) => (
+            <li class="group flex gap-4 rounded-2xl bg-white/[0.04] p-4 ring-1 ring-white/10 transition duration-300 hover:bg-white/[0.08]">
+              <span class="flex size-8 shrink-0 items-center justify-center rounded-lg bg-lime-500/15 text-lime-400 transition group-hover:bg-lime-500 group-hover:text-navy-950">
+                <Icon name="alert" class="size-4" />
+              </span>
+              <span class="pt-0.5 text-white/85">{s}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div>
+      <div data-reveal>
+        <p class="eyebrow !text-sky-400">The benefits</p>
+        <h2 class="text-[2rem] leading-[1.1] !text-white sm:text-[2.6rem]">{benefitsHeading}</h2>
+      </div>
+      <div class="mt-9 grid gap-4 sm:grid-cols-2" data-stagger>
+        {
+          benefits.map((b) => (
+            <div class="spotlight rounded-2xl bg-gradient-to-br from-white/[0.07] to-white/[0.02] p-6 ring-1 ring-white/10 transition duration-500 hover:-translate-y-1 hover:ring-sky-400/40">
+              <span class="flex size-11 items-center justify-center rounded-xl bg-sky-500/15 text-sky-400">
+                <Icon name="checkCircle" class="size-6" />
+              </span>
+              <h3 class="mt-5 text-lg !text-white">{b.title}</h3>
+              <p class="mt-2 leading-relaxed text-white/65">{b.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+---
+import Icon from './Icon.astro';
+import { site } from '../data/site';
+
+interface Props {
+  faqs: { q: string; a: string }[];
+  title?: string;
+  tint?: boolean;
+}
+
+const { faqs, title = 'Frequently Asked Questions', tint = false } = Astro.props;
+---
+
+<section class:list={['section', tint ? 'bg-surface' : 'bg-white']}>
+  <div class="container-x grid gap-12 lg:grid-cols-12 lg:gap-16">
+    <div class="lg:col-span-5">
+      <div class="lg:sticky lg:top-32" data-reveal>
+        <p class="eyebrow">FAQs</p>
+        <h2 class="text-[2.1rem] leading-[1.08] sm:text-[2.75rem]">{title}</h2>
+        <p class="mt-5 text-lg leading-relaxed text-muted">Straight answers about how we work. Don’t see your question? Give us a call.</p>
+        <div class="relative mt-8 overflow-hidden rounded-[1.75rem] bg-navy-950 p-6 text-white">
+          <div class="pointer-events-none absolute -top-16 -right-16 size-48 rounded-full bg-sky-500/30 blur-3xl"></div>
+          <p class="relative font-display text-xl font-bold">Still have questions?</p>
+          <p class="relative mt-1 text-white/70">Talk to our team. Open 24 hours, every day.</p>
+          <a href={site.phoneHref} class="btn-primary relative mt-5">
+            <Icon name="phone" class="size-5" />
+            {site.phone}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="space-y-3 lg:col-span-7" data-stagger>
+      {
+        faqs.map((f, i) => (
+          <details class="group rounded-2xl border border-slate-200/80 bg-white transition duration-300 hover:border-sky-200 open:border-sky-200 open:shadow-[0_20px_40px_-28px_rgb(13_31_77/0.35)]" open={i === 0}>
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-5 p-5 text-left sm:p-6 [&::-webkit-details-marker]:hidden">
+              <h3 class="text-lg leading-snug sm:text-xl">{f.q}</h3>
+              <span class="relative flex size-10 shrink-0 items-center justify-center rounded-full bg-sky-50 text-navy-700 ring-1 ring-sky-100 transition duration-500 group-open:rotate-45 group-open:bg-navy-900 group-open:text-lime-400 group-open:ring-navy-900">
+                <span class="absolute h-0.5 w-3.5 rounded bg-current" />
+                <span class="absolute h-3.5 w-0.5 rounded bg-current" />
+              </span>
+            </summary>
+            <p class="-mt-1 px-5 pb-6 text-lg leading-relaxed text-muted sm:px-6">{f.a}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

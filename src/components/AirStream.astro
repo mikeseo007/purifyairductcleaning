@@ -1,0 +1,23 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+const id = `air-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<svg class:list={['air-stream pointer-events-none', className]} viewBox="0 0 640 360" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id={id} x1="0" y1="0" x2="640" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8fd3f3" stop-opacity="0" />
+      <stop offset="0.45" stop-color="#8fd3f3" stop-opacity="0.9" />
+      <stop offset="1" stop-color="#93d35a" />
+    </linearGradient>
+  </defs>
+  <g stroke={`url(#${id})`} stroke-linecap="round" stroke-linejoin="round">
+    <path pathLength="1" stroke-width="9" d="M20 110 H400 C455 110 482 72 464 40 C448 12 404 14 400 46 C397 68 418 80 436 70" />
+    <path pathLength="1" stroke-width="9" d="M90 190 H540 C592 190 620 228 602 262 C586 292 540 292 534 260 C530 238 548 222 568 232" />
+    <path pathLength="1" stroke-width="7" d="M0 268 H300 C340 268 360 298 346 322 C334 342 304 340 302 318" />
+  </g>
+</svg>

@@ -1,0 +1,109 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import AirStream from '../components/AirStream.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import LocationsSection from '../components/LocationsSection.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { getService } from '../data/services';
+import { site } from '../data/site';
+import { photos, asPhoto, pickPhoto } from '../data/photos';
+
+const used = new Set<string>([photos.beachCity.family, photos.beachCity.src.src]);
+const popular = ['air-duct-cleaning', 'dryer-vent-cleaning', 'hvac-cleaning', 'ac-coil-cleaning'].map((slug) => {
+  const s = getService(slug);
+  const photo = pickPhoto([asPhoto(s.image, s.imageAlt), asPhoto(s.secondImage, s.secondImageAlt)], used, { minWidth: 900 });
+  return { ...s, image: photo.src, imageAlt: photo.alt };
+});
+---
+
+<BaseLayout title="Page Not Found" description="The page you were looking for could not be found." noindex>
+  <section class="relative isolate z-0 overflow-hidden bg-navy-950 pt-16 pb-24 sm:pt-24 sm:pb-32 lg:pt-28 lg:pb-40">
+    <div class="absolute inset-0 -z-10 overflow-hidden">
+      <Image
+        src={photos.beachCity.src}
+        alt={photos.beachCity.alt}
+        title={photos.beachCity.alt}
+        format="webp"
+        widths={[640, 960, 1280, 1600]}
+        sizes="(min-width: 1024px) 100vw, 1104px"
+        loading="eager"
+        class="kenburns hero-parallax h-full w-full object-cover"
+      />
+    </div>
+    <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40"></div>
+    <div class="absolute inset-0 -z-10 bg-gradient-to-t from-navy-950 via-navy-950/20 to-navy-950/50"></div>
+    <div class="absolute inset-0 -z-10 bg-navy-950/45 lg:hidden"></div>
+    <AirStream class="absolute top-10 right-[-6rem] -z-10 hidden w-[36rem] opacity-40 md:block lg:right-[4%] lg:w-[42rem]" />
+
+    <div class="container-x">
+      <div class="max-w-3xl">
+        <p class="rise inline-flex items-center gap-2.5 rounded-full bg-white/[0.07] py-1.5 pr-4 pl-2 text-sm font-semibold text-white/90 ring-1 ring-white/15 backdrop-blur" style="--d:0">
+          <span class="pulse-dot size-2 rounded-full bg-lime-500"></span>
+          Error 404 · Page not found
+        </p>
+        <p class="rise text-gradient mt-6 font-display text-[6.5rem] leading-[0.9] font-bold tracking-tight sm:text-[9rem] lg:text-[11rem]" style="--d:1" aria-hidden="true">404</p>
+        <h1 class="rise-text mt-4 text-[2.25rem] leading-[1.06] !text-white sm:text-5xl lg:text-[3.5rem]">This page took a wrong turn in the ductwork</h1>
+        <p class="rise mt-5 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl" style="--d:2">
+          The page you’re looking for doesn’t exist or has moved. Head back home, browse our services, or give us a call and we’ll point you in the right direction.
+        </p>
+        <div class="rise mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap" style="--d:3">
+          <a href="/" class="btn-primary w-full !px-7 !py-4 text-lg sm:w-auto">
+            Back to home <Icon name="arrowRight" class="size-5" />
+          </a>
+          <a href={site.phoneHref} class="btn-outline w-full !px-7 !py-4 text-lg sm:w-auto">
+            <Icon name="phone" class="size-5" /> Call {site.phone}
+          </a>
+          <a href="/our-services/" class="inline-flex items-center justify-center gap-1.5 px-2 py-4 text-lg font-bold text-white/85 hover:text-lime-400">
+            All services <Icon name="arrowRight" class="size-4" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container-x">
+      <SectionHeading eyebrow="Popular services" title="Looking for one of these?" center />
+      <ul class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" data-stagger>
+        {
+          popular.map((s) => (
+            <li>
+              <a href={s.path} class="card card-hover group flex h-full flex-col overflow-hidden">
+                <span class="relative block aspect-[16/10] overflow-hidden bg-navy-950">
+                  <Image
+                    src={s.image}
+                    alt={s.imageAlt}
+                    title={s.imageAlt}
+                    format="webp"
+                    widths={[400, 640, 800, 1000]}
+                    sizes="(min-width: 1280px) 290px, (min-width: 1024px) 23vw, (min-width: 640px) 50vw, 100vw"
+                    class="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
+                  />
+                  <span class="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-transparent" />
+                  <span class="icon-chip absolute bottom-4 left-4 size-11 rounded-xl ring-2 ring-white/20">
+                    <Icon name={s.icon} class="size-5" />
+                  </span>
+                </span>
+                <span class="flex flex-1 flex-col p-6">
+                  <span class="font-display text-lg leading-snug font-bold text-navy-900">{s.name}</span>
+                  <span class="mt-2 flex-1 text-sm leading-relaxed text-muted">{s.card}</span>
+                  <span class="mt-5 inline-flex items-center gap-2 text-sm font-bold text-navy-900">
+                    View service
+                    <span class="flex size-7 items-center justify-center rounded-full bg-surface transition group-hover:translate-x-1 group-hover:bg-lime-400">
+                      <Icon name="arrowRight" class="size-3.5" />
+                    </span>
+                  </span>
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <LocationsSection title="Areas We Serve" showMap={false} tint />
+  <CtaBand />
+</BaseLayout>

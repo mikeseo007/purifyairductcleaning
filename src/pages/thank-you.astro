@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout title="Thank You" description={`Thanks for contacting ${site.name}. We'll be in touch shortly.`} noindex>
+  <section class="relative isolate overflow-hidden bg-navy-950 pt-20 pb-28 text-white lg:pt-28 lg:pb-36">
+    <div class="drift pointer-events-none absolute inset-x-0 -top-40 -z-10 mx-auto size-[36rem] rounded-full bg-lime-400/15 blur-3xl" aria-hidden="true"></div>
+    <div class="container-x max-w-3xl text-center">
+      <span class="rise mx-auto block w-fit">
+        <span class="pulse-dot flex size-20 items-center justify-center rounded-full bg-lime-400 text-navy-950">
+          <Icon name="check" class="size-10" />
+        </span>
+      </span>
+      <h1 class="rise mt-8 text-4xl text-white sm:text-5xl" style="--d: 1">Thank you! We got your request.</h1>
+      <p class="rise mt-5 text-lg text-sky-100/80" style="--d: 2">
+        A member of our team will contact you to confirm the details. Need help right away? Give us a call.
+      </p>
+      <div class="rise mt-9 flex flex-wrap items-center justify-center gap-4" style="--d: 3">
+        <a href={site.phoneHref} class="btn-primary !px-8 !py-4 text-lg">
+          <Icon name="phone" class="size-5" />
+          {site.phone}
+        </a>
+        <a href="/" class="btn-outline !px-8 !py-4 text-lg">Back to home</a>
+      </div>
+      <p class="rise mt-5 text-sm text-sky-100/60" style="--d: 4">{site.hours.long}</p>
+    </div>
+  </section>
+</BaseLayout>

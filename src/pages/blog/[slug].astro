@@ -1,0 +1,107 @@
+---
+import { Image, getImage } from 'astro:assets';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Icon from '../../components/Icon.astro';
+import { articleSchema } from '../../data/schema';
+import { services } from '../../data/services';
+import { SITE_URL, site } from '../../data/site';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const path = `/blog/${post.id}/`;
+const og = await getImage({ src: post.data.cover, width: 1200, format: 'jpg' });
+const ogUrl = new URL(og.src, SITE_URL).toString();
+const service = services.find((s) => s.slug === post.data.service);
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Blog', path: '/blog/' },
+  { name: post.data.title, path },
+];
+const fmt = post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  image={og.src}
+  ogType="article"
+  published={post.data.date.toISOString()}
+  breadcrumbs={breadcrumbs}
+  schema={[
+    articleSchema({
+      title: post.data.title,
+      description: post.data.description,
+      path,
+      datePublished: post.data.date.toISOString(),
+      image: ogUrl,
+    }),
+  ]}
+>
+  <PageHeader title={post.data.title} subtitle={post.data.description} breadcrumbs={breadcrumbs} />
+
+  <section class="section bg-white">
+    <div class="container-x grid gap-12 lg:grid-cols-12">
+      <article class="lg:col-span-8">
+        <p class="mb-6 inline-flex items-center gap-2 rounded-full bg-surface px-4 py-2 text-sm font-semibold text-muted ring-1 ring-slate-200/70">
+          <Icon name="clock" class="size-4 text-sky-500" />
+          <time datetime={post.data.date.toISOString()}>{fmt}</time>
+          <span class="text-slate-300">•</span>
+          {site.name}
+        </p>
+        <div class="card mb-12 p-1.5">
+          <Image
+            src={post.data.cover}
+            alt={post.data.coverAlt}
+            title={post.data.coverAlt}
+            format="webp"
+            widths={[640, 960, 1280, 1600]}
+            sizes="(min-width: 1024px) 800px, 100vw"
+            loading="eager"
+            class="aspect-[19/10] w-full rounded-[1.4rem] object-cover"
+          />
+        </div>
+        <div class="prose-purix">
+          <Content />
+        </div>
+      </article>
+
+      <aside class="lg:col-span-4">
+        <div class="space-y-6 lg:sticky lg:top-28" data-reveal="right">
+          {
+            service && (
+              <a href={service.path} class="card card-hover spotlight group flex items-start gap-4 p-6">
+                <span class="icon-chip size-12">
+                  <Icon name="arrowRight" class="size-5 transition group-hover:translate-x-0.5" />
+                </span>
+                <span>
+                  <span class="block text-xs font-bold tracking-[0.18em] text-sky-500 uppercase">Related service</span>
+                  <span class="mt-1.5 block font-display text-xl font-bold text-navy-900 group-hover:text-navy-700">{service.name}</span>
+                  <span class="mt-2 block text-sm leading-relaxed text-muted">{service.card}</span>
+                </span>
+              </a>
+            )
+          }
+          <div class="rounded-[2rem] bg-gradient-to-br from-sky-300 via-sky-100 to-lime-400 p-px">
+            <QuoteForm heading="Get a Free Quote" compact />
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>
