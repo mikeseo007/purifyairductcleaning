@@ -1,0 +1,65 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../data/site';
+import { photos } from '../data/photos';
+
+const links = [
+  { href: '/', label: 'Home', text: 'Back to the Aventura air duct cleaning homepage.', icon: 'home' },
+  { href: '/our-services/', label: 'Services', text: 'Duct, HVAC, dryer vent, and insulation cleaning.', icon: 'duct' },
+  { href: '/service-areas/', label: 'Service areas', text: 'Cities we serve across South Florida.', icon: 'pin' },
+  { href: '/contact-us/', label: 'Contact', text: 'Call or send a request for a free quote.', icon: 'mail' },
+];
+---
+
+<BaseLayout title="Page Not Found" description="The page you were looking for could not be found." noindex>
+  <section class="relative isolate overflow-hidden bg-navy-950">
+    <Image
+      src={photos.airDuct.src}
+      alt=""
+      format="webp"
+      widths={[960, 1400, 1920]}
+      sizes="100vw"
+      class="pointer-events-none absolute inset-0 size-full object-cover object-[68%_center]"
+    />
+    <div class="page-hero-fade pointer-events-none absolute inset-0" aria-hidden="true"></div>
+
+    <div class="container-x relative py-16 sm:py-20 lg:py-24">
+      <p class="eyebrow !text-lime-300">404</p>
+      <h1 class="max-w-xl text-[2.4rem] leading-[1.05] font-extrabold !text-white sm:text-5xl lg:text-[3.25rem]">This page doesn’t exist</h1>
+      <p class="mt-5 max-w-md text-base leading-relaxed text-white/75 sm:text-lg">
+        The address may have changed. Head home, browse services, or call and we’ll point you to the right page.
+      </p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a href="/" class="btn-primary">Back to home <Icon name="arrowRight" class="size-4" /></a>
+        <a href={site.phoneHref} class="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 px-6 py-3 font-bold text-white hover:bg-white hover:text-navy-950">
+          <Icon name="phone" class="size-5" />
+          {site.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-14">
+    <div class="container-x">
+      <p class="text-[11px] font-bold tracking-[0.16em] text-sky-500 uppercase">Keep looking</p>
+      <h2 class="mt-2 text-2xl leading-tight">Find what you need</h2>
+      <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          links.map((link) => (
+            <li>
+              <a href={link.href} class="flex h-full flex-col rounded-xl bg-white p-5 shadow-[0_10px_30px_-18px_rgb(11_51_43/0.35)] ring-1 ring-slate-100 hover:ring-sky-200">
+                <span class="flex size-10 items-center justify-center rounded-lg bg-sky-500 text-white">
+                  <Icon name={link.icon} class="size-5" />
+                </span>
+                <span class="mt-4 text-base font-bold text-navy-900">{link.label}</span>
+                <span class="mt-1.5 flex-1 text-sm leading-relaxed text-muted">{link.text}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

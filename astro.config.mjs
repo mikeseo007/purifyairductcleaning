@@ -49,7 +49,7 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/thank-you/') && !page.includes('/404'),
+      filter: (page) => !page.includes('/thank-you/') && !page.includes('/404') && !page.includes('/page-not-found'),
       serialize(item) {
         const path = item.url.replace(site, '');
         item.lastmod = new Date().toISOString();
