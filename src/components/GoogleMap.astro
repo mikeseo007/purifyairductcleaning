@@ -5,22 +5,24 @@ import { site } from '../data/site';
 interface Props {
   class?: string;
   dark?: boolean;
+  bare?: boolean;
 }
 
-const { class: className = 'h-[450px]', dark = false } = Astro.props;
+const { class: className = 'h-[450px]', dark = false, bare = false } = Astro.props;
 ---
 
 <figure
   class:list={[
-    'flex h-full flex-col overflow-hidden p-1.5',
-    dark ? 'rounded-[1.75rem] bg-white/[0.06] ring-1 ring-white/10 backdrop-blur' : 'card',
+    bare ? 'overflow-hidden rounded-2xl' : 'flex flex-col overflow-hidden p-1.5',
+    !bare && (dark ? 'rounded-[1.75rem] bg-white/[0.06] ring-1 ring-white/10 backdrop-blur' : 'card'),
   ]}
 >
-  <div class:list={['flex flex-1 flex-col overflow-hidden rounded-[1.4rem]', dark ? 'bg-navy-900' : 'bg-sky-50']}>
+  <div class:list={['overflow-hidden rounded-[1.4rem]', dark ? 'bg-navy-900' : 'bg-sky-50']}>
   <iframe
+    src={site.google.mapEmbed}
     data-map-src={site.google.mapEmbed}
     title={`${site.name} on Google Maps`}
-    class:list={['w-full flex-1 border-0 bg-sky-100/40', className]}
+    class:list={['block w-full shrink-0 border-0 bg-sky-100/40', className]}
     loading="lazy"
     referrerpolicy="strict-origin-when-cross-origin"
     allowfullscreen></iframe>
@@ -46,7 +48,7 @@ const { class: className = 'h-[450px]', dark = false } = Astro.props;
     }
   </script>
   </div>
-  <figcaption class="flex flex-wrap items-center justify-between gap-2 px-4 pt-3.5 pb-2.5">
+  <figcaption class:list={['flex flex-wrap items-center justify-between gap-2 px-4 pt-3.5 pb-2.5', bare && 'hidden']}>
     <span class:list={['flex items-center gap-2 font-bold', dark ? 'text-white' : 'text-navy-900']}>
       <Icon name="pin" class:list={['size-5', dark ? 'text-lime-400' : 'text-sky-500']} />
       {site.name}

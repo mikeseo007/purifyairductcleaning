@@ -2,8 +2,8 @@
 title: 'Signs Your Dryer Vent Is Clogged'
 description: 'Long dry times, a hot laundry room and a stuck exterior flap are signs the dryer vent needs cleaning. Here is what to watch for in South Florida homes and condos.'
 date: 2026-09-28
-cover: ../../assets/images/laundry.webp
-coverAlt: 'Home laundry room with a clothes dryer'
+cover: ../../assets/images/exterior-vent-hose.webp
+coverAlt: 'Purify technician cleaning a clothes dryer vent from outside the laundry room'
 service: dryer-vent-cleaning
 ---
 
@@ -37,4 +37,4 @@ Lint on the floor behind the dryer, or a crushed white plastic hose, means the c
 
 If the building has a shared laundry room, that is [commercial dryer vent cleaning](/commercial-dryer-vent-cleaning/), scheduled with management so machines can be shut down safely.
 
-Purify is based in Aventura and can often pair a dryer vent cleaning with [air duct cleaning](/air-duct-cleaning/) on the same visit. Call (305) 330-1328. We are open 24 hours.
+Purify is based in Aventura and can often pair a dryer vent cleaning with [air duct cleaning](/air-duct-cleaning/) on the same visit. Call 954-945-9428. We are open 24 hours.

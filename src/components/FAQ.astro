@@ -11,7 +11,7 @@ interface Props {
 const { faqs, title = 'Frequently Asked Questions', tint = false } = Astro.props;
 ---
 
-<section class:list={['section', tint ? 'bg-surface' : 'bg-white']}>
+<section id="faq" class:list={['section', tint ? 'bg-surface' : 'bg-white']}>
   <div class="container-x grid gap-12 lg:grid-cols-12 lg:gap-16">
     <div class="lg:col-span-5">
       <div class="lg:sticky lg:top-32" data-reveal>

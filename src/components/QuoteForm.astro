@@ -9,22 +9,27 @@ interface Props {
   heading?: string;
   id?: string;
   compact?: boolean;
+  buttonLabel?: string;
+  panel?: boolean;
 }
 
-const { location, service, heading = 'Request a Free Quote', id = 'quote', compact = false } = Astro.props;
-const cols = compact ? 'grid gap-4' : 'grid gap-4 @min-[34rem]:grid-cols-2';
-const field =
-  'w-full min-w-0 rounded-2xl border border-slate-200 bg-surface px-4 py-3.5 text-base text-ink placeholder:text-slate-400 transition duration-300 hover:border-slate-300 focus:border-sky-500 focus:bg-white focus:ring-4 focus:ring-sky-500/15 focus:outline-none';
+const { location, service, heading = 'Request a Free Quote', id = 'quote', compact = false, buttonLabel = 'Send Service Request', panel = false } = Astro.props;
+const cols = panel || compact ? 'grid gap-3' : 'grid gap-4 @min-[34rem]:grid-cols-2';
+const field = panel
+  ? 'w-full min-w-0 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 text-sm text-ink placeholder:text-slate-400 focus:border-sky-500 focus:bg-white focus:outline-none'
+  : 'w-full min-w-0 rounded-2xl border border-slate-200 bg-surface px-4 py-3.5 text-base text-ink placeholder:text-slate-400 transition duration-300 hover:border-slate-300 focus:border-sky-500 focus:bg-white focus:ring-4 focus:ring-sky-500/15 focus:outline-none';
 ---
 
-<div id={id} class="@container relative scroll-mt-28 overflow-hidden rounded-[calc(2rem-1px)] bg-white p-6 shadow-2xl shadow-navy-950/25 sm:p-8">
-  <div class="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-sky-400 to-lime-500"></div>
+<div id={id} class:list={['@container relative scroll-mt-28 overflow-hidden bg-white', panel ? 'rounded-2xl p-5 shadow-[0_20px_50px_-24px_rgb(0_0_0/0.45)]' : 'rounded-[calc(2rem-1px)] p-6 shadow-2xl shadow-navy-950/25 sm:p-8']}>
+  {!panel && <div class="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 via-sky-400 to-lime-500"></div>}
   <div>
-    <p class="font-display text-[1.65rem] leading-tight font-bold tracking-tight text-navy-900">{heading}</p>
-    <p class="mt-1.5 text-muted">Tell us about your AC system or vent and we’ll get back to you to schedule.</p>
+    <p class:list={['font-bold tracking-tight text-navy-900', panel ? 'text-xl' : 'font-display text-[1.65rem] leading-tight']}>{heading}</p>
+    <p class:list={['text-muted', panel ? 'mt-1 text-xs' : 'mt-1.5']}>
+      {panel ? 'Fill out the form and we’ll get back to you with a free quote.' : 'Tell us about your AC system or vent and we’ll get back to you to schedule.'}
+    </p>
   </div>
 
-  <form name="service-request" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="company" class="mt-6 grid gap-4">
+  <form name="service-request" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="company" class:list={['grid', panel ? 'mt-4 gap-3' : 'mt-6 gap-4']}>
     <input type="hidden" name="form-name" value="service-request" />
     <p class="hidden">
       <label>Leave this field empty <input name="company" tabindex="-1" autocomplete="off" /></label>
@@ -52,9 +57,16 @@ const field =
     </div>
 
     <label class="block min-w-0">
-      <span class="sr-only">Service address or ZIP code</span>
-      <input class={field} type="text" name="address" placeholder="Service address or ZIP code" autocomplete="street-address" />
+      <span class="sr-only">Email</span>
+      <input class={field} type="email" name="email" placeholder="Email address" autocomplete="email" />
     </label>
+
+    {!panel && (
+      <label class="block min-w-0">
+        <span class="sr-only">Service address or ZIP code</span>
+        <input class={field} type="text" name="address" placeholder="Service address or ZIP code" autocomplete="street-address" />
+      </label>
+    )}
 
     <div class={cols}>
       <label class="block min-w-0">
@@ -75,35 +87,46 @@ const field =
           <option value="Not sure">Not sure, please advise</option>
         </select>
       </label>
-      <label class="block min-w-0">
-        <span class="sr-only">Service area</span>
-        <select class={field} name="location">
-          <option value="">Service area</option>
-          {
-            regions.map((r) => (
-              <optgroup label={r.name}>
-                {locationsByRegion(r.id).map((l) => (
-                  <option value={l.city} selected={l.slug === location?.slug}>
-                    {l.city}
-                  </option>
-                ))}
-              </optgroup>
-            ))
-          }
-          <option value="Other">Other area</option>
-        </select>
-      </label>
+      {panel ? (
+        <label class="block min-w-0">
+          <span class="sr-only">Property type</span>
+          <select class={field} name="property">
+            <option value="">Property type</option>
+            <option value="Residential">Residential</option>
+            <option value="Commercial">Commercial</option>
+          </select>
+        </label>
+      ) : (
+        <label class="block min-w-0">
+          <span class="sr-only">Service area</span>
+          <select class={field} name="location">
+            <option value="">Service area</option>
+            {
+              regions.map((r) => (
+                <optgroup label={r.name}>
+                  {locationsByRegion(r.id).map((l) => (
+                    <option value={l.city} selected={l.slug === location?.slug}>
+                      {l.city}
+                    </option>
+                  ))}
+                </optgroup>
+              ))
+            }
+            <option value="Other">Other area</option>
+          </select>
+        </label>
+      )}
     </div>
 
     <label class="block min-w-0">
       <span class="sr-only">Message</span>
-      <textarea class={field} name="message" rows="3" placeholder="How can we help?"></textarea>
+      <textarea class={field} name="message" rows={panel ? 2 : 3} placeholder={panel ? 'Additional information' : 'How can we help?'}></textarea>
     </label>
 
-    <button type="submit" class="btn-primary w-full !py-4 text-lg">
-      Send Service Request
-      <Icon name="arrowRight" class="size-5" />
+    <button type="submit" class:list={['btn-primary w-full', panel ? '!bg-lime-400 !py-3 text-sm shadow-none' : '!py-4 text-lg']}>
+      {buttonLabel}
+      {!panel && <Icon name="arrowRight" class="size-5" />}
     </button>
-    <p class="text-center text-xs text-muted">We respect your privacy. Your details are only used to respond to your request.</p>
+    <p class="text-center text-xs text-muted">{panel ? 'Your information is secure. We never share it.' : 'We respect your privacy. Your details are only used to respond to your request.'}</p>
   </form>
 </div>

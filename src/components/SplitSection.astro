@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import Icon from './Icon.astro';
+import { site } from '../data/site';
 
 interface Props {
   eyebrow?: string;
@@ -13,9 +14,15 @@ interface Props {
   tint?: boolean;
   phone?: { label: string; href: string };
   headingLevel?: 'h2' | 'h3';
+  points?: string[];
+  stat?: { value: string; label: string };
+  link?: { href: string; label: string };
+  showRating?: boolean;
+  dark?: boolean;
 }
 
-const { eyebrow, heading, paragraphs = [], image, imageAlt, reverse = false, tint = false, phone, headingLevel: H = 'h2' } = Astro.props;
+const { eyebrow, heading, paragraphs = [], image, imageAlt, reverse = false, tint = false, phone, headingLevel: H = 'h2', points = [], stat, link, showRating = false, dark = false } = Astro.props;
+const { rating, reviewCount, reviewsUrl } = site.google;
 const ratio = image.width / image.height;
 // Stay close to the source shape. A short max-height on a full-width box was
 // slicing tall job photos down to a band with no subject.
@@ -24,7 +31,7 @@ const frame = ratio > 1.05 ? { w: 19, h: 13 } : ratio > 0.68 ? { w: 4, h: 5 } : 
 const objectPosition = ratio < 0.62 ? 'center 18%' : 'center 50%';
 ---
 
-<section class:list={['section relative overflow-hidden', tint ? 'bg-surface' : 'bg-white']}>
+<section class:list={['section relative overflow-hidden', dark ? 'bg-[#071f18]' : tint ? 'bg-[#f3f8f4]' : 'bg-white']}>
   <div class="container-x relative grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
     <div
       class:list={['relative mx-auto w-full', reverse && 'lg:order-2']}
@@ -46,39 +53,85 @@ const objectPosition = ratio < 0.62 ? 'center 18%' : 'center 50%';
           style={`object-position: ${objectPosition}`}
         />
         <div class="pointer-events-none absolute inset-0 rounded-[1.75rem] ring-1 ring-white/10 ring-inset"></div>
+        {
+          showRating && (
+            <a href={reviewsUrl} target="_blank" rel="noopener" class="absolute bottom-4 left-4 flex items-center gap-2.5 rounded-xl bg-white px-3 py-2 shadow-lg">
+              <span class="font-display text-2xl leading-none font-bold text-navy-900">{rating.toFixed(1)}</span>
+              <span>
+                <span class="flex text-[#FBBC04]" aria-label={`${rating.toFixed(1)} out of 5 stars`}>
+                  {Array.from({ length: 5 }).map(() => <Icon name="star" class="size-3.5" />)}
+                </span>
+                <span class="mt-0.5 block text-[11px] font-medium text-muted">{reviewCount} Google reviews</span>
+              </span>
+            </a>
+          )
+        }
       </div>
-      <div
-        class:list={[
-          'float absolute flex items-center gap-3 rounded-2xl bg-white/95 p-3 pr-5 shadow-[0_20px_40px_-16px_rgb(7_19_48/0.4)] ring-1 ring-slate-200/60 backdrop-blur',
-          reverse ? '-right-3 bottom-8 sm:-right-6' : '-left-3 top-8 sm:-left-6',
-        ]}
-        aria-hidden="true"
-      >
-        <span class="icon-chip size-10"><Icon name={reverse ? 'shield' : 'clock'} class="size-5" /></span>
-        <span>
-          <span class="block text-sm font-bold text-navy-900">{reverse ? 'Upfront quotes' : 'Open 24 hours'}</span>
-          <span class="block text-xs text-muted">{reverse ? 'Scope agreed before work' : 'Open 24 hours'}</span>
-        </span>
-      </div>
+      {
+        stat && !showRating ? (
+          <div class="absolute -bottom-5 left-5 rounded-2xl bg-white px-5 py-4 shadow-[0_18px_40px_-24px_rgb(18_56_47/0.55)] ring-1 ring-slate-100">
+            <p class="font-display text-3xl font-bold text-navy-900">{stat.value}</p>
+            <p class="text-sm font-medium text-muted">{stat.label}</p>
+          </div>
+        ) : !showRating ? (
+          <div
+            class:list={[
+              'absolute flex items-center gap-3 rounded-2xl bg-white p-3 pr-5 shadow-[0_18px_40px_-24px_rgb(18_56_47/0.45)] ring-1 ring-slate-100',
+              reverse ? 'right-4 bottom-4' : 'bottom-4 left-4',
+            ]}
+          >
+            <span class="icon-chip size-10"><Icon name={reverse ? 'shield' : 'clock'} class="size-5" /></span>
+            <span>
+              <span class="block text-sm font-bold text-navy-900">{reverse ? 'Upfront quotes' : 'Open 24 hours'}</span>
+              <span class="block text-xs text-muted">{reverse ? 'Scope agreed before work' : 'Every day of the week'}</span>
+            </span>
+          </div>
+        ) : null
+      }
     </div>
     <div class:list={[reverse && 'lg:order-1']} data-reveal>
-      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
-      <H class="text-[2rem] leading-[1.1] sm:text-[2.6rem]">{heading}</H>
-      <div class="prose-purix mt-7">
+      {eyebrow && <p class:list={['eyebrow', dark && '!text-sky-300']}>{eyebrow}</p>}
+      <H class:list={['text-[1.85rem] leading-[1.15] sm:text-4xl', dark && '!text-white']}>{heading}</H>
+      <div class:list={['prose-purix mt-6', dark && '[&_p]:!text-white/75']}>
         {paragraphs.map((p) => <p set:html={p} />)}
         <slot />
       </div>
       {
-        phone && (
-          <div class="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3">
-            <a href={phone.href} class="btn-navy !py-3.5">
-              <Icon name="phone" class="size-5" />
-              Call Now: {phone.label}
-            </a>
-            <a href="#quote" class="group inline-flex items-center gap-1.5 font-bold text-navy-700 hover:text-sky-500">
-              Request a free quote
-              <Icon name="arrowRight" class="size-4 transition group-hover:translate-x-1" />
-            </a>
+        points.length > 0 && (
+          <ul class="mt-6 space-y-3">
+            {points.map((point) => (
+              <li class:list={['flex items-start gap-3 font-semibold', dark ? 'text-white' : 'text-navy-900']}>
+                <span class="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-sky-500 text-white">
+                  <Icon name="check" class="size-3.5" />
+                </span>
+                {point}
+              </li>
+            ))}
+          </ul>
+        )
+      }
+      {
+        (phone || link || (stat && showRating)) && (
+          <div class="mt-8 flex flex-wrap items-center gap-4">
+            {link && (
+              <a href={link.href} class:list={[dark ? 'inline-flex items-center justify-center rounded-lg bg-sky-500 px-5 py-3 font-semibold text-white hover:bg-lime-600' : 'btn-primary']}>
+                {link.label}
+              </a>
+            )}
+            {phone && (
+              <a href={phone.href} class="inline-flex items-center gap-2 font-bold text-navy-900 hover:text-sky-500">
+                <Icon name="phone" class="size-5" />
+                {phone.label}
+              </a>
+            )}
+            {
+              stat && showRating && (
+                <div class="rounded-2xl bg-sky-50 px-5 py-3">
+                  <p class="font-display text-3xl leading-none font-bold text-navy-900">{stat.value}</p>
+                  <p class="mt-1 text-sm text-muted">{stat.label}</p>
+                </div>
+              )
+            }
           </div>
         )
       }

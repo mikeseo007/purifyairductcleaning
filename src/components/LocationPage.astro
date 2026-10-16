@@ -11,6 +11,7 @@ import LocationDetails from './LocationDetails.astro';
 import LocationsSection from './LocationsSection.astro';
 import FAQ from './FAQ.astro';
 import CtaBand from './CtaBand.astro';
+import QuoteSection from './QuoteSection.astro';
 import { getLocation, site } from '../data/site';
 import { locationContent } from '../data/location-content';
 import { serviceAreaSchema, faqSchema } from '../data/schema';
@@ -25,9 +26,8 @@ const location = getLocation(slug);
 const c = locationContent[slug];
 const isHome = location.path === '/';
 const phone = { label: site.phone, href: site.phoneHref };
-const hero = { src: c.heroImage, alt: c.heroImageAlt };
+const hero = { src: isHome ? photos.ductVentCleaning.src : c.heroImage, alt: isHome ? photos.ductVentCleaning.alt : c.heroImageAlt };
 const local = c.localImage.src === hero.src.src ? { src: c.heroImage, alt: c.heroImageAlt } : { src: c.localImage, alt: c.localImageAlt };
-const pagePhotos = [hero.src, c.introImage, local.src, ...(isHome ? [photos.acOutdoor.src] : [])];
 
 const breadcrumbs = isHome
   ? undefined
@@ -46,37 +46,63 @@ const breadcrumbs = isHome
   schema={[...(isHome ? [] : [serviceAreaSchema(location)]), faqSchema(c.faqs)]}
 >
   <Hero
-    eyebrow={isHome ? site.name : `Serving ${location.city} & ${location.county}`}
-    title={c.h1}
-    subtitle={c.heroSubtitle}
+    eyebrow={isHome ? 'Cleaner air. A healthier home.' : `Serving ${location.city} & ${location.county}`}
+    title={isHome ? 'Professional\nAir Duct Cleaning\nin Aventura, FL' : c.h1}
+    subtitle={isHome ? 'Breathe cleaner, healthier air with professional air duct cleaning for homes and businesses in Aventura and across South Florida.' : c.heroSubtitle}
     image={hero.src}
     imageAlt={hero.alt}
     location={location}
     breadcrumbs={breadcrumbs}
+    secondaryHref={isHome ? '/our-services/' : '/contact-us/#quote'}
+    secondaryLabel={isHome ? 'Our Services' : 'Contact Us'}
+    points={isHome ? ['Air duct and HVAC cleaning', 'Homes and businesses', 'Open 24 hours'] : ['Cleaner indoor air', 'Improved HVAC efficiency', 'Healthier home and family']}
   />
   <TrustBar />
 
-  <SplitSection
-    eyebrow={`Air duct & dryer vent cleaning · ${location.city}`}
-    heading={c.introHeading}
-    paragraphs={c.intro}
-    image={c.introImage}
-    imageAlt={c.introImageAlt}
-    phone={phone}
-  />
-
   <ServicesSection
-    title={isHome ? 'Air Duct, Dryer Vent & HVAC Cleaning Services' : `Our Services in ${location.city}`}
+    title="Air Duct, Dryer Vent & HVAC Cleaning Services"
     intro={isHome
-      ? undefined
-      : `Ductwork and AC system cleaning for homes and businesses in ${location.city}, FL, plus dryer vent cleaning.`}
+      ? 'Professional cleaning services to help your indoor air cleaner, your system running efficiently, and your property healthier.'
+      : `Duct, HVAC, and dryer vent cleaning for homes and businesses in ${location.city}, FL.`}
     city={isHome ? undefined : location.city}
-    bg="sky"
-    avoid={pagePhotos}
+    carousel={isHome}
+    bg="white"
   />
 
-  {isHome && <HvacHighlight />}
+  <SplitSection
+    eyebrow="About us"
+    heading={isHome ? 'Aventura’s Trusted Air Duct Cleaning Company' : c.introHeading}
+    paragraphs={isHome
+      ? ['We’re committed to providing cleaner air and healthier spaces for homes and businesses throughout Aventura and South Florida. With advanced equipment and a focused customer experience, we deliver results you can trust.']
+      : c.intro}
+    image={isHome ? photos.serviceVanCrew.src : c.introImage}
+    imageAlt={isHome ? photos.serviceVanCrew.alt : c.introImageAlt}
+    points={isHome
+      ? ['Trained & experienced technicians', 'Advanced cleaning equipment', 'Residential & commercial services', '100% satisfaction guarantee']
+      : ['Residential and commercial cleaning', 'Ducts, HVAC equipment, and dryer vents', 'Open 24 hours, 7 days', 'Upfront quotes before any work']}
+    stat={isHome ? { value: '10+', label: 'Years of Experience' } : { value: '24/7', label: 'Open every day' }}
+    showRating
+    link={{ href: '/about-us/', label: isHome ? 'About Our Company' : 'About Our Services' }}
+    phone={isHome ? undefined : phone}
+  />
 
+  <HvacHighlight />
+
+  <ProcessSteps title={isHome ? 'How Our Air Duct Cleaning Works' : `How Cleaning Works in ${location.city}`} />
+
+  <LocationsSection
+    title={`Proudly Serving ${location.city}, FL and Nearby Areas`}
+    intro={isHome
+      ? 'From Aventura to surrounding cities, we provide professional air duct cleaning services for homes and businesses across local communities.'
+      : `Based in Aventura, we clean air ducts, HVAC systems, and dryer vents across ${location.county} and nearby South Florida cities.`}
+    current={location.slug}
+  />
+
+  <Reviews title={`Trusted by Homeowners and Businesses in ${location.city}`} eyebrow="What our customers say" />
+  <CtaBand
+    title={`Get a Free Quote for Air Duct Cleaning in ${location.city}, FL`}
+    text="Breathe cleaner air. Call us or request a quote and we’ll schedule a time that works for your home or business."
+  />
   <SplitSection
     eyebrow={`Serving ${location.city}, FL`}
     heading={c.localHeading}
@@ -84,14 +110,14 @@ const breadcrumbs = isHome
     image={local.src}
     imageAlt={local.alt}
     reverse
-    tint={!isHome}
+    tint
     phone={phone}
   />
-
-  <ProcessSteps />
-  <Reviews />
-  <FAQ faqs={c.faqs} title={`Air Duct & Dryer Vent Cleaning FAQs: ${location.city}`} tint />
-  <LocationsSection title="Areas We Serve" current={location.slug} showMap={false} />
+  <FAQ faqs={c.faqs} title={`Air Duct Cleaning FAQs: ${location.city}`} tint />
+  <QuoteSection
+    eyebrow="Free quote"
+    title={`Request air duct cleaning in ${location.city}`}
+    text={`Tell us about the property and we’ll follow up to schedule. ${site.hours.long}`}
+  />
   <LocationDetails location={location} />
-  <CtaBand title={`Need air duct or dryer vent cleaning in ${location.city}?`} />
 </BaseLayout>

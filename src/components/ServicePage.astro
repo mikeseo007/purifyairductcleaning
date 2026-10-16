@@ -2,7 +2,6 @@
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from './Hero.astro';
-import TrustBar from './TrustBar.astro';
 import SplitSection from './SplitSection.astro';
 import SectionHeading from './SectionHeading.astro';
 import SignsBenefits from './SignsBenefits.astro';
@@ -12,11 +11,12 @@ import Reviews from './Reviews.astro';
 import LocationsSection from './LocationsSection.astro';
 import FAQ from './FAQ.astro';
 import CtaBand from './CtaBand.astro';
+import QuoteSection from './QuoteSection.astro';
 import Icon from './Icon.astro';
 import { getService, serviceGroups } from '../data/services';
 import { serviceSchema, faqSchema } from '../data/schema';
 import { site } from '../data/site';
-import { asPhoto, photos, pickPhoto } from '../data/photos';
+import { asPhoto, pickPhoto } from '../data/photos';
 
 interface Props {
   slug: string;
@@ -28,7 +28,7 @@ const group = serviceGroups.find((g) => g.id === s.group)!;
 const parent = s.parent ? getService(s.parent) : undefined;
 const used = new Set<string>();
 const ownPhotos = [asPhoto(s.image, s.imageAlt), asPhoto(s.secondImage, s.secondImageAlt)];
-const heroPhoto = pickPhoto([photos.beachCity, photos.homeExterior, photos.brightHome], used, { landscape: true });
+const heroPhoto = pickPhoto(ownPhotos, used, { landscape: true });
 const introPhoto = pickPhoto(ownPhotos, used, { minWidth: 800 });
 const related = s.related.map((slug) => {
   const r = getService(slug);
@@ -54,8 +54,9 @@ const breadcrumbs = [
     imageAlt={heroPhoto.alt}
     service={s.name}
     breadcrumbs={breadcrumbs}
+    secondaryHref="/contact-us/#quote"
+    secondaryLabel="Contact Us"
   />
-  <TrustBar />
 
   <SplitSection eyebrow={s.name} heading={s.introHeading} paragraphs={s.intro} image={introPhoto.src} imageAlt={introPhoto.alt} phone={{ label: site.phone, href: site.phoneHref }} />
 
@@ -195,7 +196,8 @@ const breadcrumbs = [
   <FAQ faqs={s.faqs} title={`${s.name} FAQs`} />
   <ServicesSection eyebrow="All services" title="Explore Our Air Duct & HVAC Services" current={s.slug} bg="sky" avoid={pagePhotos} />
   <LocationsSection title={`${s.name} Service Areas`} service={s} />
-  <CtaBand title={`Schedule ${s.name} in Aventura`} text={`Call ${site.phone} to schedule an inspection or get a quote. ${site.hours.long}`} />
+  <QuoteSection eyebrow="Free quote" title={`Schedule ${s.name}`} text={`Tell us about the property and we’ll follow up to book a time. ${site.hours.long}`} />
+  <CtaBand title={`Get a Free Quote for ${s.name}`} text={`Call ${site.phone} or send a request. ${site.hours.long}`} />
 </BaseLayout>
 
 <script>

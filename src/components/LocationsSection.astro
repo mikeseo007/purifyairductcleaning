@@ -1,8 +1,6 @@
 ---
-import Icon from './Icon.astro';
-import SectionHeading from './SectionHeading.astro';
 import GoogleMap from './GoogleMap.astro';
-import { regions, locationsByRegion, milesFromOffice, site } from '../data/site';
+import ServiceAreaList from './ServiceAreaList.astro';
 
 interface Props {
   title?: string;
@@ -11,6 +9,7 @@ interface Props {
   service?: { name: string };
   showMap?: boolean;
   tint?: boolean;
+  id?: string;
 }
 
 const {
@@ -19,81 +18,20 @@ const {
   current,
   service,
   showMap = true,
-  tint = false,
+  id,
 } = Astro.props;
-
-const what = service ? service.name : 'Air duct & dryer vent cleaning';
 ---
 
-<section class:list={['section relative overflow-hidden', tint ? 'bg-surface' : 'bg-white']}>
-  <div class="container-x relative">
-    <SectionHeading eyebrow="Service areas" title={title} intro={intro} center />
-
-    <div class:list={['mt-14 grid gap-8', showMap && 'lg:grid-cols-12']}>
-      {
-        showMap && (
-          <div class="flex flex-col gap-4 lg:col-span-5" data-reveal="left">
-            <GoogleMap class="h-[340px] lg:h-auto lg:min-h-[420px] lg:flex-1" />
-          </div>
-        )
-      }
-
-      <div class:list={['space-y-8', showMap && 'lg:col-span-7']}>
-        {
-          regions.map((r) => (
-            <div>
-              <h3 class="flex items-center gap-3 font-sans text-sm font-bold tracking-wider text-navy-700 uppercase" data-reveal>
-                {r.name}
-                <span class="h-px flex-1 bg-gradient-to-r from-slate-200 to-transparent" />
-              </h3>
-              <ul class:list={['mt-4 grid grid-cols-1 gap-3 min-[400px]:grid-cols-2', showMap ? 'sm:grid-cols-3' : 'sm:grid-cols-3 lg:grid-cols-4']} data-stagger>
-                {locationsByRegion(r.id).map((loc) => {
-                  const isCurrent = loc.slug === current;
-                  const sub = r.id === 'beyond' ? loc.county : `${milesFromOffice(loc)} mi from our office`;
-                  return (
-                    <li>
-                      <a
-                        href={loc.path}
-                        title={`${what} in ${loc.city}, FL`}
-                        aria-current={isCurrent ? 'page' : undefined}
-                        class:list={[
-                          'group flex h-full items-start gap-3 rounded-2xl border p-3.5 shadow-[0_6px_18px_-12px_rgb(13_31_77/0.25)] transition duration-300 hover:-translate-y-0.5 hover:border-sky-200 hover:shadow-[0_18px_34px_-18px_rgb(13_31_77/0.35)]',
-                          isCurrent ? 'border-sky-300 bg-sky-50' : 'border-slate-200/70 bg-white',
-                        ]}
-                      >
-                        <span class="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-xl bg-sky-100 text-navy-700 transition duration-300 group-hover:bg-navy-900 group-hover:text-lime-400">
-                          <Icon name="pin" class="size-4" />
-                        </span>
-                        <span class="min-w-0">
-                          <span class="block leading-tight font-bold break-words text-navy-900 group-hover:text-sky-500">{loc.city}</span>
-                          <span class="mt-0.5 block text-xs font-medium text-muted">
-                            {isCurrent ? 'You’re here' : sub}
-                          </span>
-                        </span>
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          ))
-        }
-
-        <div class="relative flex flex-col gap-4 overflow-hidden rounded-3xl bg-navy-950 p-5 text-white sm:flex-row sm:items-center sm:justify-between" data-reveal>
-          <div class="pointer-events-none absolute -top-16 -right-10 size-40 rounded-full bg-sky-500/30 blur-3xl"></div>
-          <div>
-            <p class="font-bold">Not sure if we cover your area?</p>
-            <a href={site.phoneHref} class="mt-1 inline-flex items-center gap-2 text-sm font-semibold text-lime-500 hover:text-white">
-              <Icon name="phone" class="size-4" />
-              Call {site.phone}
-            </a>
-          </div>
-          <a href="/service-areas/" class="group inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold ring-1 ring-white/20 transition hover:bg-white/20">
-            All service areas & neighborhoods
-            <Icon name="arrowRight" class="size-4 text-lime-500 transition group-hover:translate-x-1" />
-          </a>
-        </div>
+<section id={id} class="bg-[#f7fbf8] py-14">
+  <div class:list={['container-x grid items-start gap-8', showMap && 'lg:grid-cols-2']}>
+    <div>
+      <p class="text-[11px] font-bold tracking-[0.16em] text-sky-500 uppercase">Service areas</p>
+      <h2 class="mt-2 text-2xl leading-tight">{title}</h2>
+      <p class="mt-3 text-sm text-muted">{intro}</p>
+      <div class="mt-6">
+        <ServiceAreaList current={current} serviceName={service?.name} />
       </div>
     </div>
+    {showMap && <GoogleMap bare class="h-[340px] lg:h-[560px]" />}
   </div>
 </section>

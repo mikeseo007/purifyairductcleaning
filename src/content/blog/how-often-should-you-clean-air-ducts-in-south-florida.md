@@ -2,8 +2,8 @@
 title: 'How Often Should You Clean Air Ducts in South Florida?'
 description: 'A practical schedule for air duct cleaning in Aventura and nearby cities, and the signs you should book sooner than the usual 3 to 5 years.'
 date: 2026-09-12
-cover: ../../assets/images/living-room.webp
-coverAlt: 'Furnished living room with a ceiling air vent'
+cover: ../../assets/images/duct-vent-cleaning.webp
+coverAlt: 'Purify technician cleaning a ceiling air vent with a brush and inspection camera'
 service: air-duct-cleaning
 ---
 
@@ -30,4 +30,4 @@ Aventura and Sunny Isles towers usually have a closet air handler and short runs
 
 Duct cleaning removes debris from the air path. It does not repair a crushed or disconnected run, it does not recharge refrigerant, and it is not a mold test. If one room never cools, start with an [air duct inspection](/air-duct-inspection/) so you are not paying to clean a duct that is no longer connected.
 
-Purify Air Duct Cleaning is based at 20533 Biscayne Blvd #8 in Aventura and serves Miami-Dade, Broward and Boca Raton. See [air duct cleaning](/air-duct-cleaning/) or call (305) 330-1328.
+Purify Air Duct Cleaning is based at 20533 Biscayne Blvd #8 in Aventura and serves Miami-Dade, Broward and Boca Raton. See [air duct cleaning](/air-duct-cleaning/) or call 954-945-9428.

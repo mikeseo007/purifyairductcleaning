@@ -21,6 +21,10 @@ interface Props {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const more = (await getCollection('blog'))
+  .filter((entry) => entry.id !== post.id)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
 const path = `/blog/${post.id}/`;
 const og = await getImage({ src: post.data.cover, width: 1200, format: 'jpg' });
 const ogUrl = new URL(og.src, SITE_URL).toString();
@@ -102,6 +106,32 @@ const fmt = post.data.date.toLocaleDateString('en-US', { year: 'numeric', month:
       </aside>
     </div>
   </section>
+
+  {
+    more.length > 0 && (
+      <section class="section bg-surface">
+        <div class="container-x">
+          <h2 class="text-2xl sm:text-3xl">More from the blog</h2>
+          <div class="mt-8 grid gap-6 md:grid-cols-3">
+            {more.map((entry) => (
+              <a href={`/blog/${entry.id}/`} class="card card-hover group overflow-hidden">
+                <Image
+                  src={entry.data.cover}
+                  alt={entry.data.coverAlt}
+                  title={entry.data.coverAlt}
+                  format="webp"
+                  widths={[400, 760]}
+                  sizes="(min-width: 768px) 30vw, 100vw"
+                  class="aspect-[19/11] w-full object-cover transition duration-700 group-hover:scale-105"
+                />
+                <span class="block p-6 font-display text-xl font-bold text-navy-900 group-hover:text-navy-700">{entry.data.title}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   <CtaBand />
 </BaseLayout>

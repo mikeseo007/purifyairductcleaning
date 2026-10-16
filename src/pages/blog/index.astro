@@ -2,9 +2,10 @@
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import PageHero from '../../components/PageHero.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import Icon from '../../components/Icon.astro';
+import { photos } from '../../data/photos';
 
 const posts = (await getCollection('blog')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 const breadcrumbs = [
@@ -15,15 +16,17 @@ const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month:
 ---
 
 <BaseLayout
-  title="Air Duct & Dryer Vent Cleaning Tips"
-  description="Tips on air duct cleaning, dryer vent safety and musty AC smells for South Florida homeowners from Purify Air Duct Cleaning in Aventura."
+  title="Air Duct Cleaning Cost, Tips & Guides"
+  description="Air duct cleaning cost, whether duct cleaning is worth it, and dryer vent cleaning prices for South Florida homes. Guides from Purify in Aventura."
   breadcrumbs={breadcrumbs}
 >
-  <PageHeader
+  <PageHero
     eyebrow="Purify blog"
-    title="Air Quality Tips for Florida Homeowners"
-    subtitle="Practical advice on air ducts, dryer vents and keeping your home’s air clean in a humid climate."
+    title="Air Duct & Dryer Vent Guides"
+    subtitle="What air duct cleaning costs, when it is worth it, and how dryer vent cleaning is priced for South Florida homes and condos."
     breadcrumbs={breadcrumbs}
+    image={photos.airDuct.src}
+    imageAlt={photos.airDuct.alt}
   />
 
   <section class="section relative overflow-hidden bg-surface">

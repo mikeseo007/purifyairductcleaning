@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PageHeader from '../components/PageHeader.astro';
+import PageHero from '../components/PageHero.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import ProcessSteps from '../components/ProcessSteps.astro';
 import Reviews from '../components/Reviews.astro';
@@ -13,7 +13,7 @@ import Icon from '../components/Icon.astro';
 import { SITE_URL } from '../data/site';
 import { services, serviceGroups, servicesByGroup } from '../data/services';
 import { faqSchema } from '../data/schema';
-import { asPhoto, pickPhoto } from '../data/photos';
+import { asPhoto, photos, pickPhoto } from '../data/photos';
 
 const breadcrumbs = [
   { name: 'Home', path: '/' },
@@ -49,9 +49,9 @@ const compare = [
     href: '/hvac-cleaning/',
   },
   {
-    problem: 'Musty AC smell or suspected microbial buildup on wet AC components',
-    service: 'HVAC Mold Cleaning',
-    href: '/hvac-mold-cleaning/',
+    problem: 'Musty AC smell or suspected buildup on the coil, drain pan or blower',
+    service: 'HVAC Mold Treatment',
+    href: '/hvac-mold-treatment/',
   },
   {
     problem: 'Lingering odor in the ductwork after the ducts are cleaned',
@@ -65,18 +65,33 @@ const compare = [
   },
   {
     problem: 'Clothes take more than one cycle to dry',
-    service: 'Dryer Vent Cleaning',
+    service: 'Clothes Dryer Vent Cleaning',
     href: '/dryer-vent-cleaning/',
+  },
+  {
+    problem: 'The dryer vent is crushed, foil, vinyl, or was never routed outside',
+    service: 'Dryer Vent Installation',
+    href: '/dryer-vent-installation/',
+  },
+  {
+    problem: 'A room stays warm because the duct is crushed or disconnected',
+    service: 'AC Duct Replacement',
+    href: '/ac-duct-replacement/',
+  },
+  {
+    problem: 'Attic insulation is wet, flat, or contaminated',
+    service: 'Attic Insulation Removal',
+    href: '/attic-insulation-removal/',
+  },
+  {
+    problem: 'The attic has little or no insulation',
+    service: 'Blown-In Attic Insulation',
+    href: '/blown-in-attic-insulation/',
   },
   {
     problem: 'A shared laundry room or several dryers on one vent',
     service: 'Commercial Dryer Vent Cleaning',
     href: '/commercial-dryer-vent-cleaning/',
-  },
-  {
-    problem: 'Musty coil film that returns every season',
-    service: 'UV Light Air Purification',
-    href: '/uv-light-air-purification/',
   },
 ];
 
@@ -86,16 +101,16 @@ const faqs = [
     a: 'Air duct cleaning covers the ductwork, registers and plenums. HVAC cleaning covers the equipment, including the evaporator coil, blower wheel, drain pan and air handler cabinet. Many systems benefit from both.',
   },
   {
-    q: 'How is HVAC mold cleaning different from air duct sanitizing?',
-    a: 'Sanitizing is an antimicrobial treatment applied to duct surfaces after cleaning, usually for lingering odors. HVAC mold cleaning focuses on the wet AC components, such as the coil, drain pan and blower, where microbial buildup is more likely. We don’t test for mold.',
+    q: 'How is HVAC mold treatment different from air duct sanitizing?',
+    a: 'Sanitizing is an antimicrobial treatment applied to duct surfaces after cleaning, usually for lingering odors. HVAC mold treatment focuses on the wet AC components, such as the coil, drain pan and blower, where buildup is more likely. We don’t test for mold.',
   },
   {
     q: 'Do you clean dryer vents too?',
     a: 'Yes. Residential and commercial dryer vent cleaning are available alongside air duct and HVAC services.',
   },
   {
-    q: 'Do you install UV lights?',
-    a: 'Yes. After the coil is cleaned, we can install a UV lamp inside the air handler so the coil keeps getting treated between visits.',
+    q: 'Do you replace ducts and attic insulation?',
+    a: 'Yes. AC duct replacement, attic insulation removal and blown-in attic insulation are available alongside air duct cleaning.',
   },
   {
     q: 'Which areas do you serve?',
@@ -106,7 +121,7 @@ const faqs = [
 
 <BaseLayout
   title="Air Duct, HVAC & Dryer Vent Services"
-  description="Air duct, HVAC and dryer vent cleaning in Aventura, plus coil, air handler and UV air purification. Call (305) 330-1328."
+  description="Air duct, HVAC and dryer vent cleaning in Aventura, plus coil, air handler and UV air purification. Call 954-945-9428."
   breadcrumbs={breadcrumbs}
   schema={[
     {
@@ -117,18 +132,24 @@ const faqs = [
     faqSchema(faqs),
   ]}
 >
-  <PageHeader
+  <PageHero
     eyebrow="Our services"
     title="Air Duct, AC Ductwork & HVAC Cleaning Services"
     subtitle="We clean the ductwork that carries conditioned air and the equipment that cools it. Dryer vent cleaning and UV air purification are available too."
     breadcrumbs={breadcrumbs}
+    image={photos.airDuct.src}
+    imageAlt={photos.airDuct.alt}
   />
 
   {
     primary.map((g, gi) => (
       <section class:list={['section relative overflow-hidden', gi === 0 ? 'bg-white' : 'bg-surface']} id={g.id}>
         <div class="container-x relative">
-          <SectionHeading eyebrow={gi === 0 ? 'Ductwork' : 'AC equipment'} title={g.name} intro={g.intro} />
+          <SectionHeading
+            eyebrow={g.id === 'duct' ? 'Ductwork' : g.id === 'hvac' ? 'Air conditioning' : g.id === 'dryer' ? 'Dryer vents' : 'Attic insulation'}
+            title={g.name}
+            intro={g.intro}
+          />
           <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-stagger>
             {g.items.map((s) => (
               <article class="card card-hover spotlight group relative flex flex-col overflow-hidden">

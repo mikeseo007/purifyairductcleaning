@@ -1,11 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PageHeader from '../components/PageHeader.astro';
 import QuoteForm from '../components/QuoteForm.astro';
-import Reviews from '../components/Reviews.astro';
 import Icon from '../components/Icon.astro';
 import GoogleMap from '../components/GoogleMap.astro';
-import { site, locations } from '../data/site';
+import { site } from '../data/site';
 import { businessId } from '../data/schema';
 
 const breadcrumbs = [
@@ -16,23 +14,16 @@ const breadcrumbs = [
 
 <BaseLayout
   title="Contact Purify Air Duct Cleaning in Aventura"
-  description="Contact Purify Air Duct Cleaning in Aventura. Call (305) 330-1328 or request a quote. Open 24 hours, every day."
+  description="Contact Purify Air Duct Cleaning in Aventura. Call 954-945-9428 or request a quote. Open 24 hours, every day."
   breadcrumbs={breadcrumbs}
   schema={[{ '@type': 'ContactPage', name: `Contact ${site.name}`, url: `${site.url}/contact-us/`, about: { '@id': businessId } }]}
 >
-  <PageHeader
-    eyebrow="Contact us"
-    title="Book an Inspection or Get a Free Quote"
-    subtitle="Call us or send a service request for air duct, AC ductwork, HVAC or dryer vent cleaning, and we’ll get back to you to schedule."
-    breadcrumbs={breadcrumbs}
-  />
-
   <section class="section relative overflow-hidden bg-surface">
     <div class="container-x relative grid gap-12 lg:grid-cols-12">
       <div class="lg:col-span-7">
         <div data-reveal>
           <p class="eyebrow">Get in touch</p>
-          <h2 class="text-[2rem] leading-[1.1] sm:text-[2.6rem]">{site.name}</h2>
+          <h1 class="text-[2rem] leading-[1.1] sm:text-[2.6rem]">{site.name}</h1>
           <p class="mt-4 text-lg text-muted">Based in Aventura, serving Miami-Dade, Broward and Boca Raton.</p>
         </div>
 
@@ -59,21 +50,9 @@ const breadcrumbs = [
         </ul>
 
         <div class="mt-8" data-reveal>
-          <GoogleMap class="h-[400px]" />
+          <GoogleMap class="h-[420px] lg:h-[520px]" />
         </div>
 
-        <p class="mt-8 font-bold text-navy-900">Areas we serve</p>
-        <ul class="mt-3 flex flex-wrap gap-2">
-          {
-            locations.map((l) => (
-              <li>
-                <a href={l.path} class="inline-block rounded-full bg-white px-3.5 py-1.5 text-sm font-semibold text-navy-800 ring-1 ring-sky-100 hover:bg-sky-100">
-                  {l.city}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
       </div>
       <div class="lg:col-span-5">
         <div class="lg:sticky lg:top-28" data-reveal="right">
@@ -84,6 +63,4 @@ const breadcrumbs = [
       </div>
     </div>
   </section>
-
-  <Reviews />
 </BaseLayout>

@@ -1,15 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PageHeader from '../components/PageHeader.astro';
+import PageHero from '../components/PageHero.astro';
 import SplitSection from '../components/SplitSection.astro';
-import TrustBar from '../components/TrustBar.astro';
 import ServicesSection from '../components/ServicesSection.astro';
 import Reviews from '../components/Reviews.astro';
 import LocationsSection from '../components/LocationsSection.astro';
 import CtaBand from '../components/CtaBand.astro';
 import QuoteSection from '../components/QuoteSection.astro';
-import SectionHeading from '../components/SectionHeading.astro';
-import Icon from '../components/Icon.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
 import { photos } from '../data/photos';
 import { site } from '../data/site';
 
@@ -28,23 +26,23 @@ const values = [
 
 <BaseLayout
   title="About Purify Air Duct Cleaning in Aventura"
-  description="Purify Air Duct Cleaning is an Aventura company focused on air duct, HVAC and dryer vent cleaning for homes and businesses. Call (305) 330-1328."
+  description="Purify Air Duct Cleaning is an Aventura company focused on air duct, HVAC and dryer vent cleaning for homes and businesses. Call 954-945-9428."
   breadcrumbs={breadcrumbs}
 >
-  <PageHeader
+  <PageHero
     eyebrow="About us"
     title="Aventura’s Air Duct & HVAC Cleaning Team"
     subtitle={`${site.name} helps homeowners and businesses keep their AC ductwork and HVAC equipment clean.`}
     breadcrumbs={breadcrumbs}
-    overlap
+    image={photos.airDuct.src}
+    imageAlt={photos.airDuct.alt}
   />
-  <TrustBar />
 
   <SplitSection
     eyebrow="Who we are"
     heading="Focused on the air side of your AC system"
-    image={photos.homeExterior.src}
-    imageAlt={photos.homeExterior.alt}
+    image={photos.serviceVanCrew.src}
+    imageAlt={photos.serviceVanCrew.alt}
     paragraphs={[
       'Purify Air Duct Cleaning is based at 20533 Biscayne Blvd #8 in Aventura. We serve homes and businesses across northern Miami-Dade, Broward and Boca Raton. The work is the air side of the air conditioner: supply and return ducts, coils, air handlers and blower cabinets.',
       'We also clean dryer vents, apply duct sanitizing after a mechanical cleaning, and install UV lamps when a clean coil needs ongoing treatment. We do not test for mold, and we do not replace air conditioning equipment.',
@@ -54,8 +52,8 @@ const values = [
   <SplitSection
     eyebrow="How we approach each job"
     heading="Clear scope, careful work, honest results"
-    image={photos.techWork.src}
-    imageAlt={photos.techWork.alt}
+    image={photos.serviceTrucks.src}
+    imageAlt={photos.serviceTrucks.alt}
     reverse
     tint
     paragraphs={[
@@ -64,25 +62,7 @@ const values = [
     ]}
   />
 
-  <section class="section bg-white">
-    <div class="container-x">
-      <SectionHeading eyebrow="How we work" title="What You Can Expect From Purify" center />
-      <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" data-stagger>
-        {
-          values.map((v, i) => (
-            <div class="card card-hover spotlight p-7">
-              <div class="flex items-center justify-between">
-                <span class="icon-chip size-12"><Icon name={v.icon} class="size-6" /></span>
-                <span class="font-display text-4xl font-bold text-sky-100">{String(i + 1).padStart(2, '0')}</span>
-              </div>
-              <h3 class="mt-6 text-xl">{v.title}</h3>
-              <p class="mt-2 leading-relaxed text-muted">{v.text}</p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
+  <ProcessSteps eyebrow="How we work" title="What You Can Expect From Purify" steps={values} bg="white" />
 
   <ServicesSection bg="sky" avoid={[photos.homeExterior.src, photos.techWork.src]} />
   <Reviews />

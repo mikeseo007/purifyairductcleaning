@@ -1,28 +1,27 @@
 @import 'tailwindcss';
-@import '@fontsource-variable/outfit';
-@import '@fontsource-variable/fraunces/opsz.css';
+@import '@fontsource-variable/montserrat';
 
 @theme {
-  --font-sans: 'Outfit Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-display: 'Fraunces Variable', 'Outfit Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Montserrat Variable', Montserrat, ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Montserrat Variable', Montserrat, ui-sans-serif, system-ui, sans-serif;
 
-  --color-navy-950: #06241f;
-  --color-navy-900: #0b3a32;
-  --color-navy-800: #0f4d43;
-  --color-navy-700: #146056;
-  --color-navy-600: #1a7568;
-  --color-sky-500: #1aa38a;
-  --color-sky-400: #3dbea4;
-  --color-sky-300: #8ed9c8;
-  --color-sky-200: #c8eee4;
-  --color-sky-100: #e7f7f3;
-  --color-sky-50: #f3fbf8;
-  --color-lime-400: #f0a36a;
-  --color-lime-500: #e07a3d;
-  --color-lime-600: #c4622a;
-  --color-ink: #16302c;
-  --color-muted: #5c6f6a;
-  --color-surface: #f4faf8;
+  --color-navy-950: #0b332b;
+  --color-navy-900: #12382f;
+  --color-navy-800: #18483c;
+  --color-navy-700: #1e5c4c;
+  --color-navy-600: #26725e;
+  --color-sky-500: #12a150;
+  --color-sky-400: #3dbe78;
+  --color-sky-300: #8dceb0;
+  --color-sky-200: #d3eee2;
+  --color-sky-100: #e7f6ee;
+  --color-sky-50: #f3faf6;
+  --color-lime-400: #b6e36a;
+  --color-lime-500: #1c8a4e;
+  --color-lime-600: #146b3c;
+  --color-ink: #1c2421;
+  --color-muted: #5e6b66;
+  --color-surface: #f4fbf6;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
@@ -44,8 +43,8 @@
   h2,
   h3,
   h4 {
-    @apply font-display font-bold text-navy-900;
-    letter-spacing: -0.028em;
+    @apply font-sans font-bold text-navy-900;
+    letter-spacing: -0.02em;
     text-wrap: balance;
   }
 
@@ -59,7 +58,7 @@
   }
 
   ::selection {
-    @apply bg-lime-500 text-navy-950;
+    @apply bg-sky-200 text-navy-950;
   }
 
   :focus-visible {
@@ -74,50 +73,43 @@
 
   .btn-primary,
   .btn-navy,
-  .btn-outline {
+  .btn-outline,
+  .btn-light {
     @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-6 py-3 text-base font-bold transition duration-300 ease-out;
   }
 
   .btn-primary > svg:last-child:not(:first-child),
   .btn-navy > svg:last-child:not(:first-child),
-  .btn-outline > svg:last-child:not(:first-child) {
+  .btn-outline > svg:last-child:not(:first-child),
+  .btn-light > svg:last-child:not(:first-child) {
     @apply transition-transform duration-300;
   }
 
   .btn-primary:hover > svg:last-child:not(:first-child),
   .btn-navy:hover > svg:last-child:not(:first-child),
-  .btn-outline:hover > svg:last-child:not(:first-child) {
+  .btn-outline:hover > svg:last-child:not(:first-child),
+  .btn-light:hover > svg:last-child:not(:first-child) {
     @apply translate-x-1;
   }
 
   .btn-primary {
-    @apply bg-lime-500 text-navy-950 shadow-[0_12px_32px_-12px] shadow-lime-500/70 hover:-translate-y-0.5 hover:bg-lime-400 hover:shadow-[0_18px_40px_-14px] hover:shadow-lime-500/80;
-  }
-
-  .btn-primary::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(110deg, transparent 30%, rgb(255 255 255 / 0.55) 50%, transparent 70%);
-    transform: translateX(-120%);
-    transition: transform 0.8s var(--ease-out-expo);
-    pointer-events: none;
-  }
-
-  .btn-primary:hover::after {
-    transform: translateX(120%);
+    @apply bg-lime-400 text-navy-950 shadow-[0_12px_28px_-14px] shadow-lime-500/80 hover:-translate-y-0.5 hover:bg-white;
   }
 
   .btn-navy {
-    @apply bg-navy-900 text-white shadow-[0_12px_30px_-14px] shadow-navy-900/60 hover:-translate-y-0.5 hover:bg-navy-700;
+    @apply bg-navy-900 text-white hover:bg-navy-700;
   }
 
   .btn-outline {
-    @apply border border-white/30 bg-white/5 text-white backdrop-blur-sm hover:-translate-y-0.5 hover:border-white hover:bg-white hover:text-navy-900;
+    @apply border border-navy-900/15 bg-white text-navy-900 hover:-translate-y-0.5 hover:border-navy-900;
+  }
+
+  .btn-light {
+    @apply border border-white/30 bg-white text-navy-900 hover:bg-sky-50;
   }
 
   .eyebrow {
-    @apply mb-4 inline-flex items-center gap-3 text-[0.78rem] font-bold tracking-[0.2em] text-sky-500 uppercase;
+    @apply mb-4 inline-flex items-center gap-3 font-sans text-[0.78rem] font-bold tracking-[0.18em] text-sky-500 uppercase;
   }
 
   .eyebrow::before {
@@ -125,7 +117,7 @@
     width: 1.75rem;
     height: 2px;
     border-radius: 2px;
-    background: linear-gradient(90deg, currentColor, transparent);
+    background: currentColor;
     flex-shrink: 0;
   }
 
@@ -134,7 +126,7 @@
   }
 
   .card {
-    @apply rounded-[1.75rem] border border-slate-200/70 bg-white shadow-[0_1px_2px_rgb(13_31_77/0.04),0_12px_32px_-18px_rgb(13_31_77/0.18)];
+    @apply rounded-[1.75rem] border border-slate-200/80 bg-white shadow-[0_12px_32px_-18px_rgb(11_51_43/0.25)];
   }
 
   .card-hover {
@@ -146,11 +138,40 @@
   }
 
   .icon-chip {
-    @apply flex shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-navy-700 to-navy-900 text-white shadow-[0_8px_18px_-8px] shadow-navy-900/50 ring-1 ring-white/10;
+    @apply flex shrink-0 items-center justify-center rounded-full bg-sky-100 text-navy-700;
   }
 
   .text-gradient {
     @apply bg-gradient-to-r from-sky-400 via-sky-300 to-lime-400 bg-clip-text text-transparent;
+  }
+
+  .page-hero-fade {
+    background: linear-gradient(90deg, var(--color-navy-950) 0%, var(--color-navy-950) 52%, rgb(11 51 43 / 0.55) 74%, transparent 100%);
+  }
+
+  @media (min-width: 1024px) {
+    .page-hero-fade {
+      background: linear-gradient(90deg, var(--color-navy-950) 0%, var(--color-navy-950) 34%, rgb(11 51 43 / 0.72) 50%, rgb(11 51 43 / 0.18) 68%, transparent 84%);
+    }
+  }
+
+  .page-hero {
+    background:
+      radial-gradient(ellipse 46% 90% at 82% 48%, rgb(28 150 136 / 0.72), transparent 68%),
+      radial-gradient(ellipse 26% 36% at 94% 12%, rgb(190 242 100 / 0.28), transparent 64%),
+      radial-gradient(ellipse 28% 40% at 90% 96%, rgb(56 160 210 / 0.42), transparent 66%),
+      linear-gradient(102deg, #02100d 0%, #071c18 26%, #0c3d36 55%, #156078 100%);
+  }
+
+  .hero-scene,
+  .hero-scene--photo {
+    background: var(--color-navy-950);
+  }
+
+  .hero-scene__wash {
+    background:
+      linear-gradient(90deg, var(--color-navy-950) 0%, rgb(11 51 43 / 0.9) 32%, rgb(11 51 43 / 0.28) 68%, rgb(11 51 43 / 0.18) 100%),
+      linear-gradient(180deg, rgb(11 51 43 / 0.5) 0%, transparent 26%, rgb(11 51 43 / 0.62) 100%);
   }
 
   .spotlight {
