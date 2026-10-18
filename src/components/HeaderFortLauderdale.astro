@@ -1,0 +1,143 @@
+---
+import Icon from './Icon.astro';
+import Logo from './Logo.astro';
+import { site, locations } from '../data/site';
+import { fortLauderdale, fortLauderdaleLandingSlug, fortLauderdaleLocationSlugs } from '../data/fort-lauderdale';
+import { fortLauderdaleServiceLinks } from '../data/fort-lauderdale-services';
+
+// Fort Lauderdale header: only two top-level dropdowns (Services, Service Areas). Shared phone.
+const landingPath = `/${fortLauderdaleLandingSlug}/`;
+const serviceLinks = fortLauderdaleServiceLinks;
+const flLocations = fortLauderdaleLocationSlugs
+  .map((slug) => locations.find((l) => l.slug === slug))
+  .filter((l): l is NonNullable<typeof l> => Boolean(l))
+  .map((l) => ({ href: l.path, label: l.city }));
+---
+
+<div class="bg-navy-950 text-sm text-white/80">
+  <div class="container-x flex h-10 items-center justify-between gap-4">
+    <p class="flex min-w-0 items-center gap-2 truncate">
+      <Icon name="pin" class="size-4 shrink-0 text-lime-400" />
+      Serving Fort Lauderdale and 12 Nearby Communities
+    </p>
+    <span class="shrink-0 font-semibold text-white/90">Open 24 hours, 7 days</span>
+  </div>
+</div>
+<header class="sticky top-0 z-50 border-b border-slate-200 bg-white" data-header>
+  <div class="container-x relative flex h-20 items-center justify-between gap-3">
+    <a href={landingPath} class="flex shrink-0 items-center" aria-label={`${fortLauderdale.name} home`}>
+      <Logo size="lg" />
+    </a>
+
+    <nav aria-label="Main" class="hidden lg:block">
+      <ul class="flex items-center gap-0.5">
+        <li class="group">
+          <a href={landingPath} class="nav-link flex items-center gap-1 rounded-lg px-3 py-2 text-[15px] font-medium text-navy-900 transition hover:text-sky-500">
+            Services
+            <Icon name="chevronDown" class="size-4 transition group-hover:rotate-180" />
+          </a>
+          <div class="mega invisible absolute inset-x-0 top-full z-50 pt-2 opacity-0 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+            <div class="mx-auto grid max-w-3xl grid-cols-2 gap-x-6 gap-y-1 rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_24px_60px_-30px_rgb(18_56_47/0.45)]">
+              {
+                serviceLinks.map((c) => (
+                  <a
+                    href={c.href}
+                    class="flex items-center gap-2.5 rounded-xl px-3 py-2 text-[15px] font-medium text-ink transition hover:bg-sky-50 hover:text-navy-700"
+                  >
+                    <Icon name={c.icon} class="size-5 shrink-0 text-sky-500" />
+                    {c.label}
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+        </li>
+        <li class="group">
+          <a href={landingPath} class="nav-link flex items-center gap-1 rounded-lg px-3 py-2 text-[15px] font-medium whitespace-nowrap text-navy-900 transition hover:text-sky-500">
+            Service Areas
+            <Icon name="chevronDown" class="size-4 transition group-hover:rotate-180" />
+          </a>
+          <div class="mega invisible absolute inset-x-0 top-full z-50 pt-2 opacity-0 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+            <div class="mx-auto grid max-w-3xl grid-cols-3 gap-x-6 gap-y-1 rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_24px_60px_-30px_rgb(18_56_47/0.45)]">
+              {
+                flLocations.map((c) => (
+                  <a
+                    href={c.href}
+                    class="flex items-center gap-2 rounded-xl px-3 py-1.5 text-[15px] font-medium text-ink transition hover:bg-sky-50 hover:text-navy-700"
+                  >
+                    <Icon name="pin" class="size-4 shrink-0 text-sky-500" />
+                    {c.label}
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a href={site.phoneHref} class="hidden shrink-0 items-center gap-2 rounded-full bg-lime-400 px-4 py-2 text-sm font-bold whitespace-nowrap text-navy-950 hover:bg-white sm:inline-flex">
+        <Icon name="phone" class="size-4" />
+        {site.phone}
+      </a>
+      <button
+        type="button"
+        class="inline-flex size-11 items-center justify-center rounded-lg border border-slate-200 text-navy-900 lg:hidden"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="fl-mobile-menu"
+        data-menu-toggle
+      >
+        <Icon name="menu" class="size-6" />
+      </button>
+    </div>
+  </div>
+
+  <div id="fl-mobile-menu" class="hidden max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-slate-200 bg-white lg:hidden" data-menu>
+    <nav aria-label="Mobile" class="container-x py-4">
+      <ul class="space-y-1">
+        <li>
+          <details class="group">
+            <summary class="flex cursor-pointer list-none items-center justify-between rounded-xl px-3 py-3 text-lg font-semibold text-navy-900 hover:bg-sky-50">
+              Services
+              <Icon name="chevronDown" class="size-5 transition group-open:rotate-180" />
+            </summary>
+            <ul class="mb-2 ml-3 border-l-2 border-sky-100 pl-3">
+              {serviceLinks.map((c) => (
+                <li><a href={c.href} class="block rounded-lg px-3 py-2.5 text-ink hover:bg-sky-50">{c.label}</a></li>
+              ))}
+            </ul>
+          </details>
+        </li>
+        <li>
+          <details class="group">
+            <summary class="flex cursor-pointer list-none items-center justify-between rounded-xl px-3 py-3 text-lg font-semibold text-navy-900 hover:bg-sky-50">
+              Service Areas
+              <Icon name="chevronDown" class="size-5 transition group-open:rotate-180" />
+            </summary>
+            <ul class="mb-2 ml-3 grid grid-cols-2 border-l-2 border-sky-100 pl-3">
+              {flLocations.map((c) => (
+                <li><a href={c.href} class="block rounded-lg px-3 py-2 text-ink hover:bg-sky-50">{c.label}</a></li>
+              ))}
+            </ul>
+          </details>
+        </li>
+      </ul>
+      <a href={site.phoneHref} class="btn-primary mt-4 w-full">
+        <Icon name="phone" class="size-5" />
+        {site.phone}
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('[data-header] [data-menu-toggle]');
+  const menu = document.getElementById('fl-mobile-menu');
+  toggle?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('hidden') === false;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+</script>

@@ -5,38 +5,53 @@ import { regions, locationsByRegion } from '../data/site';
 interface Props {
   current?: string;
   serviceName?: string;
+  /** Optional flat list (e.g. the 12 Fort Lauderdale service areas). Defaults to the full region-grouped list. */
+  areaList?: { slug?: string; path: string; city: string }[];
 }
 
-const { current, serviceName = 'Air duct cleaning' } = Astro.props;
+const { current, serviceName = 'Air duct cleaning', areaList } = Astro.props;
+
+const linkClass = (isCurrent: boolean) => [
+  'inline-flex items-center gap-1.5 text-sm font-semibold hover:text-sky-600',
+  isCurrent ? 'text-sky-600' : 'text-navy-900',
+];
 ---
 
-<div class="space-y-10">
-  {
-    regions.map((region) => (
-      <div>
-        <h3 class="text-xs font-bold tracking-[0.14em] text-muted uppercase">{region.name}</h3>
-        <ul class="mt-2 grid grid-cols-2 gap-y-2 sm:grid-cols-3">
-          {locationsByRegion(region.id).map((loc) => {
-            const isCurrent = loc.slug === current;
-            return (
-              <li>
-                <a
-                  href={loc.path}
-                  title={`${serviceName} in ${loc.city}, FL`}
-                  aria-current={isCurrent ? 'page' : undefined}
-                  class:list={[
-                    'inline-flex items-center gap-1.5 text-sm font-semibold hover:text-sky-600',
-                    isCurrent ? 'text-sky-600' : 'text-navy-900',
-                  ]}
-                >
-                  <Icon name="check" class:list={['size-3.5 shrink-0', isCurrent ? 'text-sky-600' : 'text-sky-500']} />
-                  {loc.city}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    ))
-  }
-</div>
+{
+  areaList ? (
+    <ul class="grid grid-cols-2 gap-x-4 gap-y-2 sm:grid-cols-3">
+      {areaList.map((loc) => {
+        const isCurrent = !!loc.slug && loc.slug === current;
+        return (
+          <li>
+            <a href={loc.path} title={`${serviceName} in ${loc.city}, FL`} aria-current={isCurrent ? 'page' : undefined} class:list={linkClass(isCurrent)}>
+              <Icon name="check" class:list={['size-3.5 shrink-0', isCurrent ? 'text-sky-600' : 'text-sky-500']} />
+              {loc.city}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  ) : (
+    <div class="space-y-10">
+      {regions.map((region) => (
+        <div>
+          <h3 class="text-xs font-bold tracking-[0.14em] text-muted uppercase">{region.name}</h3>
+          <ul class="mt-2 grid grid-cols-2 gap-y-2 sm:grid-cols-3">
+            {locationsByRegion(region.id).map((loc) => {
+              const isCurrent = loc.slug === current;
+              return (
+                <li>
+                  <a href={loc.path} title={`${serviceName} in ${loc.city}, FL`} aria-current={isCurrent ? 'page' : undefined} class:list={linkClass(isCurrent)}>
+                    <Icon name="check" class:list={['size-3.5 shrink-0', isCurrent ? 'text-sky-600' : 'text-sky-500']} />
+                    {loc.city}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      ))}
+    </div>
+  )
+}

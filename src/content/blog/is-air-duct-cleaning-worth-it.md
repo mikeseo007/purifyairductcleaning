@@ -1,6 +1,6 @@
 ---
 title: 'Is Air Duct Cleaning Worth It?'
-description: 'Air duct cleaning is worth it when dust, renovation debris, or a dirty coil is in the system. It will not fix a crushed duct or guarantee a lower power bill.'
+description: 'Air duct cleaning is worth it when dust, renovation debris, or a dirty coil is in the system. It will not fix a crushed duct or cut your power bill.'
 date: 2026-10-15
 cover: ../../assets/images/duct-inspection.webp
 coverAlt: 'Purify technician inspecting an air duct with a camera'

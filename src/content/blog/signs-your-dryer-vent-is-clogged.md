@@ -1,6 +1,6 @@
 ---
 title: 'Signs Your Dryer Vent Is Clogged'
-description: 'Long dry times, a hot laundry room and a stuck exterior flap are signs the dryer vent needs cleaning. Here is what to watch for in South Florida homes and condos.'
+description: 'Long dry times, a hot laundry room and a stuck exterior flap are signs the dryer vent needs cleaning. Here is what to watch for before it gets worse.'
 date: 2026-09-28
 cover: ../../assets/images/exterior-vent-hose.webp
 coverAlt: 'Purify technician cleaning a clothes dryer vent from outside the laundry room'

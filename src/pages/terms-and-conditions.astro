@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { site } from '../data/site';
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Terms & Conditions', path: '/terms-and-conditions/' },
+];
+
+const legalPhone = '+1 954-945-9428';
+const legalPhoneHref = 'tel:+19549459428';
+const legalEmail = 'office@purifyairductcleaning.com';
+const legalAddress = '20533 Biscayne Blvd #8, Aventura, FL 33180, United States';
+---
+
+<BaseLayout
+  title="Terms & Conditions - Purify Air Duct Cleaning"
+  description="Read the Terms & Conditions for using the Purify Air Duct Cleaning website, including acceptable use, content, and liability."
+  breadcrumbs={breadcrumbs}
+>
+  <PageHeader title="Terms & Conditions" subtitle="Last updated: October 18, 2026" breadcrumbs={breadcrumbs} />
+  <section class="section bg-white">
+    <div class="container-x prose-purix max-w-3xl">
+      <h2>1. Introduction</h2>
+      <p>Welcome to Purify Air Duct Cleaning (“we”, “our”, or “us”). These Terms &amp; Conditions govern your use of our website located at <a href={`${site.url}/`}>{site.url}/</a>.</p>
+      <p>By accessing or using this website, you agree to comply with these Terms &amp; Conditions. If you do not agree with these terms, please discontinue using our website.</p>
+
+      <h2>2. Use of Website</h2>
+      <p>You agree to use our website only for lawful purposes and in a manner that does not infringe upon the rights of others, interfere with website functionality, or restrict other visitors from accessing or using the website.</p>
+      <p>You may not use our website to distribute harmful content, attempt unauthorized access, or engage in activities that could damage our website or its users.</p>
+
+      <h2>3. Intellectual Property</h2>
+      <p>All content on this website, including text, images, graphics, logos, design elements, and other materials, is owned by Purify Air Duct Cleaning or its respective rights holders unless otherwise stated.</p>
+      <p>You may not copy, reproduce, distribute, modify, publish, or commercially use any website content without prior written permission from the appropriate rights holder, except where permitted by applicable law.</p>
+
+      <h2>4. User Content</h2>
+      <p>If you submit comments, messages, inquiries, or other content through our website, you are responsible for ensuring that the information you provide is lawful and does not infringe upon the rights of others.</p>
+      <p>We reserve the right to remove or restrict access to user-submitted content that we reasonably consider inappropriate, unlawful, misleading, or harmful.</p>
+      <p>Submitting information through our website does not guarantee that we will provide services, accept a service request, or enter into a contractual agreement.</p>
+
+      <h2>5. Links to Other Websites</h2>
+      <p>Our website may contain links to third-party websites or services for informational or convenience purposes. We do not control or assume responsibility for the content, privacy practices, availability, or policies of these external websites.</p>
+      <p>Accessing third-party websites is at your own discretion and subject to their applicable terms and policies.</p>
+
+      <h2>6. Limitation of Liability</h2>
+      <p>To the extent permitted by applicable law, Purify Air Duct Cleaning shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of, or inability to use, this website or its content.</p>
+      <p>We make reasonable efforts to keep the website information accurate and available but do not guarantee that all content will always be complete, current, error-free, or uninterrupted.</p>
+      <p>Nothing in these Terms &amp; Conditions excludes or limits liability that cannot legally be excluded or limited under applicable law.</p>
+
+      <h2>7. Changes to Terms</h2>
+      <p>We reserve the right to update or revise these Terms &amp; Conditions at any time. Changes will become effective when posted on this page, unless otherwise stated.</p>
+      <p>The “Last updated” date indicates when these terms were most recently revised. Your continued use of the website after changes are posted constitutes acceptance of the revised terms, to the extent permitted by applicable law.</p>
+
+      <h2>8. Governing Law</h2>
+      <p>These Terms &amp; Conditions are governed by the laws of the State of Florida, United States, without regard to its conflict-of-law principles, except where applicable law requires otherwise.</p>
+      <p>Any disputes arising from the use of this website will be handled in accordance with applicable law.</p>
+
+      <h2>9. Contact</h2>
+      <p>If you have questions about these Terms &amp; Conditions, please contact us using the information below.</p>
+      <p>
+        <strong>Purify Air Duct Cleaning</strong><br />
+        Email: <a href={`mailto:${legalEmail}`}>{legalEmail}</a><br />
+        Phone: <a href={legalPhoneHref}>{legalPhone}</a><br />
+        Business Address: {legalAddress}<br />
+        Website: <a href={`${site.url}/`}>{site.url}/</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

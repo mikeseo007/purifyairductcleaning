@@ -1,0 +1,35 @@
+---
+// Dedicated Fort Lauderdale service pages (nested under the FL landing page).
+// Reuses the shared ServicePage template with FL-specific service data, the Fort Lauderdale
+// header/footer variant, FL business schema, no map embed (FL map is landing-only), and
+// indexable production SEO (NOT the test page's noindex). Kept separate from the global
+// `services` array so these never appear in the main site's nav, services grid, or forms.
+import ServicePage from '../../components/ServicePage.astro';
+import { fortLauderdaleServices } from '../../data/fort-lauderdale-services';
+import { fortLauderdale } from '../../data/fort-lauderdale';
+
+export function getStaticPaths() {
+  const base = `/air-duct-cleaning-fort-lauderdale/`;
+  return fortLauderdaleServices.map((service) => ({
+    params: { service: service.path.replace(base, '').replace(/\/$/, '') },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: fortLauderdale.name, path: '/air-duct-cleaning-fort-lauderdale/' },
+  { name: service.name, path: service.path },
+];
+---
+
+<ServicePage
+  service={service}
+  variant="fortLauderdale"
+  hideServices
+  hideRelated
+  reviewButton
+  breadcrumbs={breadcrumbs}
+  reviewsTitle="Trusted by Homeowners and Businesses in Fort Lauderdale"
+/>

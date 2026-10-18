@@ -1,0 +1,76 @@
+---
+import Icon from './Icon.astro';
+import Logo from './Logo.astro';
+import { site, locations } from '../data/site';
+import { fortLauderdale, fortLauderdaleLandingSlug, fortLauderdaleLocationSlugs } from '../data/fort-lauderdale';
+import { fortLauderdaleServiceLinks } from '../data/fort-lauderdale-services';
+
+const year = new Date().getFullYear();
+const landingPath = `/${fortLauderdaleLandingSlug}/`;
+const flLocations = fortLauderdaleLocationSlugs
+  .map((slug) => locations.find((l) => l.slug === slug))
+  .filter((l): l is NonNullable<typeof l> => Boolean(l))
+  .map((l) => ({ href: l.path, label: l.city }));
+---
+
+<footer class="bg-navy-950 text-white/70">
+  <div class="container-x grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-12 lg:py-16">
+    <div class="sm:col-span-2 lg:col-span-3">
+      <a href={landingPath} aria-label={`${fortLauderdale.name} home`} class="inline-block origin-left scale-125 sm:scale-100">
+        <Logo tone="light" />
+      </a>
+      <p class="mt-5 max-w-xs text-sm leading-relaxed">Professional air duct, HVAC, and dryer vent cleaning for homes in Fort Lauderdale and nearby Broward communities.</p>
+    </div>
+
+    <div class="hidden sm:block lg:col-span-3">
+      <p class="text-sm font-bold tracking-wide text-white uppercase">Our Services</p>
+      <ul class="mt-4 space-y-2.5 text-sm">
+        {fortLauderdaleServiceLinks.map((s) => (
+          <li><a href={s.href} class="hover:text-white">{s.label}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="hidden lg:col-span-3 lg:block">
+      <p class="text-sm font-bold tracking-wide text-white uppercase">Service Areas</p>
+      <ul class="mt-4 flex flex-wrap gap-x-3 gap-y-1.5 text-sm">
+        {flLocations.map((l) => (
+          <li><a href={l.href} class="hover:text-white">{l.label}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="lg:col-span-3">
+      <p class="text-sm font-bold tracking-wide text-white uppercase">Contact</p>
+      <ul class="mt-4 space-y-3 text-sm">
+        <li>
+          <a href={site.phoneHref} class="flex items-start gap-2 font-semibold text-white hover:text-sky-300">
+            <Icon name="phone" class="mt-0.5 size-4 shrink-0" />
+            {site.phone}
+          </a>
+        </li>
+        <li>
+          <a href={`mailto:${fortLauderdale.email}`} class="flex items-start gap-2 hover:text-white">
+            <Icon name="mail" class="mt-0.5 size-4 shrink-0" />
+            {fortLauderdale.email}
+          </a>
+        </li>
+        <li class="flex items-start gap-2">
+          <Icon name="pin" class="mt-0.5 size-4 shrink-0" />
+          <a href={fortLauderdale.mapLink} target="_blank" rel="noopener" class="hover:text-white">
+            {fortLauderdale.address.street}<br />{fortLauderdale.address.city}, {fortLauderdale.address.region} {fortLauderdale.address.zip}
+          </a>
+        </li>
+        <li class="flex items-start gap-2">
+          <Icon name="clock" class="mt-0.5 size-4 shrink-0" />
+          <span>{fortLauderdale.hours.long}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="container-x py-5 text-center text-sm">
+      <p>&copy; {year} Purify Air Duct Cleaning {fortLauderdale.name}. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

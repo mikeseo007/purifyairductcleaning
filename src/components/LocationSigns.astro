@@ -1,0 +1,36 @@
+---
+// Section 3 on a location page: "Signs Your {City} Home May Need Air Duct
+// Cleaning Service". A two-column checklist layout (no large image) so it reads
+// differently from the card grid and the image-and-text sections around it.
+import Icon from './Icon.astro';
+
+interface Props {
+  heading: string;
+  intro: string;
+  signs: string[];
+}
+
+const { heading, intro, signs } = Astro.props;
+---
+
+<section class="section bg-white">
+  <div class="container-x">
+    <div class="mx-auto max-w-3xl text-center" data-reveal>
+      <p class="eyebrow">Warning signs</p>
+      <h2 class="text-[2rem] leading-[1.08] sm:text-4xl lg:text-[2.75rem]">{heading}</h2>
+      <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">{intro}</p>
+    </div>
+    <ul class="mx-auto mt-12 grid max-w-4xl gap-4 sm:grid-cols-2" data-stagger>
+      {
+        signs.map((sign) => (
+          <li class="flex items-start gap-4 rounded-2xl border border-slate-200/80 bg-surface p-5">
+            <span class="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg bg-sky-500/10 text-sky-600">
+              <Icon name="alert" class="size-4" />
+            </span>
+            <span class="leading-relaxed text-ink">{sign}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

@@ -39,6 +39,8 @@ import commercialDryerVent from '../assets/images/commercial-dryer-vent.webp';
 import dryerVentInstall from '../assets/images/dryer-vent-install.webp';
 import atticInsulationRemoval from '../assets/images/attic-insulation-removal.webp';
 import blownInInsulation from '../assets/images/blown-in-insulation.webp';
+import dryerVentRepair1 from '../assets/images/dryer-vent-repair-1.webp';
+import dryerVentRepair2 from '../assets/images/dryer-vent-repair-2.webp';
 
 export interface Photo {
   src: ImageMetadata;
@@ -88,6 +90,8 @@ export const photos = {
   dryerVentInstall: { src: dryerVentInstall, alt: 'Gloved hands fitting a new metal dryer vent beside a clothes dryer', family: 'dryer-vent-install' },
   atticInsulationRemoval: { src: atticInsulationRemoval, alt: 'Vacuum hose removing old insulation from between attic joists', family: 'attic-insulation-removal' },
   blownInInsulation: { src: blownInInsulation, alt: 'Hose blowing fresh loose-fill insulation between attic joists', family: 'blown-in-insulation' },
+  dryerVentRepair1: { src: dryerVentRepair1, alt: 'Technician sealing the top edge of an exterior dryer vent cover with caulk during a dryer vent repair', family: 'dryer-vent-repair' },
+  dryerVentRepair2: { src: dryerVentRepair2, alt: 'Technician sealing around a white exterior dryer vent hood with a caulking gun during a dryer vent repair', family: 'dryer-vent-repair' },
 } satisfies Record<string, Photo>;
 
 export type PhotoKey = keyof typeof photos;

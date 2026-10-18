@@ -2,9 +2,11 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import HeaderFortLauderdale from '../components/HeaderFortLauderdale.astro';
+import FooterFortLauderdale from '../components/FooterFortLauderdale.astro';
 import MobileCallBar from '../components/MobileCallBar.astro';
 import { SITE_URL, site, mainLocation, type Location } from '../data/site';
-import { businessSchema, websiteSchema, webpageSchema, breadcrumbSchema } from '../data/schema';
+import { organizationSchema, businessSchema, websiteSchema, webpageSchema, breadcrumbSchema, fortLauderdaleLocalBusinessSchema, fortLauderdaleLocalBusinessId, organizationId, businessId } from '../data/schema';
 
 interface Props {
   title: string;
@@ -14,6 +16,12 @@ interface Props {
   schema?: Record<string, unknown>[];
   breadcrumbs?: { name: string; path: string }[];
   noindex?: boolean;
+  /** Overrides the robots directive when noindex is set (defaults to 'noindex, follow'). */
+  robots?: string;
+  /** 'fortLauderdale' swaps to the FL header/footer and FL business schema. Default 'main'. */
+  variant?: 'main' | 'fortLauderdale';
+  /** Emit the Fort Lauderdale LocalBusiness entity. Set only on the FL landing page. */
+  localBusiness?: boolean;
   ogType?: 'website' | 'article';
   published?: string;
 }
@@ -21,11 +29,14 @@ interface Props {
 const {
   title,
   description,
-  image = '/og-image.jpg',
+  image = '/og-image1.png',
   location = mainLocation,
   schema = [],
   breadcrumbs,
   noindex = false,
+  robots,
+  variant = 'main',
+  localBusiness = false,
   ogType = 'website',
   published,
 } = Astro.props;
@@ -34,11 +45,22 @@ const brand = title.length + site.name.length + 3 <= 60 ? site.name : site.short
 const fullTitle = title.includes(site.shortName) ? title : `${title} | ${brand}`;
 const canonical = new URL(Astro.url.pathname, SITE_URL).toString();
 const ogImage = new URL(image, SITE_URL).toString();
+const ogImageType = image.endsWith('.png') ? 'image/png' : image.endsWith('.webp') ? 'image/webp' : 'image/jpeg';
 
+const isFL = variant === 'fortLauderdale';
+// WebPage.about points to the primary business entity present on this page:
+//  - FL landing  → the Fort Lauderdale LocalBusiness (#localbusiness)
+//  - other FL    → the sitewide Organization (the FL LocalBusiness is landing-only)
+//  - main pages  → the Aventura business (#business)
+const pageAboutId = localBusiness ? fortLauderdaleLocalBusinessId : isFL ? organizationId : businessId;
 const graph = [
-  businessSchema(),
+  // Organization + WebSite are sitewide on every page.
+  organizationSchema(),
   websiteSchema(),
-  webpageSchema({ url: canonical, name: fullTitle, description, image: ogImage }),
+  // Aventura LocalBusiness on main pages only; FL LocalBusiness on the FL landing page only.
+  ...(isFL ? [] : [businessSchema()]),
+  ...(localBusiness ? [fortLauderdaleLocalBusinessSchema()] : []),
+  webpageSchema({ url: canonical, name: fullTitle, description, image: ogImage }, pageAboutId),
   ...(breadcrumbs ? [breadcrumbSchema(breadcrumbs)] : []),
   ...schema,
 ];
@@ -53,7 +75,7 @@ const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': grap
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    {noindex ? <meta name="robots" content="noindex, follow" /> : <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />}
+    {noindex ? <meta name="robots" content={robots ?? 'noindex, follow'} /> : <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />}
     <meta name="author" content={site.name} />
     <meta name="geo.position" content={`${location.lat};${location.lng}`} />
 
@@ -69,7 +91,7 @@ const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': grap
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:type" content={ogImageType} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Purify Air Duct Cleaning, serving Aventura and South Florida" />
@@ -99,11 +121,11 @@ const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': grap
     <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded focus:bg-white focus:px-4 focus:py-2">
       Skip to content
     </a>
-    <Header />
+    {variant === 'fortLauderdale' ? <HeaderFortLauderdale /> : <Header />}
     <main id="main">
       <slot />
     </main>
-    <Footer />
+    {variant === 'fortLauderdale' ? <FooterFortLauderdale /> : <Footer />}
     <MobileCallBar />
     <script>
       import '../scripts/motion';

@@ -7,36 +7,93 @@ const breadcrumbs = [
   { name: 'Home', path: '/' },
   { name: 'Privacy Policy', path: '/privacy-policy/' },
 ];
+
+const legalPhone = '+1 954-945-9428';
+const legalPhoneHref = 'tel:+19549459428';
+const legalEmail = 'office@purifyairductcleaning.com';
+const legalAddress = '20533 Biscayne Blvd #8, Aventura, FL 33180, United States';
 ---
 
-<BaseLayout title="Privacy Policy" description="Privacy policy for Purify Air Duct Cleaning: how we collect, use and protect the information you share with us." breadcrumbs={breadcrumbs}>
-  <PageHeader title="Privacy Policy" breadcrumbs={breadcrumbs} />
+<BaseLayout
+  title="Privacy Policy - Purify Air Duct Cleaning"
+  description="Read the Privacy Policy for Purify Air Duct Cleaning: how we collect, use, and protect your personal information."
+  breadcrumbs={breadcrumbs}
+>
+  <PageHeader title="Privacy Policy" subtitle="Last updated: October 18, 2026" breadcrumbs={breadcrumbs} />
   <section class="section bg-white">
     <div class="container-x prose-purix max-w-3xl">
-      <p>This privacy policy explains how {site.name} (“we”, “us”) collects and uses information when you visit {site.url.replace('https://', '')} or contact us.</p>
+      <h2>1. Who We Are</h2>
+      <p>Our website address is: <a href={`${site.url}/`}>{site.url}/</a></p>
+      <p>Purify Air Duct Cleaning provides professional air duct cleaning services. We are committed to protecting your privacy and handling your personal information responsibly.</p>
 
-      <h2>Information we collect</h2>
-      <p>When you submit a service request or contact us, we collect the information you provide, such as your name, phone number, email, service address and message. Like most websites, we also collect basic technical data, such as browser type and pages visited, to understand how the site is used.</p>
+      <h2>2. What Personal Data We Collect and Why</h2>
 
-      <h2>How we use your information</h2>
+      <h3>Comments</h3>
+      <p>If visitors leave comments on our website, we collect the information shown in the comments form, along with the visitor's IP address and browser user agent string to help detect spam and protect our website.</p>
+
+      <h3>Media</h3>
+      <p>If you upload images to our website, we recommend removing embedded location data (EXIF GPS) before uploading. Visitors may be able to download images and extract any location information contained within them.</p>
+
+      <h3>Contact Forms</h3>
+      <p>When you contact us through our website, we may collect your name, email address, phone number, and message to respond to inquiries, provide service information, prepare estimates, and communicate with you about our services.</p>
+      <p>We use this information for customer service and business communication purposes. We do not use your personal information for marketing without your consent where required by law.</p>
+
+      <h3>Cookies</h3>
+      <p>Our website may use cookies to improve functionality, remember visitor preferences, and support website security. Cookies may also be used for login functionality, analytics, and advertising, depending on the services enabled on our website.</p>
+      <p>You can manage or disable cookies through your browser settings. Disabling certain cookies may affect some website features.</p>
+
+      <h3>Embedded Content</h3>
+      <p>Our website may include embedded content from third-party websites, such as videos, maps, or other external resources. Embedded content behaves in the same way as if you visited the third-party website directly.</p>
+      <p>These third-party websites may collect personal data, use cookies, and track your interactions with their content in accordance with their own privacy policies.</p>
+
+      <h3>Analytics</h3>
+      <p>We may use third-party analytics services, such as Google Analytics, to understand how visitors use our website and improve our services. These services may collect information such as IP address, browser type, device information, pages visited, and time spent on our website.</p>
+      <p>The information collected through analytics is used to evaluate website performance and improve the user experience.</p>
+
+      <h2>3. Who We Share Your Data With</h2>
+      <p>We may share relevant information with third-party service providers when necessary to operate our website and provide our services, including:</p>
       <ul>
-        <li>To respond to your request and schedule service</li>
-        <li>To provide quotes, confirmations and service follow-up</li>
-        <li>To improve our website and services</li>
+        <li>Google Analytics and other analytics providers, if enabled.</li>
+        <li>Spam detection and website security services.</li>
+        <li>Email and communication service providers used to respond to customer inquiries.</li>
+        <li>Email marketing platforms, if you subscribe to marketing communications.</li>
       </ul>
-      <p>We do not sell your personal information.</p>
+      <p>We share personal information only when reasonably necessary for these purposes, to comply with legal obligations, or to protect our rights and security.</p>
+      <p>We do not sell or rent your personal information to third parties.</p>
 
-      <h2>Sharing</h2>
-      <p>We share information only with service providers that help us operate our website and business (for example, website hosting and form delivery), or when required by law.</p>
+      <h2>4. How Long We Retain Your Data</h2>
+      <p>We retain personal information only for as long as reasonably necessary to fulfill the purposes described in this Privacy Policy, provide our services, maintain business records, resolve disputes, and comply with applicable legal obligations.</p>
+      <p>If you leave a comment, the comment and its metadata may be retained indefinitely to help recognize and approve follow-up comments.</p>
+      <p>If our website allows user registration, personal information provided in user profiles will be retained while the account remains active or as otherwise required for legitimate business or legal purposes.</p>
+      <p>Information submitted through contact forms may be retained for as long as necessary to respond to inquiries and maintain relevant customer or business records.</p>
 
-      <h2>Cookies</h2>
-      <p>Our website may use cookies and similar technologies for basic functionality and analytics. You can control cookies through your browser settings.</p>
+      <h2>5. What Rights You Have Over Your Data</h2>
+      <p>Depending on your location and applicable law, you may have the right to:</p>
+      <ul>
+        <li>Request access to the personal information we hold about you.</li>
+        <li>Request a copy of your personal information.</li>
+        <li>Request correction of inaccurate or incomplete information.</li>
+        <li>Request deletion of your personal information, subject to legal, security, and recordkeeping requirements.</li>
+        <li>Withdraw consent where processing is based on consent.</li>
+        <li>Opt out of marketing communications at any time.</li>
+        <li>Exercise any additional privacy rights available under applicable law.</li>
+      </ul>
+      <p>To exercise these rights, please contact us using the information provided below. We may need to verify your identity before processing certain requests.</p>
 
-      <h2>Your choices</h2>
-      <p>You can ask us to update or delete the personal information you have provided by contacting us at <a href={`mailto:${site.email}`}>{site.email}</a> or <a href={site.phoneHref}>{site.phone}</a>.</p>
+      <h2>6. Where We Send Your Data</h2>
+      <p>Visitor comments and other submissions may be checked through automated spam detection and website security services.</p>
+      <p>Information may also be processed by third-party service providers that support our website, analytics, email communications, and business operations. These providers may process information in locations outside your state or country, subject to applicable legal requirements.</p>
+      <p>We take reasonable steps to work with service providers that handle personal information appropriately.</p>
 
-      <h2>Changes</h2>
-      <p>We may update this policy from time to time. Changes take effect when posted on this page.</p>
+      <h2>7. Contact Information</h2>
+      <p>If you have questions about this Privacy Policy, want to request access to your personal information, or wish to exercise your applicable privacy rights, please contact us:</p>
+      <p>
+        <strong>Purify Air Duct Cleaning</strong><br />
+        Address: {legalAddress}<br />
+        Phone: <a href={legalPhoneHref}>{legalPhone}</a><br />
+        Email: <a href={`mailto:${legalEmail}`}>{legalEmail}</a><br />
+        Website: <a href={`${site.url}/`}>{site.url}/</a>
+      </p>
     </div>
   </section>
 </BaseLayout>

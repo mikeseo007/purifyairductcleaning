@@ -1,0 +1,9 @@
+---
+// TEST / TEMPLATE PREVIEW ONLY — reuses the shared ServicePage template with an
+// injected placeholder service. Marked noindex, nofollow and excluded from the sitemap
+// (see astro.config.mjs filter). For local development and review only — not for production.
+import ServicePage from '../components/ServicePage.astro';
+import { testService } from '../data/test-service';
+---
+
+<ServicePage service={testService} noindex robots="noindex, nofollow" hideRelated servicesFirst reviewButton />

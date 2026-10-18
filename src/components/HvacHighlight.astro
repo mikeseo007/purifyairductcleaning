@@ -3,11 +3,18 @@ import { Image } from 'astro:assets';
 import Icon from './Icon.astro';
 import { photos } from '../data/photos';
 
-const points = [
-  { href: '/air-duct-cleaning/', title: 'Reduce allergens and dust' },
-  { href: '/hvac-cleaning/', title: 'Improve airflow and efficiency' },
-  { href: '/air-duct-sanitizing/', title: 'Create a healthier indoor environment' },
-];
+interface Props {
+  /** Optional link list; defaults to the main (Aventura) service links so existing pages stay unchanged. */
+  points?: { href: string; title: string }[];
+}
+
+const {
+  points = [
+    { href: '/air-duct-cleaning/', title: 'Reduce allergens and dust' },
+    { href: '/hvac-cleaning/', title: 'Improve airflow and efficiency' },
+    { href: '/air-duct-sanitizing/', title: 'Create a healthier indoor environment' },
+  ],
+} = Astro.props;
 ---
 
 <section class="bg-navy-950 text-white">

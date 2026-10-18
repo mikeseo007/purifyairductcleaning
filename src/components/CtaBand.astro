@@ -7,11 +7,14 @@ import { photos } from '../data/photos';
 interface Props {
   title?: string;
   text?: string;
+  /** Quote button target. Defaults to the main-site contact page; Fort Lauderdale pages pass '#quote' to use the on-page form. */
+  quoteHref?: string;
 }
 
 const {
   title = 'Get a Free Quote for Air Duct Cleaning in Aventura, FL',
   text = 'Breathe cleaner air. Call us or request a quote and we’ll schedule a time that works for your home or business.',
+  quoteHref = '/contact-us/#quote',
 } = Astro.props;
 ---
 
@@ -23,7 +26,7 @@ const {
         <h2 class="mt-3 max-w-xl text-3xl leading-[1.05] !text-white sm:text-5xl">{title}</h2>
         <p class="mt-4 max-w-lg text-white/75">{text}</p>
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a href="/contact-us/#quote" class="btn-primary">Get a Free Quote</a>
+          <a href={quoteHref} class="btn-primary">Get a Free Quote</a>
           <a href={site.phoneHref} class="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 px-6 py-3 font-bold text-white hover:bg-white hover:text-navy-950">
             <Icon name="phone" class="size-5" />
             {site.phone}

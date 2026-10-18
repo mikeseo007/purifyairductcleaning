@@ -22,6 +22,7 @@ const { eyebrow, title, subtitle, breadcrumbs, image, imageAlt = '' } = Astro.pr
         <Image
           src={image}
           alt={imageAlt}
+          title={imageAlt}
           format="webp"
           widths={[960, 1400, 1920]}
           sizes="100vw"

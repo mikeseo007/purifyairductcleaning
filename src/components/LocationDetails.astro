@@ -1,12 +1,18 @@
 ---
 import Icon from './Icon.astro';
-import { site, type Location } from '../data/site';
+import { site, locations, type Location } from '../data/site';
 
 interface Props {
   location: Location;
 }
 
 const { location } = Astro.props;
+
+// Link nearby cities to their own location pages when one exists, for internal linking.
+const nearby = location.nearby.map((name) => {
+  const match = locations.find((l) => l.city === name);
+  return { name, path: match?.path };
+});
 ---
 
 <section class="section bg-surface">
@@ -32,10 +38,21 @@ const { location } = Astro.props;
         }
       </ul>
       {
-        location.nearby.length > 0 && (
+        nearby.length > 0 && (
           <p class="mt-6 text-muted">
             <span class="font-semibold text-navy-900">Also nearby: </span>
-            {location.nearby.join(', ')}
+            {nearby.map((n, i) => (
+              <>
+                {i > 0 && ', '}
+                {n.path ? (
+                  <a href={n.path} class="font-medium text-navy-900 underline decoration-slate-300 underline-offset-4 hover:text-sky-600">
+                    {n.name}
+                  </a>
+                ) : (
+                  n.name
+                )}
+              </>
+            ))}
           </p>
         )
       }

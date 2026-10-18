@@ -49,11 +49,11 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/thank-you/') && !page.includes('/404') && !page.includes('/page-not-found'),
+      filter: (page) => !page.includes('/thank-you/') && !page.includes('/404') && !page.includes('/page-not-found') && !page.includes('/zz-test-service-template'),
       serialize(item) {
         const path = item.url.replace(site, '');
-        item.lastmod = new Date().toISOString();
-
+        // Omit lastmod rather than stamp every URL with the build time, which is a
+        // fabricated date search engines may distrust.
         item.changefreq = 'monthly';
         if (path === '/') {
           item.changefreq = 'weekly';
@@ -62,8 +62,8 @@ export default defineConfig({
           item.priority = 0.6;
         } else if (['/our-services/', '/service-areas/'].includes(path)) {
           item.priority = 0.8;
-        } else if (['/about-us/', '/contact-us/', '/privacy-policy/'].includes(path)) {
-          item.priority = path === '/privacy-policy/' ? 0.3 : 0.7;
+        } else if (['/about-us/', '/contact-us/', '/privacy-policy/', '/terms-and-conditions/'].includes(path)) {
+          item.priority = path === '/privacy-policy/' || path === '/terms-and-conditions/' ? 0.3 : 0.7;
         } else {
           // Service and location pages.
           item.priority = 0.9;

@@ -2,13 +2,25 @@
 import { site, locations } from '../data/site';
 import { services } from '../data/services';
 
+interface StatItem {
+  value: string;
+  suffix?: string;
+  label: string;
+  text: string;
+}
+interface Props {
+  /** Optional overrides for the services + locations stats (e.g. Fort Lauderdale counts). Default to the main-site totals. */
+  servicesStat?: StatItem;
+  locationsStat?: StatItem;
+}
+const { servicesStat, locationsStat } = Astro.props;
 const { rating, reviewCount } = site.google;
 
-const stats = [
+const stats: StatItem[] = [
   { value: rating.toFixed(1), suffix: '', label: 'Google rating', text: `From ${reviewCount} reviews` },
   { value: '24', suffix: '/7', label: 'Open every day', text: 'Including weekends' },
-  { value: String(services.length), suffix: '', label: 'Services', text: 'Ducts, HVAC, and dryer vents' },
-  { value: String(locations.length), suffix: '', label: 'Cities served', text: 'Miami-Dade, Broward, and Boca Raton' },
+  servicesStat ?? { value: String(services.length), suffix: '', label: 'Services', text: 'Ducts, HVAC, and dryer vents' },
+  locationsStat ?? { value: String(locations.length), suffix: '', label: 'Cities served', text: 'Miami-Dade, Broward, and Boca Raton' },
 ];
 ---
 

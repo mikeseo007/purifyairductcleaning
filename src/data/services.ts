@@ -79,6 +79,11 @@ export interface Service {
   imageAlt: string;
   secondImage: ImageMetadata;
   secondImageAlt: string;
+  /** Optional distinct image for the service card (e.g. a Fort Lauderdale landing card). Falls back to `image`. */
+  cardImage?: ImageMetadata;
+  cardImageAlt?: string;
+  /** Optional image for this service's Service schema when it should match the photo shown on the page rather than `image`. Falls back to `image`. */
+  schemaImage?: ImageMetadata;
   metaTitle: string;
   metaDescription: string;
   h1: string;
@@ -112,9 +117,9 @@ export const services: Service[] = [
     imageAlt: photos.ductVentCleaning.alt,
     secondImage: photos.livingRoomCleaning.src,
     secondImageAlt: photos.livingRoomCleaning.alt,
-    metaTitle: 'Air Duct Cleaning in Aventura, FL | Purify',
+    metaTitle: 'Air Duct Cleaning Services - Purify Air Duct Cleaning',
     metaDescription:
-      'Air duct cleaning in Aventura, FL. Vent cleaning and ductwork cleaning for homes and businesses, plus air conditioning cleaning and clothes dryer vent cleaning. Call 954-945-9428.',
+      'Purify Air Duct Cleaning provides air duct cleaning, vent cleaning, and ductwork cleaning for dusty vents and weak airflow. Book your service today.',
     h1: 'Air Duct Cleaning in Aventura, FL',
     heroSubtitle: 'Air duct cleaning, vent cleaning and ductwork cleaning for homes, condos and businesses in Aventura and nearby cities.',
     introHeading: 'A full-system duct cleaning, not a vent wipe',
@@ -172,9 +177,9 @@ export const services: Service[] = [
     imageAlt: photos.ceilingVentAccess.alt,
     secondImage: photos.ductVentCleaning.src,
     secondImageAlt: photos.ductVentCleaning.alt,
-    metaTitle: 'Residential Air Duct Cleaning Aventura | Purify',
+    metaTitle: 'Residential Air Duct Cleaning - Purify Air Duct Cleaning',
     metaDescription:
-      'Home and condo air duct cleaning in Aventura, FL. We clean supply and return ducts in houses and high-rises. Call 954-945-9428.',
+      'Purify Air Duct Cleaning offers residential air duct cleaning for homes and condos with dusty vents, allergens, and weak airflow. Book today.',
     h1: 'Residential Air Duct Cleaning',
     heroSubtitle: 'Duct cleaning planned around the system in your house, townhome or condominium.',
     introHeading: 'Built for South Florida homes',
@@ -232,9 +237,9 @@ export const services: Service[] = [
     imageAlt: photos.negativeAirHose.alt,
     secondImage: photos.ductVentCleaning.src,
     secondImageAlt: photos.ductVentCleaning.alt,
-    metaTitle: 'Commercial Air Duct Cleaning Aventura, FL | Purify',
+    metaTitle: 'Commercial Air Duct Cleaning - Purify Air Duct Cleaning',
     metaDescription:
-      'Commercial air duct cleaning for offices and businesses in Aventura, Hollywood and Fort Lauderdale. After-hours scheduling available. Call 954-945-9428.',
+      'Purify Air Duct Cleaning handles commercial air duct cleaning for offices and retail with dusty diffusers and stale air. Get a free quote today.',
     h1: 'Commercial Air Duct Cleaning',
     heroSubtitle: 'Duct cleaning for offices, retail and other workplaces, planned around the way your business operates.',
     introHeading: 'Cleaner air paths for the workday',
@@ -292,9 +297,9 @@ export const services: Service[] = [
     imageAlt: photos.livingRoomCleaning.alt,
     secondImage: photos.hvacFilter.src,
     secondImageAlt: photos.hvacFilter.alt,
-    metaTitle: 'Air Duct Sanitizing Aventura, FL | Purify',
+    metaTitle: 'Air Duct Sanitizing Services - Purify Air Duct Cleaning',
     metaDescription:
-      'Air duct sanitizing in Aventura after a full duct cleaning, for lingering odors in homes and businesses. Call 954-945-9428.',
+      'Purify Air Duct Cleaning offers air duct sanitizing to treat lingering odors and freshen duct surfaces for cleaner indoor air. Add it to your visit today.',
     h1: 'Air Duct Sanitizing',
     heroSubtitle: 'A treatment for duct surfaces after the dust and debris have already been removed.',
     introHeading: 'Sanitizing follows cleaning. It does not replace it.',
@@ -358,9 +363,9 @@ export const services: Service[] = [
     imageAlt: photos.ductInspection.alt,
     secondImage: photos.techBlueprint.src,
     secondImageAlt: photos.techBlueprint.alt,
-    metaTitle: 'Air Duct Inspection Aventura, FL | Purify',
+    metaTitle: 'Air Duct Inspection Services - Purify Air Duct Cleaning',
     metaDescription:
-      'Air duct inspection in Aventura for weak rooms, dust and musty odors. We check accessible ducts and the air handler. Call 954-945-9428.',
+      'Purify Air Duct Cleaning provides air duct inspection to check ducts, weak airflow, and uneven rooms before work. Book an inspection today.',
     h1: 'Ductwork Inspection and Maintenance',
     heroSubtitle: 'Find out whether you need cleaning, a repair, or both, before any work is sold.',
     introHeading: 'Start with what the system is actually doing',
@@ -417,9 +422,9 @@ export const services: Service[] = [
     imageAlt: photos.hvacFilter.alt,
     secondImage: photos.blowerWheel.src,
     secondImageAlt: photos.blowerWheel.alt,
-    metaTitle: 'HVAC Cleaning Aventura, FL | AC System Cleaning | Purify',
+    metaTitle: 'HVAC Cleaning Services - Purify Air Duct Cleaning',
     metaDescription:
-      'HVAC cleaning in Aventura for coils, blowers, drain pans and air handlers. Improve airflow and cut musty AC odors. Call 954-945-9428.',
+      'Purify Air Duct Cleaning offers HVAC cleaning for dirty coils, blowers, and air handlers with weak airflow and musty odors. Book your service today.',
     h1: 'HVAC System Cleaning in Aventura',
     heroSubtitle: 'Deep cleaning of the equipment that cools the air, including coils, fans and the air handler cabinet.',
     introHeading: 'The ducts are only half of the air path',
@@ -477,9 +482,9 @@ export const services: Service[] = [
     imageAlt: photos.blowerWheel.alt,
     secondImage: photos.coilCleaning.src,
     secondImageAlt: photos.coilCleaning.alt,
-    metaTitle: 'HVAC Mold Treatment in Aventura, FL | Purify',
+    metaTitle: 'HVAC Mold Treatment Services - Purify Air Duct Cleaning',
     metaDescription:
-      'HVAC mold treatment in Aventura for coils, drain pans and air handlers. We do not test for mold. Call 954-945-9428.',
+      'Purify Air Duct Cleaning provides HVAC mold treatment for musty coils, drain pans, and blowers behind stale AC odors. Book your treatment today.',
     h1: 'HVAC Mold Treatment in Aventura, FL',
     heroSubtitle: 'Cleaning for musty systems and suspected growth on the wet parts of the air conditioner.',
     introHeading: 'Humidity makes the coil a likely source',
@@ -542,9 +547,9 @@ export const services: Service[] = [
     imageAlt: photos.dryerVentExterior.alt,
     secondImage: photos.serviceVanCrew.src,
     secondImageAlt: photos.serviceVanCrew.alt,
-    metaTitle: 'Clothes Dryer Vent Cleaning in Aventura, FL | Purify',
+    metaTitle: 'Dryer Vent Cleaning Services - Purify Air Duct Cleaning',
     metaDescription:
-      'Clothes dryer vent cleaning in Aventura, FL. We clear lint from the full dryer vent run for homes and condos. Call 954-945-9428.',
+      'Purify Air Duct Cleaning offers dryer vent cleaning to clear lint, shorten long dry times, and reduce fire risk at home. Schedule your service today.',
     h1: 'Dryer Vent Cleaning in Aventura, FL',
     heroSubtitle: 'Clothes dryer vent cleaning that clears the lint making dryers run long and raising fire risk.',
     introHeading: 'The lint trap is not the whole vent',
@@ -602,9 +607,9 @@ export const services: Service[] = [
     imageAlt: photos.dryerVentExterior.alt,
     secondImage: photos.serviceVanCrew.src,
     secondImageAlt: photos.serviceVanCrew.alt,
-    metaTitle: 'Commercial Dryer Vent Cleaning | Purify Aventura',
+    metaTitle: 'Commercial Dryer Vent Cleaning - Purify Air Duct Cleaning',
     metaDescription:
-      'Commercial and multi-unit dryer vent cleaning for buildings in Aventura, Hollywood and Fort Lauderdale. Call 954-945-9428.',
+      'Purify Air Duct Cleaning handles commercial dryer vent cleaning for shared laundry rooms and multi-unit buildings. Request service today.',
     h1: 'Commercial Dryer Vent Cleaning',
     heroSubtitle: 'Lint removal for shared laundry rooms and buildings with more than one dryer.',
     introHeading: 'Shared vents collect lint faster',
@@ -662,9 +667,9 @@ export const services: Service[] = [
     imageAlt: photos.negativeAirLadder.alt,
     secondImage: photos.techBlueprint.src,
     secondImageAlt: photos.techBlueprint.alt,
-    metaTitle: 'AC Duct Replacement in Aventura, FL | Purify',
+    metaTitle: 'AC Duct Replacement Services - Purify Air Duct Cleaning',
     metaDescription:
-      'AC duct replacement in Aventura, FL for crushed, torn or disconnected ductwork. Air duct cleaning will not fix a broken run. Call 954-945-9428.',
+      'Purify Air Duct Cleaning provides AC duct replacement for crushed, torn, or disconnected runs leaving a room warm. Request your replacement quote today.',
     h1: 'AC Duct Replacement in Aventura, FL',
     heroSubtitle: 'New ductwork where the existing run is crushed, torn, disconnected or no longer moving air to the room.',
     introHeading: 'Some ductwork needs to be replaced, not cleaned',
@@ -722,9 +727,9 @@ export const services: Service[] = [
     imageAlt: photos.dryerVentExterior.alt,
     secondImage: photos.serviceTrucks.src,
     secondImageAlt: photos.serviceTrucks.alt,
-    metaTitle: 'Dryer Vent Installation in Aventura, FL | Purify',
+    metaTitle: 'Dryer Vent Installation Services - Purify Air Duct Cleaning',
     metaDescription:
-      'Dryer vent installation in Aventura, FL. We replace crushed, foil and vinyl clothes dryer vents with a proper rigid or semi-rigid run. Call 954-945-9428.',
+      'Purify Air Duct Cleaning offers dryer vent installation to replace crushed, foil, or unsafe lines with a proper vent run. Request your installation today.',
     h1: 'Dryer Vent Installation in Aventura, FL',
     heroSubtitle: 'A new dryer vent when cleaning cannot make a damaged or unsafe line exhaust properly.',
     introHeading: 'Cleaning will not fix a vent that was never right',
@@ -781,9 +786,9 @@ export const services: Service[] = [
     imageAlt: photos.blowerWheel.alt,
     secondImage: photos.airDuct.src,
     secondImageAlt: photos.airDuct.alt,
-    metaTitle: 'Attic Insulation Removal in Aventura, FL | Purify',
+    metaTitle: 'Attic Insulation Removal - Purify Air Duct Cleaning',
     metaDescription:
-      'Attic insulation removal in Aventura, FL. We vacuum out old, wet or contaminated insulation so the attic can be reinsulated. Call 954-945-9428.',
+      'Purify Air Duct Cleaning provides attic insulation removal to clear old, wet, or contaminated insulation from your attic. Schedule your removal today.',
     h1: 'Attic Insulation Removal in Aventura, FL',
     heroSubtitle: 'Old attic insulation vacuumed out, bagged and hauled away, without dragging it through the living space.',
     introHeading: 'Take the bad insulation out before you add more',
@@ -841,9 +846,9 @@ export const services: Service[] = [
     imageAlt: photos.airHandler.alt,
     secondImage: photos.blowerWheel.src,
     secondImageAlt: photos.blowerWheel.alt,
-    metaTitle: 'Blown-In Attic Insulation in Aventura, FL | Purify',
+    metaTitle: 'Blown-In Attic Insulation - Purify Air Duct Cleaning',
     metaDescription:
-      'Blown-in attic insulation in Aventura, FL. Loose-fill insulation added evenly across the attic after old material is removed or where coverage is thin. Call 954-945-9428.',
+      'Purify Air Duct Cleaning offers blown-in attic insulation to add even coverage where your attic is thin or empty. Request your free quote today.',
     h1: 'Blown-In Attic Insulation in Aventura, FL',
     heroSubtitle: 'Loose-fill insulation blown evenly across the attic so heat from the roof has a harder time reaching the rooms.',
     introHeading: 'Add insulation where the attic is thin or empty',

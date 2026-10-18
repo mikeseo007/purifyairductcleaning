@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from './Icon.astro';
 import Hero from './Hero.astro';
 import TrustBar from './TrustBar.astro';
 import SplitSection from './SplitSection.astro';
@@ -7,14 +8,20 @@ import ServicesSection from './ServicesSection.astro';
 import HvacHighlight from './HvacHighlight.astro';
 import ProcessSteps from './ProcessSteps.astro';
 import Reviews from './Reviews.astro';
+import ReviewWidget from './ReviewWidget.astro';
+import LocationSolutions from './LocationSolutions.astro';
+import LocationSigns from './LocationSigns.astro';
+import LocationPoi from './LocationPoi.astro';
+import FAQ from './FAQ.astro';
 import LocationDetails from './LocationDetails.astro';
 import LocationsSection from './LocationsSection.astro';
-import FAQ from './FAQ.astro';
 import CtaBand from './CtaBand.astro';
 import QuoteSection from './QuoteSection.astro';
-import { getLocation, site } from '../data/site';
-import { locationContent } from '../data/location-content';
-import { serviceAreaSchema, faqSchema } from '../data/schema';
+import { getLocation, locations, site } from '../data/site';
+import { locationContent, locationImages } from '../data/location-content';
+import { serviceAreaSchema, faqSchema, fortLauderdaleLocalBusinessId } from '../data/schema';
+import { isFortLauderdaleLocation, fortLauderdaleLandingSlug, fortLauderdale, fortLauderdaleServiceAreas } from '../data/fort-lauderdale';
+import { fortLauderdaleServices, fortLauderdaleHighlightPoints } from '../data/fort-lauderdale-services';
 import { photos } from '../data/photos';
 
 interface Props {
@@ -24,18 +31,37 @@ interface Props {
 const { slug } = Astro.props;
 const location = getLocation(slug);
 const c = locationContent[slug];
-const isHome = location.path === '/';
+const city = location.city;
+// Fort Lauderdale assignment: the FL landing page + the 12 approved FL location pages use the
+// FL header/footer and FL business schema. The FL map embed stays exclusive to the FL landing page.
+const isFL = isFortLauderdaleLocation(slug);
+const isFLLanding = slug === fortLauderdaleLandingSlug;
+// On the FL landing page, the services grid shows the six dedicated Fort Lauderdale services.
+const flServiceItems = fortLauderdaleServices.map((s) => ({
+  slug: s.slug,
+  path: s.path,
+  name: s.name,
+  card: s.card,
+  icon: s.icon,
+  image: s.cardImage ?? s.image,
+  imageAlt: s.cardImageAlt ?? s.imageAlt,
+  position: 'object-center',
+}));
+const index = locations.findIndex((l) => l.slug === slug);
+const images = locationImages(index < 0 ? 0 : index);
 const phone = { label: site.phone, href: site.phoneHref };
-const hero = { src: isHome ? photos.ductVentCleaning.src : c.heroImage, alt: isHome ? photos.ductVentCleaning.alt : c.heroImageAlt };
-const local = c.localImage.src === hero.src.src ? { src: c.heroImage, alt: c.heroImageAlt } : { src: c.localImage, alt: c.localImageAlt };
 
-const breadcrumbs = isHome
-  ? undefined
-  : [
-      { name: 'Home', path: '/' },
-      { name: 'Service Areas', path: '/service-areas/' },
-      { name: location.city, path: location.path },
-    ];
+// Section headings follow the required structure, adapted to the city.
+const healthierHeading = `Residential Air Duct Cleaning in ${city} for Healthier Living`;
+const solutionsHeading = 'Air Duct Cleaning Solutions for Dusty and Contaminated HVAC Systems';
+const signsHeading = `Signs Your ${city} Home May Need Air Duct Cleaning Service`;
+const allergyHeading = `Expert Air Duct Cleaning in ${city} for Homes with Allergy and Dust Concerns`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Service Areas', path: '/service-areas/' },
+  { name: city, path: location.path },
+];
 ---
 
 <BaseLayout
@@ -43,81 +69,143 @@ const breadcrumbs = isHome
   description={c.metaDescription}
   location={location}
   breadcrumbs={breadcrumbs}
-  schema={[...(isHome ? [] : [serviceAreaSchema(location)]), faqSchema(c.faqs)]}
+  schema={[serviceAreaSchema(location, isFL ? fortLauderdaleLocalBusinessId : undefined), faqSchema(c.faqs)]}
+  variant={isFL ? 'fortLauderdale' : 'main'}
+  localBusiness={isFLLanding}
 >
   <Hero
-    eyebrow={isHome ? 'Cleaner air. A healthier home.' : `Serving ${location.city} & ${location.county}`}
-    title={isHome ? 'Professional\nAir Duct Cleaning\nin Aventura, FL' : c.h1}
-    subtitle={isHome ? 'Breathe cleaner, healthier air with professional air duct cleaning for homes and businesses in Aventura and across South Florida.' : c.heroSubtitle}
-    image={hero.src}
-    imageAlt={hero.alt}
+    eyebrow={`Serving ${city} & ${location.county}`}
+    title={`Air Duct Cleaning in ${city}, FL`}
+    subtitle={c.h1Description}
+    image={images.hero}
+    imageAlt={images.heroAlt}
     location={location}
     breadcrumbs={breadcrumbs}
-    secondaryHref={isHome ? '/our-services/' : '/contact-us/#quote'}
-    secondaryLabel={isHome ? 'Our Services' : 'Contact Us'}
-    points={isHome ? ['Air duct and HVAC cleaning', 'Homes and businesses', 'Open 24 hours'] : ['Cleaner indoor air', 'Improved HVAC efficiency', 'Healthier home and family']}
+    secondaryHref="/contact-us/#quote"
+    secondaryLabel="Contact Us"
+    points={['Residential air duct cleaning', 'Dust and debris removed at the source', 'Cleaner indoor air']}
   />
-  <TrustBar />
 
+  <TrustBar
+    servicesStat={isFL ? { value: '6', label: 'Dedicated Services', text: 'Ductwork, AC vent & dryer vent services' } : undefined}
+    locationsStat={isFL ? { value: '12', label: 'Service Locations', text: 'Fort Lauderdale & nearby communities' } : undefined}
+  />
+
+  {/* First half: services, about us, breathe the difference, testimonials, then SEO sections 1 and 2 */}
   <ServicesSection
     title="Air Duct, Dryer Vent & HVAC Cleaning Services"
-    intro={isHome
-      ? 'Professional cleaning services to help your indoor air cleaner, your system running efficiently, and your property healthier.'
-      : `Duct, HVAC, and dryer vent cleaning for homes and businesses in ${location.city}, FL.`}
-    city={isHome ? undefined : location.city}
-    carousel={isHome}
+    intro={`Duct, HVAC, and dryer vent cleaning for homes and businesses in ${city}, FL.`}
+    city={city}
     bg="white"
+    items={isFLLanding ? flServiceItems : undefined}
+    viewAllHref={isFLLanding ? null : undefined}
   />
 
   <SplitSection
     eyebrow="About us"
-    heading={isHome ? 'Aventura’s Trusted Air Duct Cleaning Company' : c.introHeading}
-    paragraphs={isHome
-      ? ['We’re committed to providing cleaner air and healthier spaces for homes and businesses throughout Aventura and South Florida. With advanced equipment and a focused customer experience, we deliver results you can trust.']
-      : c.intro}
-    image={isHome ? photos.serviceVanCrew.src : c.introImage}
-    imageAlt={isHome ? photos.serviceVanCrew.alt : c.introImageAlt}
-    points={isHome
-      ? ['Trained & experienced technicians', 'Advanced cleaning equipment', 'Residential & commercial services', '100% satisfaction guarantee']
-      : ['Residential and commercial cleaning', 'Ducts, HVAC equipment, and dryer vents', 'Open 24 hours, 7 days', 'Upfront quotes before any work']}
-    stat={isHome ? { value: '10+', label: 'Years of Experience' } : { value: '24/7', label: 'Open every day' }}
+    heading={`${city}’s Trusted Air Duct Cleaning Team`}
+    paragraphs={[
+      `Purify Air Duct Cleaning Fort Lauderdale helps homeowners across ${city} breathe cleaner air. We focus on residential air duct cleaning, using source removal and careful, contained work on every visit.`,
+    ]}
+    image={photos.serviceVanCrew.src}
+    imageAlt={photos.serviceVanCrew.alt}
+    tint
+    points={['Residential and commercial cleaning', 'Ducts, HVAC equipment, and dryer vents', 'Open 24 hours, 7 days', 'Upfront quotes before any work']}
+    stat={{ value: '24/7', label: 'Open every day' }}
     showRating
-    link={{ href: '/about-us/', label: isHome ? 'About Our Company' : 'About Our Services' }}
-    phone={isHome ? undefined : phone}
+    link={isFLLanding ? { href: '#quote', label: 'Request Service' } : { href: '/about-us/', label: 'About Our Services' }}
+    phone={phone}
   />
 
-  <HvacHighlight />
+  <HvacHighlight points={isFL ? fortLauderdaleHighlightPoints : undefined} />
 
-  <ProcessSteps title={isHome ? 'How Our Air Duct Cleaning Works' : `How Cleaning Works in ${location.city}`} />
+  <Reviews title={`Trusted by Homeowners and Businesses in ${city}`} eyebrow="What our customers say" />
+  <ReviewWidget />
 
-  <LocationsSection
-    title={`Proudly Serving ${location.city}, FL and Nearby Areas`}
-    intro={isHome
-      ? 'From Aventura to surrounding cities, we provide professional air duct cleaning services for homes and businesses across local communities.'
-      : `Based in Aventura, we clean air ducts, HVAC systems, and dryer vents across ${location.county} and nearby South Florida cities.`}
-    current={location.slug}
-  />
-
-  <Reviews title={`Trusted by Homeowners and Businesses in ${location.city}`} eyebrow="What our customers say" />
-  <CtaBand
-    title={`Get a Free Quote for Air Duct Cleaning in ${location.city}, FL`}
-    text="Breathe cleaner air. Call us or request a quote and we’ll schedule a time that works for your home or business."
-  />
+  {/* SEO section 1: image + text */}
   <SplitSection
-    eyebrow={`Serving ${location.city}, FL`}
-    heading={c.localHeading}
-    paragraphs={c.local}
-    image={local.src}
-    imageAlt={local.alt}
+    eyebrow={`Residential service in ${city}`}
+    heading={healthierHeading}
+    paragraphs={c.healthier}
+    image={images.healthier}
+    imageAlt={images.healthierAlt}
+    tint
+    phone={phone}
+  />
+
+  {/* SEO section 2: card grid */}
+  <LocationSolutions heading={solutionsHeading} intro={c.solutionsIntro} items={c.solutions} />
+
+  {/* Second half: SEO sections 3 and 4, process, points of interest, service areas, then FAQs */}
+  {/* SEO section 3: checklist */}
+  <LocationSigns heading={signsHeading} intro={c.signsIntro} signs={c.signs} />
+
+  {/* SEO section 4: image + text */}
+  <SplitSection
+    eyebrow={`Allergy & dust relief in ${city}`}
+    heading={allergyHeading}
+    paragraphs={c.allergy}
+    image={images.allergy}
+    imageAlt={images.allergyAlt}
     reverse
     tint
     phone={phone}
   />
-  <FAQ faqs={c.faqs} title={`Air Duct Cleaning FAQs: ${location.city}`} tint />
+
+  <ProcessSteps title={`How Air Duct Cleaning Works in ${city}`} bg="white" />
+
+  <LocationPoi city={city} pois={c.pois} />
+
+  {/* Related Services: internal links to the dedicated Fort Lauderdale service pages (12 FL location pages only). */}
+  {isFL && !isFLLanding && (
+    <section class="bg-white py-14">
+      <div class="container-x">
+        <p class="eyebrow">Related services</p>
+        <h2 class="text-3xl sm:text-4xl">Related Services in Fort Lauderdale</h2>
+        <p class="mt-3 max-w-2xl text-muted">Explore our dedicated Fort Lauderdale duct, AC vent, and dryer vent services, each available to homes and businesses in {city}.</p>
+        <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-stagger>
+          {fortLauderdaleServices.map((s) => (
+            <li>
+              <a href={s.path} class="card card-hover group flex h-full items-start gap-4 p-5">
+                <span class="icon-chip size-11 shrink-0"><Icon name={s.icon} class="size-5" /></span>
+                <span class="flex flex-col">
+                  <span class="font-display text-base leading-snug font-bold text-navy-900 group-hover:text-sky-600">{s.name} in Fort Lauderdale</span>
+                  <span class="mt-1 text-sm leading-relaxed text-muted">{s.card}</span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <LocationsSection
+    title={`Proudly Serving ${city}, FL and Nearby Areas`}
+    intro={`We clean air ducts, HVAC systems, and dryer vents across ${location.county} and nearby South Florida cities.`}
+    current={location.slug}
+    showMap={true}
+    mapEmbed={isFL ? fortLauderdale.mapEmbed : undefined}
+    mapLink={isFL ? fortLauderdale.mapLink : undefined}
+    label={isFL ? fortLauderdale.name : undefined}
+    areaList={isFL ? fortLauderdaleServiceAreas : undefined}
+    mapClass={isFL ? 'h-[300px] lg:h-[440px]' : undefined}
+    cta={isFL ? { text: 'We serve Fort Lauderdale and 12 nearby Broward communities. Don’t see your neighborhood? Call or send a quote request and we’ll let you know.', href: '#quote', label: 'Request a Quote' } : undefined}
+  />
+
+  <FAQ faqs={c.faqs} title={`Air Duct Cleaning FAQs: ${city}`} tint />
+
   <QuoteSection
     eyebrow="Free quote"
-    title={`Request air duct cleaning in ${location.city}`}
+    title={`Request air duct cleaning in ${city}`}
     text={`Tell us about the property and we’ll follow up to schedule. ${site.hours.long}`}
   />
+
   <LocationDetails location={location} />
+
+  <CtaBand
+    title={`Get a Free Quote for Air Duct Cleaning in ${city}, FL`}
+    text="Breathe cleaner air. Call us or request a quote and we’ll schedule a time that works for your home or business."
+    quoteHref={isFL ? '#quote' : undefined}
+  />
 </BaseLayout>

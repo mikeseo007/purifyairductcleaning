@@ -42,6 +42,9 @@ const steps = [
 ---
 
 <BaseLayout title={c.metaTitle} description={c.metaDescription} schema={[faqSchema(c.faqs)]}>
+  <Fragment slot="head">
+    <meta name="google-site-verification" content="d-JukjnEeOu8lRmSIkwPJDtI3TUG8cUk-GYJp5kAHHM" />
+  </Fragment>
   <section class="relative isolate overflow-hidden bg-navy-950">
     <HeroBackdrop image={photos.livingRoomCleaning.src} imageAlt={photos.livingRoomCleaning.alt} position="object-[62%_center]" />
 
@@ -97,19 +100,19 @@ const steps = [
   <section class="bg-white py-14">
     <div class="container-x grid items-center gap-10 lg:grid-cols-2">
       <div class="grid grid-cols-5 gap-3">
-        <Image src={photos.ductVentCleaning.src} alt={photos.ductVentCleaning.alt} format="webp" widths={[640, 960]} sizes="40vw" class="col-span-3 h-full min-h-72 rounded-2xl object-cover" />
+        <Image src={photos.ductVentCleaning.src} alt={photos.ductVentCleaning.alt} title={photos.ductVentCleaning.alt} format="webp" widths={[640, 960]} sizes="40vw" class="col-span-3 h-full min-h-72 rounded-2xl object-cover" />
         <div class="col-span-2 flex flex-col gap-3">
           <div class="grid grid-cols-2 gap-3">
             <div class="relative overflow-hidden rounded-xl">
-              <Image src={photos.coilBefore.src} alt={photos.coilBefore.alt} format="webp" widths={[240, 400]} sizes="15vw" class="h-28 w-full object-cover" />
+              <Image src={photos.coilBefore.src} alt={photos.coilBefore.alt} title={photos.coilBefore.alt} format="webp" widths={[240, 400]} sizes="15vw" class="h-28 w-full object-cover" />
               <span class="absolute bottom-1.5 left-1.5 rounded bg-black/70 px-1.5 py-0.5 text-[9px] font-bold text-white uppercase">Before</span>
             </div>
             <div class="relative overflow-hidden rounded-xl">
-              <Image src={photos.coilAfter.src} alt={photos.coilAfter.alt} format="webp" widths={[240, 400]} sizes="15vw" class="h-28 w-full object-cover" />
+              <Image src={photos.coilAfter.src} alt={photos.coilAfter.alt} title={photos.coilAfter.alt} format="webp" widths={[240, 400]} sizes="15vw" class="h-28 w-full object-cover" />
               <span class="absolute bottom-1.5 left-1.5 rounded bg-sky-600 px-1.5 py-0.5 text-[9px] font-bold text-white uppercase">After</span>
             </div>
           </div>
-          <Image src={photos.heroLiving.src} alt={photos.heroLiving.alt} format="webp" widths={[320, 640]} sizes="20vw" class="min-h-36 flex-1 rounded-xl object-cover" />
+          <Image src={photos.heroLiving.src} alt={photos.heroLiving.alt} title={photos.heroLiving.alt} format="webp" widths={[320, 640]} sizes="20vw" class="min-h-36 flex-1 rounded-xl object-cover" />
         </div>
       </div>
       <div>
@@ -152,11 +155,11 @@ const steps = [
       </div>
       <div class="grid grid-cols-2 gap-3">
         <div class="relative overflow-hidden rounded-xl">
-          <Image src={photos.coilBefore.src} alt={photos.coilBefore.alt} format="webp" widths={[400, 700]} sizes="40vw" class="aspect-[4/3] w-full object-cover" />
+          <Image src={photos.coilBefore.src} alt={photos.coilBefore.alt} title={photos.coilBefore.alt} format="webp" widths={[400, 700]} sizes="40vw" class="aspect-[4/3] w-full object-cover" />
           <span class="absolute bottom-3 left-3 rounded bg-black/70 px-2 py-1 text-[10px] font-bold tracking-wider text-white uppercase">Before</span>
         </div>
         <div class="relative overflow-hidden rounded-xl">
-          <Image src={photos.coilAfter.src} alt={photos.coilAfter.alt} format="webp" widths={[400, 700]} sizes="40vw" class="aspect-[4/3] w-full object-cover" />
+          <Image src={photos.coilAfter.src} alt={photos.coilAfter.alt} title={photos.coilAfter.alt} format="webp" widths={[400, 700]} sizes="40vw" class="aspect-[4/3] w-full object-cover" />
           <span class="absolute bottom-3 left-3 rounded bg-lime-400 px-2 py-1 text-[10px] font-bold tracking-wider text-navy-950 uppercase">After</span>
         </div>
       </div>
@@ -215,7 +218,7 @@ const steps = [
             <li class="inline-flex items-center gap-2"><Icon name="check" class="size-4 text-lime-400" /> Satisfaction guarantee</li>
           </ul>
         </div>
-        <Image src={photos.exteriorVentHose.src} alt={photos.exteriorVentHose.alt} format="webp" widths={[640, 960]} sizes="(min-width: 1024px) 480px, 100vw" class="h-56 w-full object-cover lg:h-full" />
+        <Image src={photos.exteriorVentHose.src} alt={photos.exteriorVentHose.alt} title={photos.exteriorVentHose.alt} format="webp" widths={[640, 960]} sizes="(min-width: 1024px) 480px, 100vw" class="h-56 w-full object-cover lg:h-full" />
       </div>
     </div>
   </section>

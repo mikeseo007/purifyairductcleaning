@@ -8,22 +8,44 @@ import SignsBenefits from './SignsBenefits.astro';
 import ProcessSteps from './ProcessSteps.astro';
 import ServicesSection from './ServicesSection.astro';
 import Reviews from './Reviews.astro';
+import ReviewWidget from './ReviewWidget.astro';
 import LocationsSection from './LocationsSection.astro';
 import FAQ from './FAQ.astro';
 import CtaBand from './CtaBand.astro';
 import QuoteSection from './QuoteSection.astro';
 import Icon from './Icon.astro';
-import { getService, serviceGroups } from '../data/services';
-import { serviceSchema, faqSchema } from '../data/schema';
+import { getService, serviceGroups, type Service } from '../data/services';
+import { serviceSchema, faqSchema, fortLauderdaleLocalBusinessId } from '../data/schema';
+import { fortLauderdale, fortLauderdaleServiceAreas } from '../data/fort-lauderdale';
+import { fortLauderdaleServices } from '../data/fort-lauderdale-services';
 import { site } from '../data/site';
 import { asPhoto, pickPhoto } from '../data/photos';
 
 interface Props {
-  slug: string;
+  slug?: string;
+  /** Optional injected service, used by the isolated test page. Falls back to slug lookup. */
+  service?: Service;
+  /** Passthrough to BaseLayout; defaults preserve existing behavior for all current pages. */
+  noindex?: boolean;
+  robots?: string;
+  /** Test-only layout toggles; both default to the existing service-page layout for all current pages. */
+  hideRelated?: boolean;
+  servicesFirst?: boolean;
+  reviewButton?: boolean;
+  /** Fort Lauderdale variant: FL header/footer + FL business schema. Default 'main'. */
+  variant?: 'main' | 'fortLauderdale';
+  /** Suppress the global services grid (used on FL pages to keep main-site services off). */
+  hideServices?: boolean;
+  /** Show the service-areas map (default true; set false on FL pages — FL map is landing-only). */
+  locationsShowMap?: boolean;
+  /** Breadcrumbs override (default: Home > Services > Name). */
+  breadcrumbs?: { name: string; path: string }[];
+  /** Testimonials heading override (default: the Reviews component's Aventura default). */
+  reviewsTitle?: string;
 }
 
-const { slug } = Astro.props;
-const s = getService(slug);
+const { slug, service: injected, noindex = false, robots, hideRelated = false, servicesFirst = false, reviewButton = false, variant = 'main', hideServices = false, locationsShowMap = true, breadcrumbs: breadcrumbsProp, reviewsTitle } = Astro.props;
+const s = injected ?? getService(slug as string);
 const group = serviceGroups.find((g) => g.id === s.group)!;
 const parent = s.parent ? getService(s.parent) : undefined;
 const used = new Set<string>();
@@ -37,15 +59,27 @@ const related = s.related.map((slug) => {
 });
 const pagePhotos = [heroPhoto.src, introPhoto.src, ...related.map((r) => r.image)];
 
-const breadcrumbs = [
+const breadcrumbs = breadcrumbsProp ?? [
   { name: 'Home', path: '/' },
   { name: 'Services', path: '/our-services/' },
   ...(parent ? [{ name: parent.name, path: parent.path }] : []),
   { name: s.name, path: s.path },
 ];
+
+// Fort Lauderdale service pages show the same six-service grid as the FL landing page.
+const flServiceItems = fortLauderdaleServices.map((svc) => ({
+  slug: svc.slug,
+  path: svc.path,
+  name: svc.name,
+  card: svc.card,
+  icon: svc.icon,
+  image: svc.cardImage ?? svc.image,
+  imageAlt: svc.cardImageAlt ?? svc.imageAlt,
+  position: 'object-center',
+}));
 ---
 
-<BaseLayout title={s.metaTitle} description={s.metaDescription} breadcrumbs={breadcrumbs} schema={[serviceSchema(s), faqSchema(s.faqs)]}>
+<BaseLayout title={s.metaTitle} description={s.metaDescription} breadcrumbs={breadcrumbs} schema={[serviceSchema(s, variant === 'fortLauderdale' ? fortLauderdaleLocalBusinessId : undefined), faqSchema(s.faqs)]} noindex={noindex} robots={robots} variant={variant}>
   <Hero
     eyebrow={group.name}
     title={s.h1}
@@ -59,6 +93,8 @@ const breadcrumbs = [
   />
 
   <SplitSection eyebrow={s.name} heading={s.introHeading} paragraphs={s.intro} image={introPhoto.src} imageAlt={introPhoto.alt} phone={{ label: site.phone, href: site.phoneHref }} />
+
+  {servicesFirst && !hideServices && <ServicesSection eyebrow="All services" title="Explore Our Air Duct & HVAC Services" current={s.slug} bg="sky" avoid={pagePhotos} />}
 
   <section class="section relative overflow-hidden bg-surface">
     <div class="container-x relative">
@@ -84,6 +120,17 @@ const breadcrumbs = [
       </div>
     </div>
   </section>
+
+  {variant === 'fortLauderdale' && (
+    <ServicesSection
+      title="Air Duct, Dryer Vent & HVAC Cleaning Services"
+      intro="Duct, HVAC, and dryer vent cleaning for homes and businesses in Fort Lauderdale, FL."
+      city="Fort Lauderdale"
+      current={s.slug}
+      items={flServiceItems}
+      viewAllHref={null}
+    />
+  )}
 
   <SignsBenefits signsHeading={s.signsHeading} signs={s.signs} benefitsHeading={s.benefitsHeading} benefits={s.benefits} />
 
@@ -129,6 +176,7 @@ const breadcrumbs = [
     )
   }
 
+  {!hideRelated && (
   <section class:list={['bg-white', s.note ? 'pb-16 sm:pb-20' : 'section']} data-slider>
     <div class="container-x">
       <div class="flex items-end justify-between gap-6" data-reveal>
@@ -191,13 +239,25 @@ const breadcrumbs = [
       </ul>
     </div>
   </section>
+  )}
 
-  <Reviews tint />
+  <Reviews tint title={reviewsTitle} />
+  {reviewButton && <ReviewWidget />}
   <FAQ faqs={s.faqs} title={`${s.name} FAQs`} />
-  <ServicesSection eyebrow="All services" title="Explore Our Air Duct & HVAC Services" current={s.slug} bg="sky" avoid={pagePhotos} />
-  <LocationsSection title={`${s.name} Service Areas`} service={s} />
+  {!servicesFirst && !hideServices && <ServicesSection eyebrow="All services" title="Explore Our Air Duct & HVAC Services" current={s.slug} bg="sky" avoid={pagePhotos} />}
+  <LocationsSection
+    title={`${s.name} Service Areas`}
+    service={s}
+    showMap={locationsShowMap}
+    mapEmbed={variant === 'fortLauderdale' ? fortLauderdale.mapEmbed : undefined}
+    mapLink={variant === 'fortLauderdale' ? fortLauderdale.mapLink : undefined}
+    label={variant === 'fortLauderdale' ? fortLauderdale.name : undefined}
+    areaList={variant === 'fortLauderdale' ? fortLauderdaleServiceAreas : undefined}
+    mapClass={variant === 'fortLauderdale' ? 'h-[300px] lg:h-[440px]' : undefined}
+    cta={variant === 'fortLauderdale' ? { text: 'We cover Fort Lauderdale and 12 nearby Broward communities. Not sure we reach your address? Request a quote and we’ll confirm.', href: '#quote', label: 'Request a Quote' } : undefined}
+  />
   <QuoteSection eyebrow="Free quote" title={`Schedule ${s.name}`} text={`Tell us about the property and we’ll follow up to book a time. ${site.hours.long}`} />
-  <CtaBand title={`Get a Free Quote for ${s.name}`} text={`Call ${site.phone} or send a request. ${site.hours.long}`} />
+  <CtaBand title={`Get a Free Quote for ${s.name}`} text={`Call ${site.phone} or send a request. ${site.hours.long}`} quoteHref={variant === 'fortLauderdale' ? '#quote' : undefined} />
 </BaseLayout>
 
 <script>

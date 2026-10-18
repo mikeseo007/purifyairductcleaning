@@ -1,8 +1,20 @@
 ---
 import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import Icon from './Icon.astro';
 import { services } from '../data/services';
 import { cardPhotoFor } from '../data/photos';
+
+export interface ServiceCard {
+  slug?: string;
+  path: string;
+  name: string;
+  card: string;
+  icon: string;
+  image: ImageMetadata;
+  imageAlt: string;
+  position?: string;
+}
 
 interface Props {
   eyebrow?: string;
@@ -13,6 +25,10 @@ interface Props {
   bg?: 'white' | 'sky';
   carousel?: boolean;
   avoid?: unknown;
+  /** Optional custom service list (e.g. the Fort Lauderdale services). Defaults to the global services. */
+  items?: ServiceCard[];
+  /** "View all" link target; pass null to hide it. */
+  viewAllHref?: string | null;
 }
 
 const {
@@ -20,9 +36,18 @@ const {
   intro = 'We provide professional cleaning solutions for your entire HVAC system, helping you breathe cleaner air.',
   city,
   current,
+  items,
+  viewAllHref = '/our-services/',
 } = Astro.props;
 
 const heading = city ? `${title} in ${city}` : title;
+
+const cards: ServiceCard[] =
+  items ??
+  services.map((s) => {
+    const photo = cardPhotoFor(s.slug);
+    return { slug: s.slug, path: s.path, name: s.name, card: s.card, icon: s.icon, image: photo.src, imageAlt: photo.alt, position: photo.position };
+  });
 ---
 
 <section id="services" class="scroll-mt-20 bg-white py-14" data-home-services>
@@ -47,37 +72,34 @@ const heading = city ? `${title} in ${city}` : title;
     <div class="relative mt-8">
       <ul class="-mx-1 flex snap-x snap-mandatory gap-5 overflow-x-auto px-1 py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" data-services-track aria-label="All services">
         {
-          services.map((s) => {
-            const photo = cardPhotoFor(s.slug);
-            return (
-              <li class="w-[82%] shrink-0 snap-start sm:w-[calc(50%-10px)] lg:w-[calc(25%-15px)]">
-                <a
-                  href={s.path}
-                  aria-current={s.slug === current ? 'page' : undefined}
-                  class:list={[
-                    'group flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-[0_10px_30px_-18px_rgb(11_51_43/0.35)] ring-1 ring-slate-100',
-                    s.slug === current && 'ring-2 ring-sky-500',
-                  ]}
-                >
-                  <span class="relative block">
-                    <Image src={photo.src} alt={photo.alt} format="webp" widths={[400, 640, 800]} sizes="(min-width: 1024px) 280px, 50vw" class:list={['aspect-[16/10] w-full object-cover', photo.position]} />
+          cards.map((c) => (
+            <li class="w-[82%] shrink-0 snap-start sm:w-[calc(50%-10px)] lg:w-[calc(25%-15px)]">
+              <a
+                href={c.path}
+                aria-current={c.slug === current ? 'page' : undefined}
+                class:list={[
+                  'group flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-[0_10px_30px_-18px_rgb(11_51_43/0.35)] ring-1 ring-slate-100',
+                  c.slug === current && 'ring-2 ring-sky-500',
+                ]}
+              >
+                <span class="relative block">
+                  <Image src={c.image} alt={c.imageAlt} title={c.imageAlt} format="webp" widths={[400, 640, 800]} sizes="(min-width: 1024px) 280px, 50vw" class:list={['aspect-[16/10] w-full object-cover', c.position ?? 'object-center']} />
+                </span>
+                <span class="relative flex flex-1 flex-col px-4 pt-7 pb-4">
+                  <span class="absolute -top-5 left-4 flex size-10 items-center justify-center rounded-lg bg-sky-500 text-white shadow-md">
+                    <Icon name={c.icon} class="size-5" />
                   </span>
-                  <span class="relative flex flex-1 flex-col px-4 pt-7 pb-4">
-                    <span class="absolute -top-5 left-4 flex size-10 items-center justify-center rounded-lg bg-sky-500 text-white shadow-md">
-                      <Icon name={s.icon} class="size-5" />
-                    </span>
-                    <span class="text-base font-bold text-navy-900">{s.name}</span>
-                    <span class="mt-1.5 flex-1 text-sm leading-relaxed text-muted">{s.card}</span>
-                    <span class="mt-3 inline-flex items-center gap-1 text-sm font-bold text-sky-600">Learn More <Icon name="arrowRight" class="size-3.5" /></span>
-                  </span>
-                </a>
-              </li>
-            );
-          })
+                  <span class="text-base font-bold text-navy-900">{c.name}</span>
+                  <span class="mt-1.5 flex-1 text-sm leading-relaxed text-muted">{c.card}</span>
+                  <span class="mt-3 inline-flex items-center gap-1 text-sm font-bold text-sky-600">Learn More <Icon name="arrowRight" class="size-3.5" /></span>
+                </span>
+              </a>
+            </li>
+          ))
         }
       </ul>
     </div>
-    <a href="/our-services/" class="mt-4 inline-flex items-center gap-1 text-sm font-bold text-sky-600">View All Services <Icon name="arrowRight" class="size-4" /></a>
+    {viewAllHref && <a href={viewAllHref} class="mt-4 inline-flex items-center gap-1 text-sm font-bold text-sky-600">View All Services <Icon name="arrowRight" class="size-4" /></a>}
   </div>
 </section>
 

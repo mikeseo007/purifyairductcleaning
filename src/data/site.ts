@@ -25,6 +25,9 @@ export const site = {
     reviewsUrl: 'https://maps.app.goo.gl/vyvFzWWJt3DdBPoe7',
     mapEmbed:
       'https://maps.google.com/maps?q=Purify+Air+Duct+Cleaning+Fort+Lauderdale&hl=en&z=11&output=embed',
+    // Aventura (main-site) map, built from the verified Aventura business address.
+    mapEmbedAventura:
+      'https://maps.google.com/maps?q=Purify+Air+Duct+Cleaning+20533+Biscayne+Blvd+8+Aventura+FL+33180&hl=en&z=14&output=embed',
     rating: 5.0,
     reviewCount: 105,
   },
