@@ -6,7 +6,7 @@ import HeaderFortLauderdale from '../components/HeaderFortLauderdale.astro';
 import FooterFortLauderdale from '../components/FooterFortLauderdale.astro';
 import MobileCallBar from '../components/MobileCallBar.astro';
 import { SITE_URL, site, mainLocation, type Location } from '../data/site';
-import { organizationSchema, businessSchema, websiteSchema, webpageSchema, breadcrumbSchema, fortLauderdaleLocalBusinessSchema, fortLauderdaleLocalBusinessId, organizationId, businessId } from '../data/schema';
+import { organizationSchema, businessSchema, websiteSchema, webpageSchema, breadcrumbSchema, fortLauderdaleLocalBusinessSchema, businessId } from '../data/schema';
 
 interface Props {
   title: string;
@@ -48,19 +48,17 @@ const ogImage = new URL(image, SITE_URL).toString();
 const ogImageType = image.endsWith('.png') ? 'image/png' : image.endsWith('.webp') ? 'image/webp' : 'image/jpeg';
 
 const isFL = variant === 'fortLauderdale';
-// WebPage.about points to the primary business entity present on this page:
-//  - FL landing  → the Fort Lauderdale LocalBusiness (#localbusiness)
-//  - other FL    → the sitewide Organization (the FL LocalBusiness is landing-only)
-//  - main pages  → the Aventura business (#business)
-const pageAboutId = localBusiness ? fortLauderdaleLocalBusinessId : isFL ? organizationId : businessId;
+// Fort Lauderdale pages (landing, service, location) emit a deliberately minimal graph:
+// Organization sitewide plus their own page-specific entities. WebSite, WebPage and the Aventura
+// business entity are main-site only. The FL LocalBusiness is emitted on the FL landing page
+// alone (via `localBusiness`); the landing also passes no breadcrumbs/page-schema, so it ends up
+// with exactly Organization + LocalBusiness.
 const graph = [
-  // Organization + WebSite are sitewide on every page.
   organizationSchema(),
-  websiteSchema(),
-  // Aventura LocalBusiness on main pages only; FL LocalBusiness on the FL landing page only.
+  ...(isFL ? [] : [websiteSchema()]),
   ...(isFL ? [] : [businessSchema()]),
   ...(localBusiness ? [fortLauderdaleLocalBusinessSchema()] : []),
-  webpageSchema({ url: canonical, name: fullTitle, description, image: ogImage }, pageAboutId),
+  ...(isFL ? [] : [webpageSchema({ url: canonical, name: fullTitle, description, image: ogImage }, businessId)]),
   ...(breadcrumbs ? [breadcrumbSchema(breadcrumbs)] : []),
   ...schema,
 ];

@@ -28,7 +28,7 @@ export default defineConfig({
     '/ac-coil-cleaning': '/hvac-cleaning/',
     '/air-handler-cleaning': '/hvac-cleaning/',
     '/uv-light-air-purification': '/hvac-cleaning/',
-    '/sunny-isles-beach': '/',
+    '/sunny-isles-beach': '/air-duct-cleaning-sunny-isles-beach/',
     '/golden-beach': '/',
     '/bal-harbour': '/air-duct-cleaning-north-miami-beach/',
     '/miami-beach': '/air-duct-cleaning-north-miami/',

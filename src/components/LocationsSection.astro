@@ -20,6 +20,10 @@ interface Props {
   mapClass?: string;
   /** Optional CTA shown below the service-area list to balance the column against the map (FL pages). */
   cta?: { text: string; href: string; label: string };
+  /** Optional driving-directions map embed, rendered below the grid in ADDITION to the business map. */
+  directionsEmbed?: string;
+  /** Heading for the driving-directions map. */
+  directionsTitle?: string;
 }
 
 const {
@@ -35,6 +39,8 @@ const {
   areaList,
   mapClass = 'h-[340px] lg:h-[560px]',
   cta,
+  directionsEmbed,
+  directionsTitle = 'Driving directions',
 } = Astro.props;
 ---
 
@@ -56,4 +62,13 @@ const {
     </div>
     {showMap && <GoogleMap bare class={mapClass} embed={mapEmbed} mapLink={mapLink} label={label} />}
   </div>
+  {directionsEmbed && (
+    <div class="container-x mt-10">
+      <p class="text-[11px] font-bold tracking-[0.16em] text-sky-500 uppercase">Driving directions</p>
+      <h3 class="mt-2 text-xl leading-tight">{directionsTitle}</h3>
+      <div class="mt-4">
+        <GoogleMap bare class="h-[320px] sm:h-[380px] lg:h-[440px]" embed={directionsEmbed} label={directionsTitle} />
+      </div>
+    </div>
+  )}
 </section>

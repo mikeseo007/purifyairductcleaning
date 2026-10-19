@@ -85,7 +85,7 @@ export const locationImages = (index: number): LocationImages => {
 // homepage still reads them. The remaining fields exist only to satisfy the type and are
 // not rendered anywhere.
 const aventura: LocationContent = {
-  metaTitle: 'Air Duct Cleaning in Aventura - Purify Air Duct Cleaning',
+  metaTitle: 'Air Duct Cleaning in Aventura - Purify Air Duct',
   metaDescription:
     'Need Air Duct Cleaning in Aventura? Purify Air Duct Cleaning offers deep duct cleaning, dust removal, and cleaner indoor air. Call today!',
   h1Description:
@@ -111,7 +111,7 @@ export const locationContent: Record<string, LocationContent> = {
   aventura,
 
   'air-duct-cleaning-fort-lauderdale': {
-    metaTitle: 'Air Duct Cleaning in Fort Lauderdale - Purify Air Duct Cleaning',
+    metaTitle: 'Air Duct Cleaning in Fort Lauderdale - Purify Air Duct',
     metaDescription:
       'Need Air Duct Cleaning in Fort Lauderdale? Purify Air Duct Cleaning offers deep duct cleaning, dust removal, and cleaner indoor air. Call today!',
     h1Description:
@@ -203,7 +203,7 @@ export const locationContent: Record<string, LocationContent> = {
   },
 
   'air-duct-cleaning-hallandale-beach': {
-    metaTitle: 'Air Duct Cleaning in Hallandale Beach - Purify Air Duct Cleaning',
+    metaTitle: 'Air Duct Cleaning in Hallandale Beach - Purify Air Duct',
     metaDescription:
       'Need Air Duct Cleaning in Hallandale Beach? Purify Air Duct Cleaning offers deep duct cleaning, dust removal, and cleaner indoor air. Call today!',
     h1Description:
@@ -249,7 +249,7 @@ export const locationContent: Record<string, LocationContent> = {
   },
 
   'air-duct-cleaning-pembroke-pines': {
-    metaTitle: 'Air Duct Cleaning in Pembroke Pines - Purify Air Duct Cleaning',
+    metaTitle: 'Air Duct Cleaning in Pembroke Pines - Purify Air Duct',
     metaDescription:
       'Need Air Duct Cleaning in Pembroke Pines? Purify Air Duct Cleaning offers deep duct cleaning, dust removal, and cleaner indoor air. Call today!',
     h1Description:
@@ -387,7 +387,7 @@ export const locationContent: Record<string, LocationContent> = {
   },
 
   'air-duct-cleaning-plantation': {
-    metaTitle: 'Air Duct Cleaning in Plantation - Purify Air Duct Cleaning',
+    metaTitle: 'Air Duct Cleaning in Plantation - Purify Air Duct',
     metaDescription:
       'Need Air Duct Cleaning in Plantation? Purify Air Duct Cleaning offers deep duct cleaning, dust removal, and cleaner indoor air. Call today!',
     h1Description:
@@ -479,7 +479,7 @@ export const locationContent: Record<string, LocationContent> = {
   },
 
   'air-duct-cleaning-lauderhill': {
-    metaTitle: 'Air Duct Cleaning in Lauderhill - Purify Air Duct Cleaning',
+    metaTitle: 'Air Duct Cleaning in Lauderhill - Purify Air Duct',
     metaDescription:
       'Need Air Duct Cleaning in Lauderhill? Purify Air Duct Cleaning offers deep duct cleaning, dust removal, and cleaner indoor air. Call today!',
     h1Description:
@@ -525,7 +525,7 @@ export const locationContent: Record<string, LocationContent> = {
   },
 
   'air-duct-cleaning-oakland-park': {
-    metaTitle: 'Air Duct Cleaning in Oakland Park - Purify Air Duct Cleaning',
+    metaTitle: 'Air Duct Cleaning in Oakland Park - Purify Air Duct',
     metaDescription:
       'Need Air Duct Cleaning in Oakland Park? Purify Air Duct Cleaning offers deep duct cleaning, dust removal, and cleaner indoor air. Call today!',
     h1Description:
@@ -571,7 +571,7 @@ export const locationContent: Record<string, LocationContent> = {
   },
 
   'air-duct-cleaning-pompano-beach': {
-    metaTitle: 'Air Duct Cleaning in Pompano Beach - Purify Air Duct Cleaning',
+    metaTitle: 'Air Duct Cleaning in Pompano Beach - Purify Air Duct',
     metaDescription:
       'Need Air Duct Cleaning in Pompano Beach? Purify Air Duct Cleaning offers deep duct cleaning, dust removal, and cleaner indoor air. Call today!',
     h1Description:
@@ -663,7 +663,7 @@ export const locationContent: Record<string, LocationContent> = {
   },
 
   'air-duct-cleaning-coconut-creek': {
-    metaTitle: 'Air Duct Cleaning in Coconut Creek - Purify Air Duct Cleaning',
+    metaTitle: 'Air Duct Cleaning in Coconut Creek - Purify Air Duct',
     metaDescription:
       'Need Air Duct Cleaning in Coconut Creek? Purify Air Duct Cleaning offers deep duct cleaning, dust removal, and cleaner indoor air. Call today!',
     h1Description:
@@ -801,7 +801,7 @@ export const locationContent: Record<string, LocationContent> = {
   },
 
   'air-duct-cleaning-north-lauderdale': {
-    metaTitle: 'Air Duct Cleaning in North Lauderdale - Purify Air Duct Cleaning',
+    metaTitle: 'Air Duct Cleaning in North Lauderdale - Purify Air Duct',
     metaDescription:
       'Need Air Duct Cleaning in North Lauderdale? Purify Air Duct Cleaning offers deep duct cleaning, dust removal, and cleaner indoor air. Call today!',
     h1Description:
@@ -939,7 +939,7 @@ export const locationContent: Record<string, LocationContent> = {
   },
 
   'air-duct-cleaning-north-miami-beach': {
-    metaTitle: 'Air Duct Cleaning in North Miami Beach - Purify Air Duct Cleaning',
+    metaTitle: 'Air Duct Cleaning in North Miami Beach - Purify Air Duct',
     metaDescription:
       'Need Air Duct Cleaning in North Miami Beach? Purify Air Duct Cleaning offers deep duct cleaning, dust removal, and cleaner indoor air. Call today!',
     h1Description:

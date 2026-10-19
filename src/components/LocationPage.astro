@@ -19,9 +19,11 @@ import CtaBand from './CtaBand.astro';
 import QuoteSection from './QuoteSection.astro';
 import { getLocation, locations, site } from '../data/site';
 import { locationContent, locationImages } from '../data/location-content';
-import { serviceAreaSchema, faqSchema, fortLauderdaleLocalBusinessId } from '../data/schema';
+import { serviceAreaSchema, faqSchema } from '../data/schema';
 import { isFortLauderdaleLocation, fortLauderdaleLandingSlug, fortLauderdale, fortLauderdaleServiceAreas } from '../data/fort-lauderdale';
 import { fortLauderdaleServices, fortLauderdaleHighlightPoints } from '../data/fort-lauderdale-services';
+import { fortLauderdaleDirections } from '../data/fort-lauderdale-directions';
+import { fortLauderdaleCommercial, fortLauderdaleCommercialLanding } from '../data/fort-lauderdale-commercial';
 import { photos } from '../data/photos';
 
 interface Props {
@@ -36,7 +38,7 @@ const city = location.city;
 // FL header/footer and FL business schema. The FL map embed stays exclusive to the FL landing page.
 const isFL = isFortLauderdaleLocation(slug);
 const isFLLanding = slug === fortLauderdaleLandingSlug;
-// On the FL landing page, the services grid shows the six dedicated Fort Lauderdale services.
+// On the FL landing page, the services grid shows the eleven dedicated Fort Lauderdale services.
 const flServiceItems = fortLauderdaleServices.map((s) => ({
   slug: s.slug,
   path: s.path,
@@ -62,14 +64,25 @@ const breadcrumbs = [
   { name: 'Service Areas', path: '/service-areas/' },
   { name: city, path: location.path },
 ];
+
+// JSON-LD scoping (visible breadcrumbs, FAQs and service-area content are rendered separately and unaffected):
+//  - FL landing page: Organization + LocalBusiness only — no BreadcrumbList / Service / FAQPage JSON-LD.
+//  - FL location pages: keep FAQPage + BreadcrumbList; drop the service-area Service entity.
+//  - Main-site location pages: unchanged (service-area Service + FAQPage + BreadcrumbList + WebPage).
+const layoutBreadcrumbs = isFLLanding ? undefined : breadcrumbs;
+const pageSchema = isFLLanding
+  ? []
+  : isFL
+    ? [faqSchema(c.faqs)]
+    : [serviceAreaSchema(location), faqSchema(c.faqs)];
 ---
 
 <BaseLayout
   title={c.metaTitle}
   description={c.metaDescription}
   location={location}
-  breadcrumbs={breadcrumbs}
-  schema={[serviceAreaSchema(location, isFL ? fortLauderdaleLocalBusinessId : undefined), faqSchema(c.faqs)]}
+  breadcrumbs={layoutBreadcrumbs}
+  schema={pageSchema}
   variant={isFL ? 'fortLauderdale' : 'main'}
   localBusiness={isFLLanding}
 >
@@ -87,7 +100,7 @@ const breadcrumbs = [
   />
 
   <TrustBar
-    servicesStat={isFL ? { value: '6', label: 'Dedicated Services', text: 'Ductwork, AC vent & dryer vent services' } : undefined}
+    servicesStat={isFL ? { value: '11', label: 'Dedicated Services', text: 'Duct, AC vent, dryer vent, coil, mold & insulation' } : undefined}
     locationsStat={isFL ? { value: '12', label: 'Service Locations', text: 'Fort Lauderdale & nearby communities' } : undefined}
   />
 
@@ -120,7 +133,8 @@ const breadcrumbs = [
   <HvacHighlight points={isFL ? fortLauderdaleHighlightPoints : undefined} />
 
   <Reviews title={`Trusted by Homeowners and Businesses in ${city}`} eyebrow="What our customers say" />
-  <ReviewWidget />
+  {/* "Leave Us a Review" button is limited to the Fort Lauderdale landing + its associated location pages. */}
+  {isFL && <ReviewWidget />}
 
   {/* SEO section 1: image + text */}
   <SplitSection
@@ -180,6 +194,49 @@ const breadcrumbs = [
     </section>
   )}
 
+  {/* Commercial air duct cleaning: a dedicated section on the FL landing page (anchor target), and a
+      concise, locally varied mention on each of the 12 FL-associated location pages linking back to it. */}
+  {isFLLanding && (
+    <section id="commercial-air-duct-cleaning" class="scroll-mt-20 bg-[#f7fbf8] py-14">
+      <div class="container-x grid items-start gap-10 lg:grid-cols-2">
+        <div>
+          <p class="eyebrow">{fortLauderdaleCommercialLanding.eyebrow}</p>
+          <h2 class="text-3xl sm:text-4xl">{fortLauderdaleCommercialLanding.heading}</h2>
+          {fortLauderdaleCommercialLanding.paragraphs.map((p) => (
+            <p class="mt-4 max-w-xl leading-relaxed text-muted">{p}</p>
+          ))}
+          <a href={fortLauderdaleCommercialLanding.ctaHref} class="btn-primary mt-8">{fortLauderdaleCommercialLanding.ctaLabel}</a>
+        </div>
+        <div class="card p-6 sm:p-8">
+          <p class="text-sm font-bold tracking-wide text-navy-900 uppercase">Commercial duct cleaning covers</p>
+          <ul class="mt-5 space-y-3" data-stagger>
+            {fortLauderdaleCommercialLanding.points.map((pt) => (
+              <li class="flex items-start gap-3">
+                <span class="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-sky-100 text-sky-600"><Icon name="check" class="size-4" /></span>
+                <span class="text-muted">{pt}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="mt-6 border-t border-slate-100 pt-5 text-sm leading-relaxed text-muted">{fortLauderdaleCommercialLanding.assessment}</p>
+        </div>
+      </div>
+    </section>
+  )}
+
+  {isFL && !isFLLanding && fortLauderdaleCommercial[slug] && (
+    <section class="bg-[#f7fbf8] py-14">
+      <div class="container-x">
+        <p class="eyebrow">Commercial service</p>
+        <h2 class="text-3xl sm:text-4xl">Commercial Air Duct Cleaning in {city}</h2>
+        <p class="mt-3 max-w-3xl leading-relaxed text-muted">{fortLauderdaleCommercial[slug]}</p>
+        <a href="/air-duct-cleaning-fort-lauderdale/#commercial-air-duct-cleaning" class="mt-6 inline-flex items-center gap-2 font-bold text-navy-900 hover:text-sky-600">
+          Learn about commercial air duct cleaning in Fort Lauderdale
+          <Icon name="arrowRight" class="size-4" />
+        </a>
+      </div>
+    </section>
+  )}
+
   <LocationsSection
     title={`Proudly Serving ${city}, FL and Nearby Areas`}
     intro={`We clean air ducts, HVAC systems, and dryer vents across ${location.county} and nearby South Florida cities.`}
@@ -191,6 +248,8 @@ const breadcrumbs = [
     areaList={isFL ? fortLauderdaleServiceAreas : undefined}
     mapClass={isFL ? 'h-[300px] lg:h-[440px]' : undefined}
     cta={isFL ? { text: 'We serve Fort Lauderdale and 12 nearby Broward communities. Don’t see your neighborhood? Call or send a quote request and we’ll let you know.', href: '#quote', label: 'Request a Quote' } : undefined}
+    directionsEmbed={isFL && !isFLLanding ? fortLauderdaleDirections[slug] : undefined}
+    directionsTitle={`Driving directions from ${city} to our Fort Lauderdale office`}
   />
 
   <FAQ faqs={c.faqs} title={`Air Duct Cleaning FAQs: ${city}`} tint />

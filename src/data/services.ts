@@ -177,7 +177,7 @@ export const services: Service[] = [
     imageAlt: photos.ceilingVentAccess.alt,
     secondImage: photos.ductVentCleaning.src,
     secondImageAlt: photos.ductVentCleaning.alt,
-    metaTitle: 'Residential Air Duct Cleaning - Purify Air Duct Cleaning',
+    metaTitle: 'Residential Air Duct Cleaning - Purify Air Duct',
     metaDescription:
       'Purify Air Duct Cleaning offers residential air duct cleaning for homes and condos with dusty vents, allergens, and weak airflow. Book today.',
     h1: 'Residential Air Duct Cleaning',
@@ -607,7 +607,7 @@ export const services: Service[] = [
     imageAlt: photos.dryerVentExterior.alt,
     secondImage: photos.serviceVanCrew.src,
     secondImageAlt: photos.serviceVanCrew.alt,
-    metaTitle: 'Commercial Dryer Vent Cleaning - Purify Air Duct Cleaning',
+    metaTitle: 'Commercial Dryer Vent Cleaning - Purify Air Duct',
     metaDescription:
       'Purify Air Duct Cleaning handles commercial dryer vent cleaning for shared laundry rooms and multi-unit buildings. Request service today.',
     h1: 'Commercial Dryer Vent Cleaning',
@@ -727,7 +727,7 @@ export const services: Service[] = [
     imageAlt: photos.dryerVentExterior.alt,
     secondImage: photos.serviceTrucks.src,
     secondImageAlt: photos.serviceTrucks.alt,
-    metaTitle: 'Dryer Vent Installation Services - Purify Air Duct Cleaning',
+    metaTitle: 'Dryer Vent Installation Services - Purify Air Duct',
     metaDescription:
       'Purify Air Duct Cleaning offers dryer vent installation to replace crushed, foil, or unsafe lines with a proper vent run. Request your installation today.',
     h1: 'Dryer Vent Installation in Aventura, FL',
