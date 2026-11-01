@@ -125,7 +125,7 @@ export const services: Service[] = [
     introHeading: 'A full-system duct cleaning, not a vent wipe',
     intro: [
       'Air duct cleaning in Aventura removes the dust that collects in supply and return ducts while the air conditioner runs most of the year. People also call this vent cleaning or ductwork cleaning. It is the ducts and registers, not a wipe of the grille.',
-      `Purify Air Duct Cleaning does that work under negative pressure from our Aventura office. If the coil or air handler is the source of weak airflow or a musty smell, add ${a('/hvac-cleaning/', 'air conditioning cleaning')}. Clothes that take two cycles to dry are a ${a('/dryer-vent-cleaning/', 'clothes dryer vent cleaning')} job, not a duct job.`,
+      `Purify Air Duct Cleaning does that work under negative pressure from our Aventura office — ${a('/residential-air-duct-cleaning/', 'residential air duct cleaning')} for houses, townhomes and condos, and ${a('/commercial-air-duct-cleaning/', 'commercial air duct cleaning')} for offices and storefronts. If the coil or air handler is the source of weak airflow or a musty smell, add ${a('/hvac-cleaning/', 'air conditioning cleaning')}. Clothes that take two cycles to dry are a ${a('/dryer-vent-cleaning/', 'clothes dryer vent cleaning')} job, not a duct job.`,
     ],
     componentsHeading: 'What a duct cleaning includes',
     components: [
@@ -177,7 +177,7 @@ export const services: Service[] = [
     imageAlt: photos.ceilingVentAccess.alt,
     secondImage: photos.ductVentCleaning.src,
     secondImageAlt: photos.ductVentCleaning.alt,
-    metaTitle: 'Residential Air Duct Cleaning - Purify Air Duct',
+    metaTitle: 'Residential Air Duct Cleaning - Purify Air Duct Cleaning',
     metaDescription:
       'Purify Air Duct Cleaning offers residential air duct cleaning for homes and condos with dusty vents, allergens, and weak airflow. Book today.',
     h1: 'Residential Air Duct Cleaning',
@@ -354,7 +354,7 @@ export const services: Service[] = [
   {
     slug: 'air-duct-inspection',
     path: '/air-duct-inspection/',
-    name: 'Ductwork Inspection',
+    name: 'Air Duct Inspection',
     group: 'duct',
     parent: 'air-duct-cleaning',
     icon: 'search',
@@ -366,7 +366,7 @@ export const services: Service[] = [
     metaTitle: 'Air Duct Inspection Services - Purify Air Duct Cleaning',
     metaDescription:
       'Purify Air Duct Cleaning provides air duct inspection to check ducts, weak airflow, and uneven rooms before work. Book an inspection today.',
-    h1: 'Ductwork Inspection and Maintenance',
+    h1: 'Air Duct Inspection and Maintenance',
     heroSubtitle: 'Find out whether you need cleaning, a repair, or both, before any work is sold.',
     introHeading: 'Start with what the system is actually doing',
     intro: [
@@ -607,7 +607,7 @@ export const services: Service[] = [
     imageAlt: photos.dryerVentExterior.alt,
     secondImage: photos.serviceVanCrew.src,
     secondImageAlt: photos.serviceVanCrew.alt,
-    metaTitle: 'Commercial Dryer Vent Cleaning - Purify Air Duct',
+    metaTitle: 'Commercial Dryer Vent Cleaning - Purify Air Duct Cleaning',
     metaDescription:
       'Purify Air Duct Cleaning handles commercial dryer vent cleaning for shared laundry rooms and multi-unit buildings. Request service today.',
     h1: 'Commercial Dryer Vent Cleaning',
@@ -727,7 +727,7 @@ export const services: Service[] = [
     imageAlt: photos.dryerVentExterior.alt,
     secondImage: photos.serviceTrucks.src,
     secondImageAlt: photos.serviceTrucks.alt,
-    metaTitle: 'Dryer Vent Installation Services - Purify Air Duct',
+    metaTitle: 'Dryer Vent Installation Services - Purify Air Duct Cleaning',
     metaDescription:
       'Purify Air Duct Cleaning offers dryer vent installation to replace crushed, foil, or unsafe lines with a proper vent run. Request your installation today.',
     h1: 'Dryer Vent Installation in Aventura, FL',
