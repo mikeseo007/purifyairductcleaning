@@ -159,7 +159,7 @@ export const locationContent: Record<string, LocationContent> = {
   'air-duct-cleaning-hollywood': {
     metaTitle: 'Air Duct Cleaning in Hollywood, FL | Purify',
     metaDescription:
-      'Air Duct Cleaning in Hollywood, FL from Purify. We remove dust and allergens from home ducts for cleaner indoor air. Call 954-945-9428.',
+      'Air duct cleaning in Hollywood, FL for Hollywood Lakes bungalows, Emerald Hills ranches and beachside condos. Dust and musty-coil odors removed at the source. Call 954-945-9428.',
     h1Description:
       'Air Duct Cleaning in Hollywood from Purify Air Duct Cleaning Fort Lauderdale removes built-up dust and debris from home HVAC systems, helping families enjoy cleaner, fresher indoor air year-round.',
     healthier: [
@@ -175,7 +175,7 @@ export const locationContent: Record<string, LocationContent> = {
       { icon: 'sparkle', title: 'Registers and grilles', text: 'Supply registers and return grilles are removed, cleaned and reinstalled so the parts you see match the ducts behind them.' },
     ],
     signsIntro:
-      'These are the things Hollywood homeowners tend to notice when the ductwork is overdue for cleaning.',
+      'From Hollywood Lakes bungalows to Emerald Hills ranch homes and beachside condos, these are the signs the ductwork is overdue for cleaning.',
     signs: [
       'Clothes and surfaces feel dusty again soon after cleaning',
       'A musty smell on humid mornings near the beach',
@@ -253,43 +253,43 @@ export const locationContent: Record<string, LocationContent> = {
     metaDescription:
       'Need Air Duct Cleaning in Pembroke Pines? Purify Air Duct Cleaning offers deep duct cleaning, dust removal, and cleaner indoor air. Call today!',
     h1Description:
-      'Air Duct Cleaning in Pembroke Pines from Purify Air Duct Cleaning Fort Lauderdale removes attic-duct dust and debris from family homes for cleaner, healthier indoor air across the city.',
+      'Air Duct Cleaning in Pembroke Pines from Purify Air Duct Cleaning Fort Lauderdale clears long attic-run dust from the master-planned family homes of Silver Lakes, Pembroke Falls and Chapel Trail for cleaner, healthier indoor air.',
     healthier: [
-      'Pembroke Pines is a family town of single-family homes, and neighborhoods like Silver Lakes, Pembroke Falls and Chapel Trail typically run long flex duct through a hot attic. Residential air duct cleaning clears the dust that collects in those runs so each room gets cleaner air.',
-      'Long attic runs mean more duct and more vents than a condo, so we set up the job for the house in front of us. When a weak room is more than dust, an <a href="/air-duct-inspection/">air duct inspection</a> tells us whether a run is crushed or disconnected.',
+      'Pembroke Pines grew up in the 1990s and 2000s as a master-planned family city, so neighborhoods like Silver Lakes, Pembroke Falls, Chapel Trail and Grand Palms are full of two-story homes running long flex duct through a hot attic — often on two separate air-conditioning systems. That is a lot of ductwork for dust to settle in, and residential air duct cleaning clears it at the source so every room, upstairs and down, gets cleaner air.',
+      'More duct and more vents mean the job should be set up for the house in front of us, not a one-size visit. We clean each accessible run on each system and reset the registers. When an upstairs room stays weak after cleaning, an <a href="/air-duct-inspection/">air duct inspection</a> tells us whether a run is simply dirty or crushed and disconnected in the attic.',
     ],
     solutionsIntro:
-      'Attic heat, family-home dust loads and 55-plus community systems all shape what builds up in a Pembroke Pines HVAC system.',
+      'Long two-story attic runs, gated-community family living and a large 55-plus population all shape what collects in a Pembroke Pines HVAC system.',
     solutions: [
-      { icon: 'duct', title: 'Long attic-run dust', text: 'Flex duct in a hot attic collects dust along its full length. We clean the accessible supply and return runs, not just the registers.' },
-      { icon: 'home', title: 'Household and pet debris', text: 'Family homes with kids and pets load the returns quickly. Source removal keeps dander and dust out of the air path.' },
-      { icon: 'wind', title: 'Second-system zones', text: 'Two-story homes often run two air handlers. We clean each system and the runs it serves so no zone is missed.' },
-      { icon: 'sanitize', title: 'Lingering odors', text: 'When a smell remains after cleaning, optional sanitizing treats the duct surfaces once the debris is gone.' },
+      { icon: 'duct', title: 'Long two-story attic runs', text: 'Homes in Pembroke Falls and Silver Lakes often run flex the length of the house on two systems. We clean the accessible supply and return runs on each, not just the registers.' },
+      { icon: 'wind', title: 'Second-system zones', text: 'An upstairs air handler and a downstairs one collect dust at different rates. We clean each system and the runs it serves so a warm upper floor is not left out.' },
+      { icon: 'home', title: 'Family and pet load', text: 'Busy family homes near Chapel Trail fill the returns quickly with everyday dust and pet dander. Source removal keeps it out of the air path.' },
+      { icon: 'search', title: 'Weak-room diagnosis', text: 'We separate buildup from a crushed or disconnected attic run so a room that never cools gets the right fix instead of a repeat cleaning.' },
     ],
     signsIntro:
-      'If your Pembroke Pines home shows any of these, the attic ductwork is worth checking.',
+      'In a Pembroke Pines family home around Silver Lakes, Pembroke Falls or Chapel Trail — many two-story and on two systems — these are the signs the ductwork needs attention.',
     signs: [
       'Dust reappears on furniture within a day of cleaning',
       'An upstairs bedroom never cools like the downstairs',
-      'Airflow dropped after other attic or roofing work',
+      'Airflow dropped after attic, solar or re-roofing work',
+      'One of the two systems feels weaker than the other',
       'Return grilles are coated with gray debris',
-      'The home has not had the ducts cleaned in several years',
       'Allergy symptoms are worse indoors than outside',
     ],
     allergy: [
-      'Allergy-prone families in Pembroke Pines deal with year-round cooling and seasonal pollen, and the attic duct runs carry whatever is in the system to every room. Cleaning the ducts lowers the dust and allergens the household recirculates.',
-      'We take the buildup out at the source rather than covering it. A <a href="/dryer-vent-cleaning/">dryer vent cleaning</a> is simple to add on the same visit, which matters in homes where laundry rooms share the hot attic chase.',
+      'Pembroke Pines families deal with year-round cooling and the seasonal pollen that drifts in from the Chapel Trail Nature Preserve and the western wetlands, and the attic duct runs carry whatever is in the system to every room. For allergy-prone households, cleaning both systems at the source lowers the dust and pollen the home recirculates.',
+      'We take the buildup out rather than covering it, and keep the scope honest across each air handler. A <a href="/dryer-vent-cleaning/">dryer vent cleaning</a> is simple to add on the same visit, which matters in the many Pines homes where the laundry room vents through the same hot attic chase.',
     ],
     pois: [
-      { name: 'Silver Lakes & Pembroke Falls', text: 'Gated single-family communities with attic flex duct that benefits from full-run cleaning.' },
-      { name: 'Chapel Trail', text: 'Homes near the nature preserve collect outdoor pollen and dust that reach the ducts.' },
-      { name: 'Century Village', text: 'A large 55-plus community where long-time owners often have systems overdue for cleaning.' },
+      { name: 'Silver Lakes & Pembroke Falls', text: 'Gated 1990s–2000s family communities with long two-system attic flex that benefits from full-run cleaning.' },
+      { name: 'Chapel Trail & the Nature Preserve', text: 'Homes near the preserve take in extra outdoor pollen and dust that reach the HVAC returns.' },
+      { name: 'Century Village', text: 'A large 55-plus community where long-time owners often have closet systems overdue for cleaning.' },
     ],
     faqs: [
-      { q: 'Do you clean ducts in two-story Pembroke Pines homes?', a: 'Yes. We clean each air handler and the runs it serves, including upstairs and downstairs zones, so a warm upper room is not left out.' },
-      { q: 'My home is in Century Village. Do you work in 55-plus communities?', a: 'Yes. We clean ducts in Century Village and similar communities and coordinate with any building or association access rules before arriving.' },
-      { q: 'A back bedroom never cools. Will cleaning fix it?', a: 'If the cause is buildup, cleaning helps. If a run is crushed or disconnected in the attic, we will show you and explain that a repair, not a cleaning, is what that room needs.' },
-      { q: 'How long does a typical Pembroke Pines house take?', a: 'Many single-system homes are finished in a few hours. Larger homes with two air handlers take longer, and we give you a window when we schedule.' },
+      { q: 'Our Pembroke Pines home is two-story with two AC systems. Do you clean both?', a: 'Yes. We clean each air handler and the runs it serves, upstairs and downstairs, so a warm upper floor is addressed and neither zone is skipped. Pricing reflects the number of systems and vents.' },
+      { q: 'We live in Century Village. Do you work in 55-plus communities?', a: 'Yes. We clean ducts in Century Village and the other 55-plus sections and coordinate with the community and building access rules before we arrive.' },
+      { q: 'A back bedroom upstairs never cools. Will cleaning fix it?', a: 'If the run feeding it is just dirty, cleaning helps. If a long attic run in a Silver Lakes or Pembroke Falls home is crushed or disconnected, we show you and explain that a repair — not another cleaning — is what that room needs.' },
+      { q: 'Airflow dropped after we had solar or a new roof installed. Related?', a: 'It can be. Attic work sometimes shifts or crushes a flex run. We inspect the accessible runs, clean what is only dusty, and point out any section that was disturbed.' },
       { q: 'What areas near Pembroke Pines do you cover?', a: 'We also serve Miramar, Hollywood and Weston. Call 954-945-9428 to confirm a time for your neighborhood.' },
     ],
   },
@@ -297,7 +297,7 @@ export const locationContent: Record<string, LocationContent> = {
   'air-duct-cleaning-miramar': {
     metaTitle: 'Air Duct Cleaning in Miramar, FL | Purify',
     metaDescription:
-      'Air Duct Cleaning in Miramar, FL from Purify. We remove dust and allergens from home ducts for cleaner indoor air. Call 954-945-9428.',
+      'Air duct cleaning in Miramar, FL for single-family homes in Sunset Lakes, Monarch Lakes and Silver Shores. Hot-attic duct dust removed at the source. Call 954-945-9428.',
     h1Description:
       'Air Duct Cleaning in Miramar from Purify Air Duct Cleaning Fort Lauderdale removes attic-duct dust and allergens from single-family homes, delivering cleaner and healthier indoor air.',
     healthier: [
@@ -313,7 +313,7 @@ export const locationContent: Record<string, LocationContent> = {
       { icon: 'wind', title: 'Zoned systems', text: 'Larger Miramar homes with two air handlers get each system and its runs cleaned so no area is skipped.' },
     ],
     signsIntro:
-      'These are the signs a Miramar home is due for duct cleaning.',
+      'In a Miramar single-family home with long hot-attic flex runs, around Sunset Lakes or Monarch Lakes, these are the signs the ducts are due.',
     signs: [
       'Dust builds up quickly after you clean',
       'A room on the far end of the house stays warm',
@@ -391,51 +391,51 @@ export const locationContent: Record<string, LocationContent> = {
     metaDescription:
       'Need Air Duct Cleaning in Plantation? Purify Air Duct Cleaning offers deep duct cleaning, dust removal, and cleaner indoor air. Call today!',
     h1Description:
-      'Air Duct Cleaning in Plantation from Purify Air Duct Cleaning Fort Lauderdale removes dust and debris from home ductwork, giving Plantation Acres and Jacaranda families cleaner indoor air.',
+      'Air Duct Cleaning in Plantation from Purify Air Duct Cleaning Fort Lauderdale clears dust and tree pollen from the larger homes of Plantation Acres and Jacaranda and the condos of Plantation Midtown.',
     healthier: [
-      'Plantation ranges from the larger lots of Plantation Acres to the established homes of Jacaranda, and many run more than one air handler with long attic duct. Residential air duct cleaning clears the dust those runs collect so each room receives cleaner air.',
-      'Larger homes mean more duct and more vents, so we size the job accordingly and clean each accessible run and register. When a room stays weak after cleaning, an <a href="/air-duct-inspection/">air duct inspection</a> checks for a crushed or disconnected run.',
+      'Plantation runs the full range — the large, sometimes equestrian lots of Plantation Acres, the established canopy-shaded homes of Jacaranda, and the condos and townhomes of Plantation Midtown near Broward Mall. The bigger homes often run two or three air handlers with long attic flex, while the Midtown buildings use compact closet units. Residential air duct cleaning clears the dust each collects so every room gets cleaner air.',
+      'Larger homes mean more duct and more vents, so we size the job to the property and clean each accessible run and register across every system. When a room stays weak after cleaning, an <a href="/air-duct-inspection/">air duct inspection</a> checks the attic for a crushed or disconnected run before anything else is recommended.',
     ],
     solutionsIntro:
-      'Larger Plantation homes, mature tree cover and multiple systems all shape what collects in the ductwork.',
+      'Larger multi-system homes, mature tree canopy and the Midtown condo stock all shape what collects in a Plantation HVAC system.',
     solutions: [
-      { icon: 'duct', title: 'Multi-run dust', text: 'Bigger homes have more duct to collect dust. We clean the accessible supply and return runs across each system.' },
-      { icon: 'wind', title: 'Tree pollen and debris', text: 'Mature canopy in Jacaranda and Plantation Acres drops pollen that reaches the returns. Source removal clears it.' },
-      { icon: 'home', title: 'Everyday household dust', text: 'Family living loads the returns steadily. Cleaning them keeps dander and fine dust out of the air path.' },
-      { icon: 'search', title: 'Damaged-run checks', text: 'We flag crushed or disconnected runs during cleaning so a weak room gets the repair it needs, not a repeat cleaning.' },
+      { icon: 'duct', title: 'Multi-system attic dust', text: 'Plantation Acres and larger Jacaranda homes run two or three air handlers with long flex. We clean the accessible supply and return runs across every system.' },
+      { icon: 'wind', title: 'Mature-canopy pollen', text: 'Jacaranda’s old oak and ficus canopy drops a steady load of pollen that reaches the returns. Source removal clears it from the runs rather than recirculating it.' },
+      { icon: 'home', title: 'Midtown closet units', text: 'Condos and townhomes near Broward Mall run compact closet handlers with short runs. We clean the ducts and registers inside the unit, with building access arranged ahead.' },
+      { icon: 'search', title: 'Damaged-run checks', text: 'We flag crushed or disconnected runs during cleaning so a weak room gets the repair it needs, not another cleaning that cannot fix it.' },
     ],
     signsIntro:
-      'These are the signs a Plantation home is ready for duct cleaning.',
+      'In a Plantation Acres or Jacaranda home — often on two or three systems — or a Plantation Midtown condo, these are the signs the ductwork is ready for cleaning.',
     signs: [
       'Dust comes back fast after you clean',
-      'One zone or wing cools worse than the rest',
-      'Airflow weakened after attic or roof work',
-      'Visible debris at the supply registers',
-      'The larger home has multiple systems overdue for cleaning',
-      'Indoor allergy symptoms through pollen season',
+      'One zone or wing cools noticeably worse than the rest',
+      'Heavy pollen settles indoors under the tree canopy',
+      'Airflow weakened after attic or re-roofing work',
+      'One of several systems is clearly overdue',
+      'Indoor allergy symptoms through the spring pollen season',
     ],
     allergy: [
-      'Plantation neighborhoods with heavy tree cover see a lot of pollen, and the duct system spreads whatever it carries through the house. For allergy-prone families, cleaning the ducts lowers the dust and pollen that recirculate indoors.',
-      'We remove the buildup at the source and keep the scope honest. A <a href="/dryer-vent-cleaning/">dryer vent cleaning</a> can be added on the same visit for homes where the laundry run has gone years without service.',
+      'Plantation’s older neighborhoods sit under heavy oak and ficus canopy, especially through Jacaranda, and that means a lot of pollen looking for a way indoors. The duct system spreads whatever it carries through the house, so for allergy-prone families cleaning the runs at the source lowers the dust and pollen that recirculate room to room.',
+      'We remove the buildup rather than masking it and keep the scope honest across each system. A <a href="/dryer-vent-cleaning/">dryer vent cleaning</a> is easy to add on the same visit for homes where the laundry run has gone years without service.',
     ],
     pois: [
-      { name: 'Plantation Acres', text: 'Larger-lot homes with multiple air handlers and long attic runs that benefit from full cleaning.' },
-      { name: 'Jacaranda', text: 'Established neighborhoods under mature canopy that drops pollen into the returns.' },
-      { name: 'Plantation Midtown', text: 'Condos and townhomes near Broward Mall with compact closet systems.' },
+      { name: 'Plantation Acres', text: 'Larger, sometimes equestrian lots with two or three air handlers and long attic runs that benefit from full cleaning.' },
+      { name: 'Jacaranda', text: 'Established neighborhoods under mature oak and ficus canopy that drops pollen into the HVAC returns.' },
+      { name: 'Plantation Midtown & Broward Mall', text: 'Condos and townhomes near the mall with compact closet systems due for regular cleaning.' },
     ],
     faqs: [
-      { q: 'My Plantation Acres home has two or three systems. Do you clean all of them?', a: 'Yes. We quote and clean by the number of air handlers and the runs each one serves so a large home has every zone addressed.' },
-      { q: 'There are big trees around my Jacaranda home. Does that matter?', a: 'Mature canopy drops a lot of pollen that reaches the returns, so homes under heavy tree cover often benefit from cleaning on a shorter interval.' },
-      { q: 'A wing of the house cools poorly. Is that a duct issue?', a: 'It can be buildup, or a crushed or disconnected run. We clean what we can and recommend an inspection if a run looks damaged rather than just dirty.' },
-      { q: 'How is a larger home priced?', a: 'By the number of systems and vents and the access involved. We give you the scope in writing before any work starts.' },
-      { q: 'What nearby areas do you serve?', a: 'We also clean ducts in Sunrise, Davie and Fort Lauderdale. Call 954-945-9428 to confirm scheduling.' },
+      { q: 'My Plantation Acres home has two or three AC systems. Do you clean all of them?', a: 'Yes. We quote and clean by the number of air handlers and the runs each one serves, so a large Acres home has every zone addressed and none is skipped.' },
+      { q: 'There is heavy tree cover around my Jacaranda home. Does that matter for the ducts?', a: 'It does. Mature oak and ficus canopy drops a lot of pollen that reaches the returns, so homes under heavy cover often benefit from cleaning on a shorter interval than open-lot homes.' },
+      { q: 'I own a condo in Plantation Midtown. Can you still do a thorough cleaning?', a: 'Yes. Closet air handlers and short runs still load with dust over time. We clean the ducts and registers inside the unit and arrange building and elevator access with management first.' },
+      { q: 'A wing of the house cools poorly. Is that a cleaning problem?', a: 'It can be buildup, or a crushed or disconnected run in a larger home. We clean what we can reach and recommend an inspection when a run looks damaged rather than just dirty, so you are not paying to re-clean a failing run.' },
+      { q: 'Besides Plantation, which nearby cities do you serve?', a: 'We also clean ducts in Sunrise, Davie and Fort Lauderdale. Call 954-945-9428 to confirm scheduling.' },
     ],
   },
 
   'air-duct-cleaning-sunrise': {
     metaTitle: 'Air Duct Cleaning in Sunrise, FL | Purify',
     metaDescription:
-      'Air Duct Cleaning in Sunrise, FL from Purify. We remove dust and allergens from home ducts for cleaner indoor air. Call 954-945-9428.',
+      'Air duct cleaning in Sunrise, FL for townhomes and houses in Welleby, Springtree and near Sawgrass. Attic-run dust and garage-chase lint cleared. Call 954-945-9428.',
     h1Description:
       'Air Duct Cleaning in Sunrise from Purify Air Duct Cleaning Fort Lauderdale clears attic-duct dust and allergens from townhomes and houses for cleaner, healthier indoor air.',
     healthier: [
@@ -451,7 +451,7 @@ export const locationContent: Record<string, LocationContent> = {
       { icon: 'droplet', title: 'Humidity on the coil', text: 'Summer humidity keeps the coil damp. We clean the wet components when a musty smell points to the equipment.' },
     ],
     signsIntro:
-      'If a Sunrise home shows these, the ductwork is worth checking.',
+      'In a Sunrise townhome or house around Welleby, Springtree or Sawgrass, these are the signs the ductwork is worth checking.',
     signs: [
       'Dust reappears quickly after cleaning',
       'A back room or upstairs space never cools evenly',
@@ -575,51 +575,51 @@ export const locationContent: Record<string, LocationContent> = {
     metaDescription:
       'Need Air Duct Cleaning in Pompano Beach? Purify Air Duct Cleaning offers deep duct cleaning, dust removal, and cleaner indoor air. Call today!',
     h1Description:
-      'Air Duct Cleaning in Pompano Beach from Purify Air Duct Cleaning Fort Lauderdale removes dust and humidity-driven buildup from beachside and inland homes for cleaner indoor air.',
+      'Air Duct Cleaning in Pompano Beach from Purify Air Duct Cleaning Fort Lauderdale clears salt-air humidity buildup from beachfront condos near the pier and attic-run dust from inland homes in Palm Aire and Cresthaven.',
     healthier: [
-      'Pompano Beach runs from beachfront condos to the inland homes of Palm Aire and Cresthaven, so the systems vary from closet handlers to longer attic runs. Residential air duct cleaning clears the dust and debris both collect so each room gets cleaner air.',
-      'Near the water the coil stays damp, and inland the attic runs load with dust, so we plan the visit for the home we find. When a musty smell points to the equipment, we add <a href="/hvac-cleaning/">air conditioning cleaning</a>.',
+      'Pompano Beach runs from the oceanfront towers near the pier and Hillsboro Inlet to the golf villas of Palm Aire and the inland single-family homes of Cresthaven and Old Pompano. A beachfront condo’s closet handler and an inland home’s long attic flex are very different jobs, so residential air duct cleaning here starts with the system you actually have and clears the dust and debris it collects at the source.',
+      'Along the water, salt air keeps the evaporator coil damp and the returns loaded; inland, the attic runs bake and fill with dust through the long cooling season. We clean the accessible runs and reset the registers either way, and when a musty smell traces back to a wet coil we pair the work with <a href="/hvac-cleaning/">air conditioning cleaning</a>.',
     ],
     solutionsIntro:
-      'Salt air near the pier and attic heat inland both shape what collects in a Pompano Beach system.',
+      'Salt air near the pier, golf-community villas in Palm Aire and inland attic heat all shape what collects in a Pompano Beach HVAC system.',
     solutions: [
-      { icon: 'droplet', title: 'Coastal humidity', text: 'Beachside coils stay damp, where musty odors and film start. We clean the wet components when they are the source.' },
-      { icon: 'duct', title: 'Attic-run dust', text: 'Inland homes have longer flex runs. We clean the accessible supply and return ducts under negative air.' },
-      { icon: 'home', title: 'Allergens and dander', text: 'Dust and dander collect in the returns first. Source removal keeps them from recirculating.' },
-      { icon: 'wind', title: 'Salt grit and road dust', text: 'Open coastal living and busy Atlantic Boulevard push grit into the ducts that filters do not catch.' },
+      { icon: 'droplet', title: 'Salt-air coil humidity', text: 'Near the pier and Hillsboro Inlet the coil stays damp and the returns load with salt grit, where musty odors and film begin. We clean the wet components when they are the source.' },
+      { icon: 'duct', title: 'Inland attic-run dust', text: 'Cresthaven and Old Pompano homes run longer attic flex. We clean the accessible supply and return runs under negative air, not just the grilles.' },
+      { icon: 'home', title: 'Palm Aire villa systems', text: 'The golf-community condos and villas off Atlantic Boulevard run closet handlers that benefit from regular duct and coil cleaning.' },
+      { icon: 'wind', title: 'Salt grit and road dust', text: 'Open coastal living and busy Atlantic Boulevard push fine grit into the ducts that a filter alone does not catch.' },
     ],
     signsIntro:
-      'These are the signs a Pompano Beach home is ready for duct cleaning.',
+      'From a Pompano Beach oceanfront condo near the pier to a Palm Aire villa or a Cresthaven home, these are the signs the ductwork is ready for cleaning.',
     signs: [
       'A musty smell on humid coastal mornings',
-      'Dust settles again soon after cleaning',
+      'Dust and fine grit resettle soon after cleaning',
       'An inland back room that never cools evenly',
-      'Debris or film at the return grille',
-      'The condo sat closed up for a season',
-      'Allergy symptoms that ease away from home',
+      'Debris or film at the return grille of a beachfront unit',
+      'The condo sat closed up through the off-season',
+      'Allergy symptoms that ease once you leave home',
     ],
     allergy: [
-      'For allergy-prone households in Pompano Beach, the ducts carry dust, salt grit and pollen through the home. Cleaning them at the source lowers what the family breathes, whether the home is a beachside condo or an inland house.',
-      'We take the buildup out rather than spraying over it. An optional <a href="/air-duct-sanitizing/">air duct sanitizing</a> step can follow when an odor remains, and we can check the <a href="/dryer-vent-cleaning/">dryer vent</a> on the same visit.',
+      'For allergy-prone households in Pompano Beach, the ducts carry dust, salt grit and pollen through the home, whether it is a beachfront condo near the pier or an inland house in Cresthaven. With windows closed against the humidity, that load keeps recirculating, so cleaning the system at the source makes a clear difference in what the family breathes.',
+      'We take the buildup out rather than spraying over it. An optional <a href="/air-duct-sanitizing/">air duct sanitizing</a> step can follow once the ducts are clear, and we can check the <a href="/dryer-vent-cleaning/">dryer vent</a> — often a long riser in the beach towers — on the same visit.',
     ],
     pois: [
-      { name: 'Pompano Beach Pier & beachfront', text: 'Oceanfront condos run closet handlers in salt air that keeps the coil damp.' },
-      { name: 'Palm Aire', text: 'Golf-community homes and villas with longer runs that collect dust.' },
-      { name: 'Old Pompano & Cresthaven', text: 'Established neighborhoods with older systems due for a thorough cleaning.' },
+      { name: 'Pompano Beach Pier & Hillsboro Inlet', text: 'Oceanfront condos here run closet handlers in constant salt-air humidity that keeps the coil damp.' },
+      { name: 'Palm Aire', text: 'Golf-community villas and condos off Atlantic Boulevard with closet systems and longer runs that collect dust.' },
+      { name: 'Old Pompano & Cresthaven', text: 'Established inland single-family neighborhoods with attic flex due for a thorough cleaning.' },
     ],
     faqs: [
-      { q: 'Do you clean ducts in beachfront Pompano condos?', a: 'Yes. Oceanfront buildings use closet air handlers and short runs. We clean the ducts and the cabinet when salt-air humidity has loaded the coil.' },
-      { q: 'My Palm Aire home has long attic runs. Do you clean all of them?', a: 'Yes. We clean the accessible supply and return runs through the attic, not just the registers, so deeper dust is removed.' },
-      { q: 'Does living near the beach change the cleaning interval?', a: 'Coastal humidity keeps the coil and returns damp, so beachside homes often benefit a little sooner than inland ones.' },
-      { q: 'The condo was a seasonal rental. Should I clean before moving in?', a: 'It is worth it. A unit that sat closed up holds stale air and dust, and cleaning at the source gives a fresh start.' },
-      { q: 'What nearby areas do you serve?', a: 'We also clean ducts in Deerfield Beach, Fort Lauderdale and Coconut Creek. Call 954-945-9428 to confirm scheduling.' },
+      { q: 'Do you clean ducts in beachfront Pompano condos near the pier?', a: 'Yes. Oceanfront buildings use closet air handlers with short runs, and the salt-air humidity loads the coil quickly. We clean the ducts and the cabinet and coordinate elevator and loading access with building management.' },
+      { q: 'My Palm Aire villa is compact. Is a cleaning really worth it?', a: 'Yes. Even short closet-handler runs load with dust and salt grit over time. We clean the ducts and registers and the coil cabinet when it needs it, so the unit is not just recirculating the same air.' },
+      { q: 'Does living near the beach change how often I should clean?', a: 'It does. Salt air keeps the coil and returns damp, so beachfront Pompano homes often benefit a little sooner than the inland homes in Cresthaven or Palm Aire.' },
+      { q: 'The condo was a seasonal rental that sat closed up. Should I clean before moving in?', a: 'It is worth it. A unit that sat shut through the off-season holds stale, damp air and settled dust, and a source cleaning gives you a fresh starting point.' },
+      { q: 'Do you clean air ducts beyond Pompano Beach?', a: 'We also clean ducts in Deerfield Beach, Fort Lauderdale and Coconut Creek. Call 954-945-9428 to confirm scheduling.' },
     ],
   },
 
   'air-duct-cleaning-deerfield-beach': {
     metaTitle: 'Air Duct Cleaning in Deerfield Beach, FL | Purify',
     metaDescription:
-      'Air Duct Cleaning in Deerfield Beach, FL from Purify. We remove dust and allergens from home ducts for cleaner indoor air. Call 954-945-9428.',
+      'Air duct cleaning in Deerfield Beach, FL for beachside condos, homes in The Cove, and Century Village. Humidity-driven buildup cleared at the source. Call 954-945-9428.',
     h1Description:
       'Air Duct Cleaning in Deerfield Beach from Purify Air Duct Cleaning Fort Lauderdale clears dust and humidity-driven buildup from homes and condos for cleaner, fresher indoor air.',
     healthier: [
@@ -635,7 +635,7 @@ export const locationContent: Record<string, LocationContent> = {
       { icon: 'wind', title: 'Long dryer risers', text: 'Beach buildings route long dryer runs. We can clear the accessible run on the same visit.' },
     ],
     signsIntro:
-      'If a Deerfield Beach home or condo shows these, the ductwork is worth checking.',
+      'From a Deerfield Beach condo near the pier to a home in The Cove or Century Village, these are the signs the ductwork is worth checking.',
     signs: [
       'A musty smell when the AC starts in a humid unit',
       'Dust returns quickly after cleaning',
@@ -713,44 +713,44 @@ export const locationContent: Record<string, LocationContent> = {
     metaDescription:
       'Need Air Duct Cleaning in Margate? Purify Air Duct Cleaning offers deep duct cleaning, dust removal, and cleaner indoor air. Call today!',
     h1Description:
-      'Air Duct Cleaning in Margate from Purify Air Duct Cleaning Fort Lauderdale clears years of settled dust from established-home ductwork for cleaner, healthier indoor air.',
+      'Air Duct Cleaning in Margate from Purify Air Duct Cleaning Fort Lauderdale clears decades of settled dust from the older concrete-block homes off Royal Palm Boulevard and State Road 7 for cleaner, healthier indoor air.',
     healthier: [
-      'Margate is an established Broward city, and neighborhoods like Coral Gate and Oriole have attic systems that have been collecting dust for years between cleanings. Residential air duct cleaning clears that long-settled buildup so each room gets cleaner air.',
-      'Older homes reward a careful approach, so we clean the accessible attic runs and registers while noting anything that needs repair. A <a href="/dryer-vent-cleaning/">dryer vent cleaning</a> is a sensible add-on where the run has gone unserved.',
+      'Margate was largely built out in the 1960s and 70s, so homes in Coral Gate, Oriole and Winfield are typically single-story concrete-block houses with the original sheet-metal trunk lines still running through the attic. Decades of fine dust settle in those older ducts, and because the air conditioner runs most of the year here it keeps getting recirculated. Residential air duct cleaning removes it at the source instead of just wiping the register you can see.',
+      'Aging systems reward a careful hand. We clean the accessible supply and return runs under negative air, pull and wash the registers, and flag any trunk section that is corroded or pulling apart rather than forcing a brush through it. If the dryer line off the laundry room has gone unserved for years, a <a href="/dryer-vent-cleaning/">dryer vent cleaning</a> is a sensible add-on on the same visit.',
     ],
     solutionsIntro:
-      'Established housing, attic heat and summer humidity shape what collects in a Margate HVAC system.',
+      'Older ductwork, a long cooling season and a mix of family homes and 55-plus sections shape what collects in a Margate HVAC system. Our cleaning targets each source.',
     solutions: [
-      { icon: 'duct', title: 'Years of settled dust', text: 'Attic runs in long-held homes hold a lot of fine dust. We clean the accessible runs under negative air.' },
-      { icon: 'home', title: 'Everyday allergens', text: 'Dust and dander collect in the returns first. Source removal keeps them out of the air path.' },
-      { icon: 'droplet', title: 'Coil humidity', text: 'Summer humidity keeps the coil damp, where musty odors start. We clean the wet components when needed.' },
-      { icon: 'search', title: 'Aging-duct checks', text: 'We flag brittle or disconnected runs during cleaning so an old system gets repaired, not forced.' },
+      { icon: 'duct', title: 'Decades of trunk-line dust', text: 'The original 1960s–70s sheet-metal trunks in Coral Gate and Oriole hold years of packed dust. We clean the accessible runs under negative air so it leaves the system, not just the grille you see.' },
+      { icon: 'search', title: 'Aging-duct condition checks', text: 'Older flex and duct board turns brittle. We flag any crushed, torn or disconnected section while cleaning so you can plan a repair instead of re-cleaning a run that is failing.' },
+      { icon: 'droplet', title: 'Damp-coil odors', text: 'A long humid summer keeps the evaporator coil wet, where musty smells begin. When the odor is the equipment and not the ducts, we tell you before anything else is done.' },
+      { icon: 'home', title: '55-plus household air', text: 'In the Oriole and Paradise Gardens sections, long-time owners often have systems that have gone a decade between cleanings. Source removal clears what has built up in the returns.' },
     ],
     signsIntro:
-      'If your Margate home shows these, the ductwork is worth a look.',
+      'In an older Margate home around Coral Gate, Oriole or Winfield — many still on their original 1970s ductwork — these are the signs it is time for a cleaning.',
     signs: [
-      'Dust reappears quickly after cleaning',
-      'The home still has older attic ductwork',
-      'A musty smell when the AC first runs',
-      'Debris visible inside the supply vents',
-      'Airflow weaker than it used to be',
-      'Allergy symptoms worse indoors',
+      'Dust resettles on furniture within a day of cleaning',
+      'The home still runs its original concrete-block-era sheet-metal ducts',
+      'A musty smell in the first minutes of a cooling cycle',
+      'Gray film or debris around the supply registers',
+      'Airflow feels weaker than it did a few seasons ago',
+      'Allergy or sinus symptoms that ease when you leave the house',
     ],
     allergy: [
-      'In established Margate homes, years of dust can sit in the attic runs and recirculate every time the system cycles. For allergy-prone households, cleaning the ducts at the source clears that load and freshens the indoor air.',
-      'We focus on removal and keep the scope honest. If a run is too damaged to clean, an <a href="/air-duct-inspection/">air duct inspection</a> separates a cleaning from a repair.',
+      'In Margate’s older homes, decades of dust can sit in the trunk lines and recirculate every time the system cycles on. For households managing allergies or asthma, that steady load is what the ducts quietly move from room to room, and a source cleaning makes a real difference in what settles indoors.',
+      'We remove the buildup rather than fogging over it, and we are straight about what cleaning can and cannot fix. If a run is too far gone to clean safely, an <a href="/air-duct-inspection/">air duct inspection</a> separates a cleaning job from a repair before anything is sold.',
     ],
     pois: [
-      { name: 'Coral Gate & Oriole', text: 'Established neighborhoods with older attic systems due for a thorough cleaning.' },
-      { name: 'Winfield', text: 'Single-family homes where long-time owners often have ducts never cleaned.' },
-      { name: 'Margate Boulevard corridor', text: 'Homes along the busy road take in road dust that reaches the returns.' },
+      { name: 'Coral Gate & Oriole', text: 'Established 1960s–70s single-family neighborhoods where original attic trunks are due for a thorough cleaning.' },
+      { name: 'Margate Sports Complex & Firefighters Park', text: 'Family neighborhoods near the parks off Royal Palm Boulevard pull in grass and tree pollen that reaches the returns.' },
+      { name: 'State Road 7 / US-441 corridor', text: 'Homes and small multi-family buildings along the busy route take in road grit that loads the duct system.' },
     ],
     faqs: [
-      { q: 'My Margate home is older. Can you still clean the ducts?', a: 'Usually yes. We clean the accessible runs carefully and tell you if any section is too brittle or damaged to clean rather than risking the run.' },
-      { q: 'How do I know if my ducts have ever been cleaned?', a: 'If you never knew the date and the home is older, it is worth a look. We inspect the accessible runs and describe what we find before you decide.' },
-      { q: 'Will cleaning improve weak airflow?', a: 'If buildup is restricting the runs, cleaning helps. If a run is crushed or disconnected, we will show you and recommend a repair instead.' },
-      { q: 'Can you clean a neglected dryer vent too?', a: 'Yes. A dryer vent that has gone years without service is a common add-on. We clear the accessible run and check airflow.' },
-      { q: 'What nearby areas do you serve?', a: 'We also clean ducts in Coconut Creek, North Lauderdale and Coral Springs. Call 954-945-9428 to confirm a time.' },
+      { q: 'My Margate home still has its original 1970s ductwork. Can you clean it?', a: 'Usually yes. We clean the accessible sheet-metal and flex runs carefully and tell you if a section is too brittle or corroded to clean rather than risking a run that needs replacing. An honest assessment comes first.' },
+      { q: 'Do you work in the 55-plus sections like Oriole and Paradise Gardens?', a: 'Yes. We clean single-family homes and villas in Margate’s 55-plus sections and coordinate with any association access rules before the crew arrives.' },
+      { q: 'How do I know if my ducts have ever been cleaned?', a: 'If you bought an older Margate home and never knew the date, it is worth a look. We inspect the accessible runs and the air handler and describe what we find before you commit to anything.' },
+      { q: 'Will cleaning fix the weak airflow in my back bedroom?', a: 'If buildup is choking the run, cleaning helps. If a trunk in the attic is crushed or disconnected — common in homes this age — we show you and recommend the repair that room actually needs.' },
+      { q: 'Which areas near Margate do you also cover?', a: 'We also clean ducts in Coconut Creek, North Lauderdale and Coral Springs. Call 954-945-9428 to confirm a time for your neighborhood.' },
     ],
   },
 
@@ -759,44 +759,44 @@ export const locationContent: Record<string, LocationContent> = {
     metaDescription:
       'Need Air Duct Cleaning in Tamarac? Purify Air Duct Cleaning offers deep duct cleaning, dust removal, and cleaner indoor air. Call today!',
     h1Description:
-      'Air Duct Cleaning in Tamarac from Purify Air Duct Cleaning Fort Lauderdale clears dust from villa and single-family HVAC systems for cleaner, healthier indoor air.',
+      'Air Duct Cleaning in Tamarac from Purify Air Duct Cleaning Fort Lauderdale clears dust from the Kings Point and Mainlands 55-plus communities, Woodmont golf homes and the city’s single-family sections.',
     healthier: [
-      'Tamarac pairs the villas of Kings Point and Woodmont with larger single-family homes toward Commercial Boulevard. Residential air duct cleaning clears the dust these compact and longer systems collect so each room gets cleaner air.',
-      'Villa closet units and house-length attic runs call for different setups, and we plan the visit for the one you have. When a damp coil drives a musty smell, we add <a href="/hvac-cleaning/">air conditioning cleaning</a> so the cabinet is addressed.',
+      'Tamarac is defined by its 55-plus communities — the sprawling Kings Point, the original Mainlands sections and the villas of Woodmont — alongside single-family homes toward Commercial Boulevard and University Drive. Many of those systems are compact closet handlers that have quietly run for a decade or more, and residential air duct cleaning clears the dust they have collected so the air in each unit is cleaner.',
+      'Villa closet units and longer single-family attic runs call for different setups, and we plan the visit around the one you have, cleaning the accessible ducts and resetting the registers. When a damp coil is driving a musty smell rather than the ducts, we pair the work with <a href="/hvac-cleaning/">air conditioning cleaning</a> so the cabinet is addressed too.',
     ],
     solutionsIntro:
-      'A large 55-plus community, single-family homes and summer humidity shape what collects in a Tamarac system.',
+      'Large 55-plus communities, Woodmont golf-course homes and a long cooling season shape what collects in a Tamarac HVAC system.',
     solutions: [
-      { icon: 'duct', title: 'Villa and house dust', text: 'Closet units and longer attic runs both load with dust. We clean the accessible ducts under negative air.' },
-      { icon: 'home', title: 'Long-time owner buildup', text: 'In Kings Point and Woodmont, systems often go years between cleanings. Source removal clears that load.' },
-      { icon: 'droplet', title: 'Coil humidity', text: 'Summer humidity keeps the coil damp, where musty odors start. We clean the wet components when needed.' },
-      { icon: 'sparkle', title: 'Registers and grilles', text: 'Supply registers and return grilles are removed, cleaned and reinstalled along with the runs.' },
+      { icon: 'home', title: 'Long-held 55-plus systems', text: 'In Kings Point and the Mainlands, closet handlers often go a decade between cleanings. Source removal clears the dust that has settled deep in the short runs.' },
+      { icon: 'duct', title: 'Villa and single-family dust', text: 'Woodmont villas and the single-family sections toward Commercial Boulevard both load with dust. We clean the accessible runs under negative air, not just the grilles.' },
+      { icon: 'droplet', title: 'Coil humidity', text: 'A long humid summer keeps the evaporator coil damp, where musty odors start. When the equipment is the source rather than the ducts, we tell you plainly.' },
+      { icon: 'sparkle', title: 'Registers and grilles', text: 'Supply registers and return grilles are removed, washed and reinstalled along with the duct runs so the whole air path is addressed.' },
     ],
     signsIntro:
-      'These are the signs a Tamarac home or villa is due for duct cleaning.',
+      'In a Tamarac villa in Kings Point, Woodmont or the Mainlands, or a single-family home toward Commercial Boulevard, these are the signs the ducts are due.',
     signs: [
-      'Dust returns soon after you clean',
-      'A musty smell when the AC starts',
-      'Weak airflow from a bedroom register',
-      'Debris at the return grille',
-      'A villa that has not been cleaned in years',
-      'Allergy symptoms that ease away from home',
+      'Dust resettles soon after you clean',
+      'A musty odor when the air conditioner first starts up',
+      'Weak airflow from a bedroom supply register',
+      'Debris visible at the return grille',
+      'A closet system that has gone a decade without cleaning',
+      'Allergy symptoms that ease away from the unit',
     ],
     allergy: [
-      'For allergy-prone residents of Tamarac, the ducts move dust and dander through the home, so cleaning them at the source lowers what the household breathes. It matters most through the humid months when windows stay shut.',
-      'We remove the buildup rather than masking it. An optional <a href="/air-duct-sanitizing/">air duct sanitizing</a> step can follow when an odor remains after the ducts are clean.',
+      'For allergy-prone residents of Tamarac — many of them in the Kings Point and Mainlands 55-plus communities — the ducts quietly move dust and dander through the home every time the system cycles. Through the humid months when windows stay shut, cleaning the runs at the source lowers what the household breathes and keeps a long-held system from recirculating years of buildup.',
+      'We remove the buildup rather than masking it and are straight about what cleaning can and cannot do. If an odor lingers after the ducts are clean, optional <a href="/air-duct-sanitizing/">air duct sanitizing</a> treats the cleared surfaces as a follow-up step.',
     ],
     pois: [
-      { name: 'Kings Point', text: 'A large 55-plus villa community where closet systems often go years between cleanings.' },
-      { name: 'Woodmont', text: 'Golf-community villas and homes with compact handlers that benefit from regular cleaning.' },
-      { name: 'Commercial Boulevard corridor', text: 'Larger homes with longer supply runs that collect dust over the cooling season.' },
+      { name: 'Kings Point', text: 'One of Broward’s largest 55-plus communities, where closet systems often go years between cleanings.' },
+      { name: 'Woodmont', text: 'Golf-course villas and homes near Woodmont Country Club with compact handlers that benefit from regular cleaning.' },
+      { name: 'The Mainlands & Commercial Boulevard', text: 'Original 55-plus sections and single-family homes along the corridor with runs that collect dust over the cooling season.' },
     ],
     faqs: [
-      { q: 'Do you clean ducts in Tamarac Kings Point?', a: 'Yes. Kings Point and similar 55-plus communities run closet air handlers and short runs. We coordinate with the community access rules before arriving.' },
-      { q: 'My Woodmont villa is compact. Is cleaning worth it?', a: 'Yes. Even short runs load with dust over time. We clean the ducts and registers and the cabinet when the coil needs it.' },
-      { q: 'Why does my home smell musty when the AC turns on?', a: 'In Tamarac the smell usually starts on a damp coil or drain pan rather than the ducts. We open the air handler and recommend air conditioning cleaning when the equipment is the source.' },
-      { q: 'How often should ducts be cleaned here?', a: 'Most Tamarac homes, including the Kings Point villas, do well every three to five years, with pets, a remodel, or dust at the vents a reason to book sooner.' },
-      { q: 'What nearby areas do you serve?', a: 'We also clean ducts in Sunrise, Lauderhill and North Lauderdale. Call 954-945-9428 to confirm a time.' },
+      { q: 'Do you clean ducts in Tamarac Kings Point?', a: 'Yes. Kings Point and the other 55-plus communities run closet air handlers with short runs, and we clean them regularly. We coordinate with the community and building access rules before the crew arrives.' },
+      { q: 'My Woodmont villa is small. Is a cleaning worth it?', a: 'Yes. Even a compact closet system loads with dust over a decade of daily cooling. We clean the ducts and registers and the coil cabinet when it needs it, so the villa is not recirculating old buildup.' },
+      { q: 'Why does my home smell musty when the AC turns on?', a: 'In Tamarac the odor usually starts on a damp coil or drain pan rather than the ducts. We open the air handler, tell you which it is, and recommend air conditioning cleaning only when the equipment is the source.' },
+      { q: 'The system has not been touched since we bought the place years ago. Where do you start?', a: 'With a look. We inspect the accessible runs and the air handler, clean what is only dusty, and point out anything that needs repair — so a long-neglected Kings Point or Mainlands system gets an honest plan, not an upsell.' },
+      { q: 'Which neighboring communities do you serve from Tamarac?', a: 'We also clean ducts in Sunrise, Lauderhill and North Lauderdale. Call 954-945-9428 to confirm a time.' },
     ],
   },
 
@@ -805,51 +805,51 @@ export const locationContent: Record<string, LocationContent> = {
     metaDescription:
       'Need Air Duct Cleaning in North Lauderdale? Purify Air Duct Cleaning offers deep duct cleaning, dust removal, and cleaner indoor air. Call today!',
     h1Description:
-      'Air Duct Cleaning in North Lauderdale from Purify Air Duct Cleaning Fort Lauderdale clears attic-duct dust and allergens from single-family homes for cleaner indoor air.',
+      'Air Duct Cleaning in North Lauderdale from Purify Air Duct Cleaning Fort Lauderdale clears hot-attic duct dust from the single-family homes and townhomes around Kimberly, Southgate and Hampton Pines for cleaner indoor air.',
     healthier: [
-      'North Lauderdale is mostly single-family housing, and neighborhoods like Kimberly, Southgate and Hampton Pines run attic ductwork that stays hot through the cooling season. Residential air duct cleaning clears the dust those runs collect so each room gets cleaner air.',
-      'We plan the visit around your home, cleaning the accessible supply and return runs and the registers. Where the dryer run has gone years without service, a <a href="/dryer-vent-cleaning/">dryer vent cleaning</a> is an easy add-on.',
+      'North Lauderdale is a compact, family-oriented Broward city of 1970s and 80s single-family homes and townhome communities, and most run flex duct through an attic that bakes through the long cooling season. Kimberly, Southgate and Hampton Pines all rely on those attic runs, and the dust that settles in them is what the system recirculates. Residential air duct cleaning removes it at the source rather than at the register face.',
+      'We size the visit to the home — a townhome’s short closet-handler runs are a different job than a single-family attic system. We clean each accessible supply and return, wash and reset the registers, and, because many North Lauderdale homes route the dryer line through that same hot attic or the garage, a <a href="/dryer-vent-cleaning/">dryer vent cleaning</a> is an easy add-on.',
     ],
     solutionsIntro:
-      'Attic heat, family-home dust and summer humidity shape what collects in a North Lauderdale HVAC system.',
+      'Hot-attic flex duct, townhome closet units and a near year-round cooling season shape what collects in a North Lauderdale system.',
     solutions: [
-      { icon: 'duct', title: 'Hot-attic flex dust', text: 'Flex runs collect dust over their full length. We clean the accessible runs under negative air, not just the grilles.' },
-      { icon: 'home', title: 'Household and pet load', text: 'Family homes fill the returns quickly. Source removal keeps dander and dust from recirculating.' },
-      { icon: 'droplet', title: 'Coil humidity', text: 'Summer humidity keeps the coil damp, where musty odors start. We clean the wet components when needed.' },
-      { icon: 'wind', title: 'Dryer-run lint', text: 'Lint builds in dryer runs through the attic or garage. We can clear that run on the same visit.' },
+      { icon: 'duct', title: 'Hot-attic flex dust', text: 'Long flex runs in Kimberly and Southgate attics collect dust along their full length. We clean the accessible runs under negative air, not only the grilles.' },
+      { icon: 'wind', title: 'Garage- and attic-chase lint', text: 'Many homes route the dryer line through the attic or garage, where lint builds. We can clear that run on the same visit and check the airflow at the hood.' },
+      { icon: 'home', title: 'Townhome closet units', text: 'Southgate and Pine Lakes townhomes run compact closet air handlers with short runs. We clean the ducts and registers inside the unit, coordinating HOA access where needed.' },
+      { icon: 'droplet', title: 'Summer coil humidity', text: 'Afternoon humidity keeps the coil damp, where musty odors begin. When the equipment is the source rather than the ducts, we say so plainly.' },
     ],
     signsIntro:
-      'If your North Lauderdale home shows these, the ductwork is worth checking.',
+      'In a North Lauderdale home or townhome around Kimberly, Southgate or Hampton Pines, these are the signs the attic ductwork needs attention.',
     signs: [
-      'Dust reappears quickly after cleaning',
-      'A back room never cools like the rest',
-      'Lint builds up around the dryer hookup',
-      'A musty odor when the AC first runs',
-      'Debris visible inside the vents',
-      'Allergy symptoms worse indoors than outside',
+      'Dust reappears quickly after you clean',
+      'A back bedroom never cools like the front of the house',
+      'Lint collects around the dryer hookup',
+      'A musty odor in the first minutes of a cooling cycle',
+      'Gray debris visible inside the supply vents',
+      'Allergy symptoms that are worse indoors than outside',
     ],
     allergy: [
-      'For allergy-prone families in North Lauderdale, the attic ducts carry dust and pollen to every room, so cleaning them at the source reduces the load the household recirculates. It matters most through pollen season and the humid summer.',
-      'We take the buildup out rather than covering it. If odors remain after cleaning, optional <a href="/air-duct-sanitizing/">air duct sanitizing</a> treats the duct surfaces as a follow-up step.',
+      'For allergy-prone families in North Lauderdale, the attic ducts are what carry dust and the grass and tree pollen common near Hampton Pines Park to every room. Cleaning the runs at the source lowers that load, and it matters most through pollen season and the long humid summer when windows stay shut.',
+      'We take the buildup out rather than covering it. If an odor lingers after the ducts are clean, optional <a href="/air-duct-sanitizing/">air duct sanitizing</a> treats the cleared duct surfaces as a follow-up step — never as a substitute for cleaning.',
     ],
     pois: [
-      { name: 'Hampton Pines', text: 'Homes near the park take in outdoor dust and pollen that reach the returns.' },
-      { name: 'Kimberly & Southgate', text: 'Single-family neighborhoods with attic flex duct due for cleaning.' },
-      { name: 'McNab Road corridor', text: 'Homes along the busy road take in road dust that reaches the HVAC system.' },
+      { name: 'Hampton Pines Park', text: 'Homes around the park take in extra grass and tree pollen that settles in the HVAC returns.' },
+      { name: 'Kimberly & Southgate', text: '1970s–80s single-family and townhome neighborhoods with attic flex duct due for a thorough cleaning.' },
+      { name: 'McNab Road & Rock Island Road corridors', text: 'Homes along the busy routes take in road grit that loads the duct system over time.' },
     ],
     faqs: [
-      { q: 'Do you clean the full attic run in North Lauderdale homes?', a: 'Yes. In Kimberly and Southgate homes we clean each accessible supply and return run through the attic, so dust that settles deep in the flex duct comes out, not only the grilles you can see.' },
-      { q: 'A back bedroom never cools right. Will cleaning help?', a: 'If that room is only collecting dust, cleaning the runs feeding it usually helps. If a North Lauderdale attic run is crushed or disconnected, we point it out so you can plan a repair instead.' },
-      { q: 'Can you clean the dryer vent on the same visit?', a: 'Often, yes. Many North Lauderdale homes route the dryer run through the attic or garage, and we can clear it while we are there.' },
-      { q: 'How often should ducts be cleaned here?', a: 'North Lauderdale systems run most of the year, so every three to five years suits most homes, with pets, remodeling, or dust at the Hampton Pines-area vents a reason to book sooner.' },
-      { q: 'What nearby areas do you serve?', a: 'We also clean ducts in Tamarac, Margate and Oakland Park. Call 954-945-9428 to confirm a time.' },
+      { q: 'Do you clean the full attic run in North Lauderdale homes, or just the vents?', a: 'The full accessible run. In Kimberly and Southgate homes we clean each supply and return through the attic so the dust that settles deep in the flex duct comes out — not only the registers you can see in each room.' },
+      { q: 'I own a Southgate townhome. Do you work around HOA access rules?', a: 'Yes. Townhome and villa communities usually have closet air handlers and short runs, and we coordinate parking and any association access rules before the crew arrives.' },
+      { q: 'A back bedroom never cools right. Will cleaning help?', a: 'If that room is only collecting dust, cleaning the runs feeding it usually helps. If a North Lauderdale attic run is crushed or disconnected, we point it out so you can plan a repair instead of paying to re-clean it.' },
+      { q: 'Can you clean the dryer vent on the same visit?', a: 'Often, yes. Many North Lauderdale homes route the dryer line through the attic or garage, and we can clear it and check the airflow while we are already on-site for the ducts.' },
+      { q: 'Do you serve the communities around North Lauderdale as well?', a: 'We also clean ducts in Tamarac, Margate and Oakland Park. Call 954-945-9428 to confirm a time.' },
     ],
   },
 
   'air-duct-cleaning-coral-springs': {
     metaTitle: 'Air Duct Cleaning in Coral Springs, FL | Purify',
     metaDescription:
-      'Air Duct Cleaning in Coral Springs, FL from Purify. We remove dust and allergens from home ducts for cleaner indoor air. Call 954-945-9428.',
+      'Air duct cleaning in Coral Springs, FL for larger homes in Heron Bay, Eagle Trace and The Brooks, often with two systems. Long attic-run dust cleared. Call 954-945-9428.',
     h1Description:
       'Air Duct Cleaning in Coral Springs from Purify Air Duct Cleaning Fort Lauderdale clears dust from larger family homes, often with two systems, for cleaner indoor air.',
     healthier: [
@@ -865,7 +865,7 @@ export const locationContent: Record<string, LocationContent> = {
       { icon: 'search', title: 'Weak-room diagnosis', text: 'We separate buildup from a crushed or disconnected run so a warm room gets the right fix.' },
     ],
     signsIntro:
-      'These are the signs a Coral Springs home is ready for duct cleaning.',
+      'In a larger Coral Springs home in Heron Bay, Eagle Trace or The Brooks, often with two systems, these are the signs it is ready for cleaning.',
     signs: [
       'Dust comes back fast after you clean',
       'One zone cools worse than the other',
@@ -895,7 +895,7 @@ export const locationContent: Record<string, LocationContent> = {
   'air-duct-cleaning-weston': {
     metaTitle: 'Air Duct Cleaning in Weston, FL | Purify',
     metaDescription:
-      'Air Duct Cleaning in Weston, FL from Purify. We remove dust and allergens from home ducts for cleaner indoor air. Call 954-945-9428.',
+      'Air duct cleaning in Weston, FL for larger family homes in Weston Hills, Savanna and Bonaventure near the Everglades edge. Multi-system attic dust cleared. Call 954-945-9428.',
     h1Description:
       'Air Duct Cleaning in Weston from Purify Air Duct Cleaning Fort Lauderdale clears dust and debris from larger family homes near the Everglades edge for cleaner indoor air.',
     healthier: [
@@ -911,7 +911,7 @@ export const locationContent: Record<string, LocationContent> = {
       { icon: 'search', title: 'Weak-room diagnosis', text: 'We separate buildup from a crushed or disconnected run so a warm room gets the right fix.' },
     ],
     signsIntro:
-      'If your Weston home shows these, the ductwork is worth a look.',
+      'In a larger Weston home around Weston Hills, Savanna or Bonaventure, often with more than one system, these are the signs the ductwork is worth a look.',
     signs: [
       'Dust returns quickly after you clean',
       'A room or wing that never cools evenly',
@@ -943,51 +943,51 @@ export const locationContent: Record<string, LocationContent> = {
     metaDescription:
       'Need Air Duct Cleaning in North Miami Beach? Purify Air Duct Cleaning offers deep duct cleaning, dust removal, and cleaner indoor air. Call today!',
     h1Description:
-      'Air Duct Cleaning in North Miami Beach from Purify Air Duct Cleaning Fort Lauderdale clears dust from homes and low-rise condos for cleaner, fresher indoor air.',
+      'Air Duct Cleaning in North Miami Beach from Purify Air Duct Cleaning Fort Lauderdale clears dust and waterside-humidity buildup from the homes of Eastern Shores and Fulford-by-the-Sea and the area’s low-rise condos.',
     healthier: [
-      'North Miami Beach mixes single-family homes in Eastern Shores and Fulford-by-the-Sea with low-rise condos, so closet air handlers and attic flex both turn up on the same street. Residential air duct cleaning clears the dust those systems collect so each room gets cleaner air.',
-      'We plan the visit around the system we find, cleaning the accessible runs and registers. When a damp coil drives a musty smell, we add <a href="/hvac-cleaning/">air conditioning cleaning</a> so the cabinet is addressed too.',
+      'North Miami Beach is a true mix — waterfront single-family homes in Eastern Shores, mid-century houses in Fulford-by-the-Sea and Uleta, and low-rise condos near the 163rd Street corridor. That means a closet air handler and an attic flex system can sit on the same block. Residential air duct cleaning clears the dust each kind of system collects so the air reaching every room is cleaner.',
+      'We plan the visit around the system we actually find, cleaning the accessible supply and return runs and resetting the registers. Being a few blocks from the Intracoastal keeps the coil damp, so when a musty smell traces back to wet equipment we pair the duct work with <a href="/hvac-cleaning/">air conditioning cleaning</a>.',
     ],
     solutionsIntro:
-      'A mix of homes and condos, waterways nearby and summer humidity shape what collects in a North Miami Beach system.',
+      'A mix of waterfront homes, mid-century houses and low-rise condos, plus Intracoastal humidity, shapes what collects in a North Miami Beach system.',
     solutions: [
-      { icon: 'duct', title: 'Mixed-system dust', text: 'Closet units and attic flex both load with dust. We clean the accessible supply and return runs under negative air.' },
-      { icon: 'droplet', title: 'Waterside humidity', text: 'Near Eastern Shores the coil stays damp, where musty odors start. We clean those wet components when needed.' },
-      { icon: 'home', title: 'Allergens in the returns', text: 'Dust and dander collect in the returns first. Source removal keeps them from recirculating.' },
-      { icon: 'sparkle', title: 'Registers and grilles', text: 'Supply registers and return grilles are removed, cleaned and reinstalled along with the runs.' },
+      { icon: 'duct', title: 'Mixed-system dust', text: 'Fulford-by-the-Sea attic flex and condo closet units both load with dust. We clean the accessible supply and return runs under negative air for either layout.' },
+      { icon: 'droplet', title: 'Waterside coil humidity', text: 'Near Eastern Shores and the Intracoastal the evaporator coil stays damp, where musty odors and biological film begin. We clean those wet components when they are the source.' },
+      { icon: 'home', title: 'Allergens in the returns', text: 'Dust and pet dander settle in the returns first. Source removal keeps them from recirculating through the house or unit.' },
+      { icon: 'sparkle', title: 'Registers and grilles', text: 'Supply registers and return grilles are removed, washed and reinstalled so the parts you see match the ducts behind them.' },
     ],
     signsIntro:
-      'These are the signs a North Miami Beach home or condo is due for duct cleaning.',
+      'In a North Miami Beach home around Eastern Shores or Fulford-by-the-Sea, or a low-rise condo near 163rd Street, these are the signs the ducts are due.',
     signs: [
-      'Dust settles quickly after you clean',
-      'A musty smell when the AC first runs',
-      'Weak airflow from a bedroom register',
-      'Debris at the return grille',
-      'The home or unit has not been cleaned in years',
-      'Allergy symptoms that ease away from home',
+      'Dust resettles on surfaces quickly after cleaning',
+      'A musty smell when the AC starts on a humid morning',
+      'Soft or uneven airflow from a back-bedroom vent',
+      'Debris or gray film at the return grille',
+      'The waterfront home or unit has not been cleaned in years',
+      'Allergy symptoms that ease once you leave',
     ],
     allergy: [
-      'For allergy-prone households in North Miami Beach, the ducts carry dust and dander through the home, so cleaning them at the source lowers what the family breathes. Waterside humidity makes a clean system matter more through the summer.',
-      'We remove the buildup rather than masking it. An optional <a href="/air-duct-sanitizing/">air duct sanitizing</a> step can follow a cleaning, and we can inspect the <a href="/dryer-vent-cleaning/">dryer vent</a> run on the same visit.',
+      'A few blocks from the water, North Miami Beach homes keep windows closed and run the AC hard, so the same air cycles through the ducts and carries dust and dander from room to room. For allergy-prone households in Eastern Shores or Highland Village, a source cleaning noticeably lowers what the family breathes through the humid months.',
+      'We remove the buildup rather than masking it. An optional <a href="/air-duct-sanitizing/">air duct sanitizing</a> step can follow once the ducts are clear, and we can inspect the <a href="/dryer-vent-cleaning/">dryer vent</a> run — often long in the low-rise buildings — on the same visit.',
     ],
     pois: [
-      { name: 'Eastern Shores', text: 'Waterfront homes near the Intracoastal where humidity loads the coil and returns.' },
-      { name: 'Fulford-by-the-Sea', text: 'Established single-family homes with a mix of closet and attic systems.' },
-      { name: 'Greynolds Park area', text: 'Tree-lined neighborhoods where pollen reaches the HVAC returns.' },
+      { name: 'Eastern Shores', text: 'Waterfront homes along the Intracoastal where humidity keeps the coil and returns damp year-round.' },
+      { name: 'Fulford-by-the-Sea & Uleta', text: 'Established mid-century single-family neighborhoods with a mix of closet and attic systems due for cleaning.' },
+      { name: 'Greynolds Park & the Ancient Spanish Monastery', text: 'Tree-shaded neighborhoods near these landmarks take in oak and sea-grape pollen that reaches the HVAC returns.' },
     ],
     faqs: [
-      { q: 'Do you clean ducts in North Miami Beach condos?', a: 'Yes. Low-rise buildings usually have a closet air handler and short runs. We clean the ducts and the cabinet when the coil needs it, coordinating access with management.' },
-      { q: 'My Eastern Shores home is on the water. Does that affect the ducts?', a: 'Waterside humidity keeps the coil and returns damp, so homes near the Intracoastal often benefit from cleaning a little sooner.' },
-      { q: 'Why does my home smell musty when the AC turns on?', a: 'In this climate the smell usually begins on a damp coil or drain pan. We will check and recommend air conditioning cleaning if the ducts alone are not the source.' },
-      { q: 'How often should ducts be cleaned here?', a: 'Most North Miami Beach homes do well every three to five years, and waterside humidity in Eastern Shores can make a shorter interval worthwhile.' },
-      { q: 'What nearby areas do you serve?', a: 'We also clean ducts in Aventura, North Miami and Miami Gardens. Call 954-945-9428 to confirm a time.' },
+      { q: 'Do you clean ducts in both North Miami Beach houses and low-rise condos?', a: 'Yes. Eastern Shores and Fulford-by-the-Sea houses usually have attic flex, while the buildings near 163rd Street run closet air handlers with short runs. We clean the accessible runs for either and coordinate building access when needed.' },
+      { q: 'My Eastern Shores home is on the water. Does that change how often I should clean?', a: 'It can. Intracoastal humidity keeps the coil and returns damp, so waterfront homes here often benefit from cleaning a little sooner than the usual three-to-five-year window.' },
+      { q: 'There is a musty smell when the AC turns on. Is it the ducts?', a: 'In this waterside climate the odor usually starts on a damp coil or drain pan rather than the ducts. We open the air handler, tell you which it is, and recommend air conditioning cleaning only if the equipment is the source.' },
+      { q: 'Can you clean a long dryer vent in my building?', a: 'Yes. We clear the accessible run, including the longer risers in low-rise buildings, and tell you if a section is blocked or damaged rather than leaving you guessing.' },
+      { q: 'What other areas near North Miami Beach do you cover?', a: 'We also clean ducts in Aventura, North Miami and Miami Gardens. Call 954-945-9428 to confirm a time.' },
     ],
   },
 
   'air-duct-cleaning-north-miami': {
     metaTitle: 'Air Duct Cleaning in North Miami, FL | Purify',
     metaDescription:
-      'Air Duct Cleaning in North Miami, FL from Purify. We remove dust and allergens from home ducts for cleaner indoor air. Call 954-945-9428.',
+      'Air duct cleaning in North Miami, FL for Keystone and Sans Souci houses and Biscayne-corridor condos. Attic-run dust and bayside-coil humidity addressed. Call 954-945-9428.',
     h1Description:
       'Air Duct Cleaning in North Miami from Purify Air Duct Cleaning Fort Lauderdale clears attic-duct dust and allergens from homes and condos for cleaner indoor air.',
     healthier: [
@@ -1003,7 +1003,7 @@ export const locationContent: Record<string, LocationContent> = {
       { icon: 'wind', title: 'Long dryer runs', text: 'Condos near Biscayne route long dryer runs. We can clear the accessible run on the same visit.' },
     ],
     signsIntro:
-      'If a North Miami home or condo shows these, the ductwork is worth checking.',
+      'In a North Miami house in Keystone or Sans Souci, or a Biscayne-corridor condo, these are the signs the ductwork is worth checking.',
     signs: [
       'Dust returns quickly after you clean',
       'A musty smell when the AC starts',
@@ -1033,7 +1033,7 @@ export const locationContent: Record<string, LocationContent> = {
   'air-duct-cleaning-miami-gardens': {
     metaTitle: 'Air Duct Cleaning in Miami Gardens, FL | Purify',
     metaDescription:
-      'Air Duct Cleaning in Miami Gardens, FL from Purify. We remove dust and allergens from home ducts for cleaner indoor air. Call 954-945-9428.',
+      'Air duct cleaning in Miami Gardens, FL for single-family homes in Carol City, Andover and Norwood. Hot-attic flex-duct dust removed at the source. Call 954-945-9428.',
     h1Description:
       'Air Duct Cleaning in Miami Gardens from Purify Air Duct Cleaning Fort Lauderdale clears attic-duct dust and allergens from single-family homes for cleaner indoor air.',
     healthier: [
@@ -1049,7 +1049,7 @@ export const locationContent: Record<string, LocationContent> = {
       { icon: 'wind', title: 'Weak-airflow checks', text: 'We look for a crushed or disconnected run while cleaning so a warm room gets the right fix.' },
     ],
     signsIntro:
-      'These are the signs a Miami Gardens home is ready for duct cleaning.',
+      'In a Miami Gardens home around Carol City, Andover or Norwood, these are the signs the attic ductwork is ready for cleaning.',
     signs: [
       'Dust reappears quickly after you clean',
       'A back room never cools like the rest',
@@ -1079,7 +1079,7 @@ export const locationContent: Record<string, LocationContent> = {
   'air-duct-cleaning-sunny-isles-beach': {
     metaTitle: 'Air Duct Cleaning in Sunny Isles Beach, FL | Purify',
     metaDescription:
-      'Air Duct Cleaning in Sunny Isles Beach, FL from Purify. We remove dust and allergens from home ducts for cleaner indoor air. Call 954-945-9428.',
+      'Air duct cleaning in Sunny Isles Beach, FL for oceanfront towers along Collins Avenue and Winston Towers. Salt-air coil humidity and closet-unit dust addressed. Call 954-945-9428.',
     h1Description:
       'Air Duct Cleaning in Sunny Isles Beach from Purify Air Duct Cleaning Fort Lauderdale clears dust and humidity-driven buildup from oceanfront condo HVAC systems for cleaner indoor air.',
     healthier: [
@@ -1095,7 +1095,7 @@ export const locationContent: Record<string, LocationContent> = {
       { icon: 'home', title: 'Recirculated allergens', text: 'With windows closed, the same air cycles through the ducts. Source removal keeps dust and dander out of it.' },
     ],
     signsIntro:
-      'These are the signs a Sunny Isles Beach unit is due for duct cleaning.',
+      'In a Sunny Isles Beach oceanfront unit along Collins Avenue or in Winston Towers, these are the signs the closet system is due for cleaning.',
     signs: [
       'A musty smell when the AC starts in a closed-up unit',
       'Dust settles quickly on surfaces after cleaning',
@@ -1125,7 +1125,7 @@ export const locationContent: Record<string, LocationContent> = {
   'air-duct-cleaning-miami-lakes': {
     metaTitle: 'Air Duct Cleaning in Miami Lakes, FL | Purify',
     metaDescription:
-      'Air Duct Cleaning in Miami Lakes, FL from Purify. We remove dust and allergens from home ducts for cleaner indoor air. Call 954-945-9428.',
+      'Air duct cleaning in Miami Lakes, FL for single-family homes in Loch Lomond and Royal Oaks. Hot-attic flex-duct dust cleared at the source. Call 954-945-9428.',
     h1Description:
       'Air Duct Cleaning in Miami Lakes from Purify Air Duct Cleaning Fort Lauderdale clears attic-duct dust from single-family homes in Loch Lomond and Royal Oaks for cleaner, healthier indoor air.',
     healthier: [
@@ -1141,7 +1141,7 @@ export const locationContent: Record<string, LocationContent> = {
       { icon: 'sparkle', title: 'Registers and grilles', text: 'Supply registers and return grilles are removed, cleaned and reinstalled along with the runs.' },
     ],
     signsIntro:
-      'If your Miami Lakes home shows these, the ductwork is worth a look.',
+      'In a Miami Lakes home around Loch Lomond or Royal Oaks, these are the signs the attic ductwork is worth a look.',
     signs: [
       'Dust reappears quickly after you clean',
       'A room on the far end stays warm',
@@ -1171,7 +1171,7 @@ export const locationContent: Record<string, LocationContent> = {
   'air-duct-cleaning-hialeah': {
     metaTitle: 'Air Duct Cleaning in Hialeah, FL | Purify',
     metaDescription:
-      'Air Duct Cleaning in Hialeah, FL from Purify. We remove dust and allergens from home ducts for cleaner indoor air. Call 954-945-9428.',
+      'Air duct cleaning in Hialeah, FL for houses and small multi-family buildings in Palm Springs and Southeast Hialeah. Road grit and duct dust removed. Call 954-945-9428.',
     h1Description:
       'Air Duct Cleaning in Hialeah from Purify Air Duct Cleaning Fort Lauderdale clears dust from houses and small multi-family HVAC systems for cleaner, fresher indoor air.',
     healthier: [
@@ -1187,7 +1187,7 @@ export const locationContent: Record<string, LocationContent> = {
       { icon: 'home', title: 'Household allergens', text: 'Dust and dander collect in the returns first. Cleaning them keeps the air path clearer.' },
     ],
     signsIntro:
-      'These are the signs a Hialeah home is ready for duct cleaning.',
+      'In a Hialeah house in Palm Springs or a small multi-family building off Okeechobee Road, these are the signs the ducts are ready for cleaning.',
     signs: [
       'Dust settles quickly after you clean',
       'A musty smell when the AC first runs',
@@ -1217,7 +1217,7 @@ export const locationContent: Record<string, LocationContent> = {
   'air-duct-cleaning-boca-raton': {
     metaTitle: 'Air Duct Cleaning in Boca Raton, FL | Purify',
     metaDescription:
-      'Air Duct Cleaning in Boca Raton, FL from Purify. We remove dust and allergens from home ducts for cleaner indoor air. Call 954-945-9428.',
+      'Air duct cleaning in Boca Raton, FL for East Boca condos near Mizner Park and homes around Town Center and Camino Gardens. Coil humidity and duct dust addressed. Call 954-945-9428.',
     h1Description:
       'Air Duct Cleaning in Boca Raton from Purify Air Duct Cleaning Fort Lauderdale clears dust from condos and homes near Mizner Park and Town Center for cleaner indoor air.',
     healthier: [
@@ -1233,7 +1233,7 @@ export const locationContent: Record<string, LocationContent> = {
       { icon: 'search', title: 'Weak-room diagnosis', text: 'We separate buildup from a crushed or disconnected run so a warm room gets the right fix.' },
     ],
     signsIntro:
-      'If a Boca Raton home or condo shows these, the ductwork is worth checking.',
+      'In a Boca Raton condo near Mizner Park or a larger home around Camino Gardens or Town Center, these are the signs the ductwork is worth checking.',
     signs: [
       'Dust returns quickly after you clean',
       'A musty smell when the AC first runs',
@@ -1263,7 +1263,7 @@ export const locationContent: Record<string, LocationContent> = {
   'air-duct-cleaning-delray-beach': {
     metaTitle: 'Air Duct Cleaning in Delray Beach, FL | Purify',
     metaDescription:
-      'Air Duct Cleaning in Delray Beach, FL from Purify. We remove dust and allergens from home ducts for cleaner indoor air. Call 954-945-9428.',
+      'Air duct cleaning in Delray Beach, FL for downtown condos near Atlantic Avenue and homes around Lake Ida and Tropic Isle. Coastal humidity and duct dust addressed. Call 954-945-9428.',
     h1Description:
       'Air Duct Cleaning in Delray Beach from Purify Air Duct Cleaning Fort Lauderdale clears dust from downtown condos and Lake Ida homes for cleaner, fresher indoor air.',
     healthier: [
@@ -1279,7 +1279,7 @@ export const locationContent: Record<string, LocationContent> = {
       { icon: 'home', title: 'Household allergens', text: 'Dust and dander collect in the returns first. Source removal keeps them out of the air path.' },
     ],
     signsIntro:
-      'These are the signs a Delray Beach home or condo is due for duct cleaning.',
+      'From a Delray Beach condo near Atlantic Avenue to a home around Lake Ida or Tropic Isle, these are the signs the ducts are due for cleaning.',
     signs: [
       'A musty smell when the AC starts in a humid unit',
       'Dust returns quickly after cleaning',
@@ -1309,7 +1309,7 @@ export const locationContent: Record<string, LocationContent> = {
   'air-duct-cleaning-boynton-beach': {
     metaTitle: 'Air Duct Cleaning in Boynton Beach, FL | Purify',
     metaDescription:
-      'Air Duct Cleaning in Boynton Beach, FL from Purify. We remove dust and allergens from home ducts for cleaner indoor air. Call 954-945-9428.',
+      'Air duct cleaning in Boynton Beach, FL for oceanfront condos and inland homes near Quantum Park and Boynton Beach Boulevard. Salt grit and attic dust cleared. Call 954-945-9428.',
     h1Description:
       'Air Duct Cleaning in Boynton Beach from Purify Air Duct Cleaning Fort Lauderdale clears dust from homes and oceanfront condos for cleaner, healthier indoor air.',
     healthier: [
@@ -1325,7 +1325,7 @@ export const locationContent: Record<string, LocationContent> = {
       { icon: 'sparkle', title: 'Registers and grilles', text: 'Supply registers and return grilles are removed, cleaned and reinstalled along with the runs.' },
     ],
     signsIntro:
-      'If a Boynton Beach home or condo shows these, the ductwork is worth checking.',
+      'From an oceanfront Boynton Beach condo to an inland home near Quantum Park, these are the signs the ductwork is worth checking.',
     signs: [
       'A musty smell on humid coastal mornings',
       'Dust settles again soon after cleaning',
@@ -1355,7 +1355,7 @@ export const locationContent: Record<string, LocationContent> = {
   'air-duct-cleaning-wellington': {
     metaTitle: 'Air Duct Cleaning in Wellington, FL | Purify',
     metaDescription:
-      'Air Duct Cleaning in Wellington, FL from Purify. We remove dust and allergens from home ducts for cleaner indoor air. Call 954-945-9428.',
+      'Air duct cleaning in Wellington, FL for larger homes in Olympia and Binks Forest and the equestrian areas. Outdoor dust and multi-system attic buildup cleared. Call 954-945-9428.',
     h1Description:
       'Air Duct Cleaning in Wellington from Purify Air Duct Cleaning Fort Lauderdale clears dust from larger family homes in this equestrian community for cleaner indoor air.',
     healthier: [
@@ -1371,7 +1371,7 @@ export const locationContent: Record<string, LocationContent> = {
       { icon: 'search', title: 'Weak-room diagnosis', text: 'We separate buildup from a crushed or disconnected run so a warm room gets the right fix.' },
     ],
     signsIntro:
-      'If your Wellington home shows these, the ductwork is worth a look.',
+      'In a larger Wellington home around Olympia or Binks Forest, or near the equestrian areas, these are the signs the ductwork is worth a look.',
     signs: [
       'Dust returns quickly after you clean',
       'More outdoor dust indoors near open land',
